@@ -299,8 +299,10 @@ export default function Portfolio() {
   const navItems = [
     { name: 'About', id: 'about' },
     { name: 'Skills', id: 'skills' },
+     { name: 'Certificate', id: 'certificate' },
     { name: 'Projects', id: 'projects' },
-    { name: 'Contact', id: 'contact' }
+    { name: 'Contact', id: 'contact' },
+    
   ];
 
   return (
@@ -471,14 +473,14 @@ export default function Portfolio() {
                 },
                 { 
                   Icon: Linkedin, 
-                  url: 'https://linkedin.com/in/yourusername', 
+                  url: 'https://www.linkedin.com/in/anisha-chhajer-844114367/', 
                   label: 'LinkedIn',
                   gradient: 'from-blue-700 to-blue-800',
                   textColor: 'text-blue-300'
                 },
                 { 
                   Icon: Twitter, 
-                  url: 'https://twitter.com/yourusername', 
+                  url: 'https://x.com/anisha_chhajer', 
                   label: 'Twitter',
                   gradient: 'from-sky-600 to-cyan-600',
                   textColor: 'text-sky-300'
@@ -1349,21 +1351,21 @@ export default function Portfolio() {
                   },
                   { 
                     Icon: Linkedin, 
-                    url: 'https://linkedin.com/in/yourusername', 
+                    url: 'https://www.linkedin.com/in/anisha-chhajer-844114367/', 
                     label: 'LinkedIn',
                     gradient: 'from-blue-700 to-blue-800',
                     color: 'text-blue-400'
                   },
                   { 
                     Icon: Twitter, 
-                    url: 'https://twitter.com/yourusername', 
+                    url: 'https://x.com/anisha_chhajer', 
                     label: 'Twitter',
                     gradient: 'from-sky-600 to-cyan-600',
                     color: 'text-cyan-400'
                   },
                   { 
                     Icon: Youtube, 
-                    url: 'https://youtube.com/yourchannel', 
+                    url: 'https://www.youtube.com/@AnishaChhajerJain', 
                     label: 'YouTube',
                     gradient: 'from-red-600 to-red-700',
                     color: 'text-red-400'
