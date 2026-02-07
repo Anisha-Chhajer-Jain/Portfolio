@@ -1,9 +1,11 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Mail, Download, Code, Lightbulb, TrendingUp, Github, Linkedin, Twitter, ExternalLink, Youtube, Award, Menu, X } from 'lucide-react';
 import './App.css'
 
 export default function Portfolio() {
+  const canvasRef = useRef(null);
+  const particlesRef = useRef([]);
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
@@ -14,20 +16,114 @@ export default function Portfolio() {
   useEffect(() => {
     setIsVisible(true);
     
+    // Canvas setup
+    const canvas = canvasRef.current;
+    if (canvas) {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    
+    const colors = [
+      { r: 99, g: 102, b: 241 },     // indigo
+      { r: 168, g: 85, b: 247 },     // purple
+      { r: 236, g: 72, b: 153 },     // pink
+      { r: 6, g: 182, b: 212 },      // cyan
+      { r: 59, g: 130, b: 246 },     // blue
+      { r: 129, g: 140, b: 248 },    // indigo-light
+    ];
+    
+    let lastX = window.innerWidth / 2;
+    let lastY = window.innerHeight / 2;
+    
     const handleMouseMove = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
+      
+      // Create smooth particle trail
+      const dx = e.clientX - lastX;
+      const dy = e.clientY - lastY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      const steps = Math.max(2, Math.ceil(distance / 2));
+      
+      for (let step = 0; step < steps; step++) {
+        const progress = steps > 1 ? step / (steps - 1) : 0;
+        const x = lastX + dx * progress;
+        const y = lastY + dy * progress;
+        
+        for (let i = 0; i < 3; i++) {
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          const angle = Math.random() * Math.PI * 2;
+          const speed = Math.random() * 2 + 0.5;
+          
+          particlesRef.current.push({
+            x, y,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed - 0.5,
+            life: 1,
+            color,
+            size: Math.random() * 2 + 1
+          });
+        }
+      }
+      
+      lastX = e.clientX;
+      lastY = e.clientY;
     };
     
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
+    
+    const handleWindowResize = () => {
+      if (canvas) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+    };
+    
+    const animate = () => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particlesRef.current = particlesRef.current.filter(p => p.life > 0);
+      
+      particlesRef.current.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vx *= 0.96;
+        p.vy *= 0.96;
+        p.vy += 0.02;
+        p.life -= 0.008;
+        
+        const alpha = p.life * p.life;
+        
+        ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${alpha * 0.7})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Soft glow
+        ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${alpha * 0.3})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      
+      requestAnimationFrame(animate);
+    };
+    
+    animate();
 
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleWindowResize);
     
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleWindowResize);
     };
   }, []);
 
@@ -307,14 +403,10 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 text-white overflow-hidden relative">
-      {/* Subtle cursor glow - Hidden on mobile */}
-      <div 
-        className="fixed w-96 h-96 rounded-full pointer-events-none z-50 opacity-20 blur-3xl transition-all duration-300 hidden md:block"
-        style={{
-          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%)',
-          left: mousePosition.x - 192,
-          top: mousePosition.y - 192,
-        }}
+      {/* Canvas for cursor tracking animation */}
+      <canvas
+        ref={canvasRef}
+        className="fixed top-0 left-0 w-screen h-screen pointer-events-none z-0"
       />
 
       {/* Navigation */}
@@ -346,28 +438,28 @@ export default function Portfolio() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden relative z-50 w-10 h-10 flex items-center justify-center rounded-lg border border-slate-700 hover:border-indigo-400 transition-all duration-300"
+              className="md:hidden relative z-50 w-12 h-12 flex items-center justify-center rounded-xl border-2 border-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 transition-all duration-300 shadow-lg shadow-indigo-500/50 hover:shadow-indigo-400/70 hover:scale-110"
             >
               {mobileMenuOpen ? (
-                <X size={20} className="text-indigo-400" />
+                <X size={24} className="text-white font-bold" />
               ) : (
-                <Menu size={20} className="text-slate-300" />
+                <Menu size={24} className="text-white font-bold" />
               )}
             </button>
           </div>
 
           {/* Mobile Menu */}
           <div
-            className={`md:hidden absolute top-full left-0 w-full bg-slate-950/95 backdrop-blur-xl border-b border-white/5 transition-all duration-300 overflow-hidden ${
-              mobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+            className={`md:hidden fixed top-16 left-0 w-screen h-screen bg-slate-950/98 backdrop-blur-xl border-b border-white/10 transition-all duration-300 overflow-hidden z-40 ${
+              mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
             }`}
           >
-            <div className="px-6 py-4 space-y-4">
+            <div className="px-6 py-8 space-y-6 flex flex-col justify-center h-full">
               {navItems.map((item, index) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.id)}
-                  className="block w-full text-left py-2 text-slate-300 hover:text-indigo-400 transition-colors duration-300 border-b border-slate-800 hover:border-indigo-500/30"
+                  className="block w-full text-left py-4 text-lg font-semibold text-white hover:text-indigo-300 transition-colors duration-300 border-b border-slate-700 hover:border-indigo-500/50 pl-4"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {item.name}
@@ -462,7 +554,7 @@ export default function Portfolio() {
             </div>
 
             {/* Social Links - Updated styling */}
-            <div className="flex gap-6 pt-8 justify-center sm:justify-start">
+            <div className="flex gap-6 pt-8 justify-center sm:justify-start flex-wrap">
               {[
                 { 
                   Icon: Github, 
@@ -484,6 +576,20 @@ export default function Portfolio() {
                   label: 'Twitter',
                   gradient: 'from-sky-600 to-cyan-600',
                   textColor: 'text-sky-300'
+                },
+                { 
+                  Icon: Youtube, 
+                  url: 'https://www.youtube.com/@AnishaChhajerJain', 
+                  label: 'YouTube',
+                  gradient: 'from-red-700 to-red-900',
+                  textColor: 'text-red-300'
+                },
+                { 
+                  Icon: Code, 
+                  url: 'https://leetcode.com/u/anisha_chhajer/', 
+                  label: 'LeetCode',
+                  gradient: 'from-orange-700 to-yellow-900',
+                  textColor: 'text-orange-300'
                
                 }
               ].map(({ Icon, url, label, gradient, textColor }, index) => (
@@ -559,19 +665,25 @@ export default function Portfolio() {
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
             <div className="relative bg-slate-900/40 backdrop-blur-sm rounded-3xl p-6 sm:p-12 border border-slate-800/50 hover:border-indigo-500/30 transition-all duration-500">
-              <p className="text-slate-300 font-light leading-relaxed text-base sm:text-lg mb-6">
+              <p className="text-slate-200 font-normal leading-relaxed text-lg sm:text-l mb-6">
                 I'm <span className="text-indigo-400">Anisha Chhajer</span>, a developer skilled in HTML, CSS, Git & Github, C/C++, 
                 JavaScript, Figma, React, Node.js, and Java. I focus on building experiences that feel intuitive and polished, 
-                crafting responsive interfaces that adapt seamlessly across devices, while paying close attention to layout, interaction, and performance.
+                crafting responsive interfaces across devices & paying close attention to layout, interaction, & performance.
               </p>
 
-              <p className="text-slate-300 font-light leading-relaxed text-base sm:text-lg">
-                I care deeply about clean code, clarity, and structure — turning ideas into fast, meaningful digital 
-                experiences. On the backend, I like writing reliable and 
-                efficient logic that supports scalable and maintainable applications. I care deeply about clean code,
-                clarity, and structure — turning ideas into fast, meaningful digital experiences where thoughtful engineering 
-                meets simple, elegant design.
-              </p>
+              
+              <p className="text-slate-200 font-normal leading-relaxed text-lg sm:text-l">
+   I place a strong emphasis on clean, well-structured, and maintainable code, ensuring clarity, consistency, and long-term scalability
+                 across applications. I focus on translating ideas into high-performance, thoughtful
+                  system design and efficient implementation.
+</p>
+              <br/>
+             <p className="text-slate-200 font-normal leading-relaxed text-lg sm:text-l">
+  On the backend, I enjoy designing and implementing robust business logic, optimizing data flow, and building scalable 
+  architectures that are easy to maintain and extend. I prioritize best practices, performance optimization, 
+  and code readability,with simple, elegant design.
+</p>
+
             </div>
           </div>
         </div>
@@ -800,7 +912,7 @@ export default function Portfolio() {
                         className="group/btn flex-1 flex items-center justify-center gap-1.5 px-2 sm:px-3 py-2 bg-slate-800/50 hover:bg-slate-800 rounded-lg border border-slate-700/50 hover:border-slate-600 transition-all duration-300 hover:scale-105 min-w-[80px]"
                       >
                         <Github size={14} className="sm:w-4 sm:h-4 group-hover/btn:rotate-12 transition-transform duration-300" />
-                        <span className="text-xs font-light">GitHub</span>
+                        <span className="text-xs font-bold text-white">GitHub</span>
                       </a>
                       <a 
                         href={project.youtube}
@@ -809,7 +921,7 @@ export default function Portfolio() {
                         className="group/btn flex-1 flex items-center justify-center gap-1.5 px-2 sm:px-3 py-2 bg-red-600/20 hover:bg-red-600/30 rounded-lg border border-red-500/50 hover:border-red-400 transition-all duration-300 hover:scale-105 min-w-[80px]"
                       >
                         <Youtube size={14} className="sm:w-4 sm:h-4 group-hover/btn:scale-110 transition-transform duration-300" />
-                        <span className="text-xs font-light">YouTube</span>
+                        <span className="text-xs font-bold text-white">YouTube</span>
                       </a>
                       <a 
                         href={project.demo}
@@ -818,7 +930,7 @@ export default function Portfolio() {
                         className="group/btn flex-1 flex items-center justify-center gap-1.5 px-2 sm:px-3 py-2 bg-indigo-600/20 hover:bg-indigo-600/30 rounded-lg border border-indigo-500/50 hover:border-indigo-400 transition-all duration-300 hover:scale-105 min-w-[80px]"
                       >
                         <ExternalLink size={14} className="sm:w-4 sm:h-4 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-300" />
-                        <span className="text-xs font-light">Live Demo</span>
+                        <span className="text-xs font-bold text-white">Live Demo</span>
                       </a>
                     </div>
                   </div>
@@ -931,7 +1043,7 @@ export default function Portfolio() {
       </div>
 
       {/* Certificates Section */}
-      <div className="py-12 sm:py-22 px-4 sm:px-6 relative overflow-hidden">
+      <div className="py-12 sm:py-22 px-4 sm:px-6 relative overflow-hidden" id="certificates">
         {/* Background effects */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse-slow" />
@@ -1206,11 +1318,11 @@ export default function Portfolio() {
             </div>
 
             {/* Right Side - Contact Info */}
-            <div className="space-y-6">
+            <div>
               {/* Let's Connect Card */}
               <div className="group relative animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
                 <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600/30 to-cyan-600/30 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500" />
-                <div className="relative bg-slate-900/60 backdrop-blur-sm rounded-3xl border border-indigo-500/30 p-6 sm:p-8">
+                <div className="relative bg-slate-900/60 backdrop-blur-sm rounded-3xl border border-indigo-500/30 p-6 sm:p-8 h-full flex flex-col">
                   <h3 className="text-xl sm:text-2xl font-light mb-6 text-cyan-400">Let's Connect</h3>
                   
                   {/* Location */}
@@ -1230,7 +1342,7 @@ export default function Portfolio() {
                   </div>
 
                   {/* Social Links */}
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 gap-3 mt-auto">
                     <a 
                       href="https://github.com/Anisha-Chhajer-Jain"
                       target="_blank"
@@ -1266,32 +1378,6 @@ export default function Portfolio() {
                       <span className="font-light text-sm sm:text-base">Email</span>
                     </a>
                   </div>
-                </div>
-              </div>
-
-              {/* Available For Card */}
-              <div className="group relative animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-                <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/30 to-pink-600/30 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500" />
-                <div className="relative bg-slate-900/60 backdrop-blur-sm rounded-3xl border border-indigo-500/30 p-6 sm:p-8">
-                  <h3 className="text-xl sm:text-2xl font-light mb-6 text-cyan-400">Available for:-</h3>
-                  
-                  <ul className="space-y-3">
-                    {[
-                      'Full-stack web development',
-                      'React & Node.js projects',
-                      'UI/UX design consultation',
-                      'Code reviews & mentoring'
-                    ].map((item, index) => (
-                      <li
-                        key={index}
-                        className="flex items-start gap-3 text-slate-300 hover:text-cyan-400 transition-all duration-300 group/item"
-                        style={{ animationDelay: `${index * 0.1}s` }}
-                      >
-                        <span className="text-cyan-400 mt-1 group-hover/item:scale-125 transition-transform duration-300">•</span>
-                        <span className="font-light text-sm sm:text-base">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </div>
             </div>
@@ -1363,13 +1449,7 @@ export default function Portfolio() {
                     gradient: 'from-sky-600 to-cyan-600',
                     color: 'text-cyan-400'
                   },
-                  { 
-                    Icon: Youtube, 
-                    url: 'https://www.youtube.com/@AnishaChhajerJain', 
-                    label: 'YouTube',
-                    gradient: 'from-red-600 to-red-700',
-                    color: 'text-red-400'
-                  }
+                 
                 ].map(({ Icon, url, label, gradient, color }, index) => (
                   <a
                     key={label}
@@ -1595,19 +1675,6 @@ export default function Portfolio() {
         .delay-75 { animation-delay: 75ms; }
         .delay-100 { animation-delay: 100ms; }
         .delay-200 { animation-delay: 200ms; }
-
-        .animate-particle:nth-child(1) {
-          --tx: 40px;
-          --ty: -60px;
-        }
-        .animate-particle:nth-child(2) {
-          --tx: -50px;
-          --ty: -40px;
-        }
-        .animate-particle:nth-child(3) {
-          --tx: 30px;
-          --ty: 50px;
-        }
       `}</style>
     </div>
   );
