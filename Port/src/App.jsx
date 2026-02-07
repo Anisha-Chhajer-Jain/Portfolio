@@ -52,7 +52,7 @@ export default function Portfolio() {
       title: 'JavaScript Certification', 
       org: 'SoloLearn', 
       date: '2024',
-      color: 'from-green-600 to-emerald-700', 
+      // color: 'from-green-600 to-emerald-700', 
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284476/Screenshot_2026-02-05_150828_i1a5nq.png',
       url: 'https://www.sololearn.com/certificates/CC-DNUBDBWI' 
     },
@@ -61,7 +61,7 @@ export default function Portfolio() {
       title: 'AI Video Generation Certificate', 
       org: 'SimpliLearn', 
       date: '2024',
-      color: 'from-blue-400 to-cyan-500', 
+      // color: 'from-blue-400 to-cyan-500', 
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284476/Screenshot_2026-02-05_150839_lhucwu.png',
       url: 'https://simpli-web.app.link/e/zsOcWIu3r0b' 
     },
@@ -70,7 +70,7 @@ export default function Portfolio() {
       title: 'Generative AI Studio Certificate', 
       org: 'SimpliLearn', 
       date: '2024',
-      color: 'from-cyan-400 to-blue-600',
+      // color: 'from-cyan-400 to-blue-600',
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284477/Screenshot_2026-02-05_150847_r9gsje.png', 
       url: 'https://simpli-web.app.link/e/Wcdo1JE3r0b' 
     },
@@ -79,7 +79,7 @@ export default function Portfolio() {
       title: 'Front-End Development', 
       org: 'SimpliLearn', 
       date: '2024',
-      color: 'from-orange-400 to-amber-500', 
+      // color: 'from-orange-400 to-amber-500', 
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284478/Screenshot_2026-02-05_150939_r0y4lz.png',
       url: 'https://simpli-web.app.link/e/ow99cSF3r0b' 
     },
@@ -88,7 +88,7 @@ export default function Portfolio() {
       title: 'React (Basic) Certificate', 
       org: 'HackerRank', 
       date: '2024',
-      color: 'from-gray-400 to-slate-600', 
+      // color: 'from-gray-400 to-slate-600', 
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284476/Screenshot_2026-02-05_150954_edi1wr.png',
       url: 'https://www.hackerrank.com/certificates/c94ecf2db01f' 
     },
@@ -97,7 +97,7 @@ export default function Portfolio() {
       title: 'Full Stack Development', 
       org: 'Unstop', 
       date: '2024',
-      color: 'from-orange-400 to-yellow-500', 
+      // color: 'from-orange-400 to-yellow-500', 
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284478/Screenshot_2026-02-05_151017_kmw5jz.png',
       url: 'https://unstop.com/certificate-preview/63fa2e44-702a-45fd-9df6-7b08fe4ffec7' 
     },
@@ -106,7 +106,7 @@ export default function Portfolio() {
       title: 'Advanced Programming', 
       org: 'Unstop', 
       date: '2024',
-      color: 'from-purple-400 to-pink-500', 
+      // color: 'from-purple-400 to-pink-500', 
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284477/Screenshot_2026-02-05_151005_mt4rwr.png',
       url: 'https://unstop.com/certificate-preview/73e65660-a050-4f67-9561-4f3c1d1d1ff7' 
     },
@@ -115,7 +115,7 @@ export default function Portfolio() {
       title: 'AI Tools & ChatGPT Workshop', 
       org: 'Be10X', 
       date: '2024',
-      color: 'from-red-400 to-rose-500', 
+      // color: 'from-red-400 to-rose-500', 
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284478/Screenshot_2026-02-05_151026_erhshj.png',
       url: 'https://certx.in/certificate/0270772f-3809-4400-b29b-1e1c61cd09971007801' 
     },
@@ -124,7 +124,7 @@ export default function Portfolio() {
       title: 'Git & Github Advance Certificate', 
       org: 'WsCube Tech', 
       date: '2025',
-      color: 'from-teal-400 to-cyan-600', 
+      // color: 'from-teal-400 to-cyan-600', 
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284478/Screenshot_2026-02-05_151035_ir1rms.png',
       url: 'https://www.wscubetech.com/verify-certificate/VG50MWS2026M3996616796' 
     },
@@ -133,7 +133,7 @@ export default function Portfolio() {
       title: 'Generative AI Maastermind Certificate', 
       org: 'Outskill', 
       date: '2025',
-      color: 'from-indigo-400 to-purple-600', 
+      // color: 'from-indigo-400 to-purple-600', 
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284478/Screenshot_2026-02-05_151048_o5tfhz.png',
       url: 'https://s3.ap-south-1.amazonaws.com/assets.growthschool.io/certificates/50cbb760-7921-428e-b441-7eea7464819c_cert.pdf' 
     },
@@ -240,8 +240,8 @@ export default function Portfolio() {
       tags: ['React', 'API', 'Tailwind', 'Weather'],
       gradient: 'from-blue-400 to-cyan-500',
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770398569/Screenshot_2026-02-06_225116_isrr1w.png',
-      github: 'https://github.com/yourusername/weather-app',
-      youtube: 'https://youtube.com/your-demo',
+      github: 'https://github.com/Anisha-Chhajer-Jain/api-fetch-games/tree/main/weather-api',
+      youtube: 'https://www.youtube.com/@AnishaChhajerJain',
       demo: 'https://weather-app-demo.netlify.app'
     },
     {
@@ -250,8 +250,8 @@ export default function Portfolio() {
       tags: ['JavaScript', 'HTML', 'CSS', 'Game'],
       gradient: 'from-purple-400 to-pink-500',
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770398569/Screenshot_2026-02-06_224714_snxpsz.png',
-      github: 'https://github.com/yourusername/tic-tac-toe',
-      youtube: 'https://youtube.com/your-demo',
+      github: 'https://github.com/Anisha-Chhajer-Jain/api-fetch-games/tree/main/tic-tac-toe',
+      youtube: 'https://www.youtube.com/@AnishaChhajerJain',
       demo: 'https://tic-tac-toe-demo.netlify.app'
     },
     {
@@ -260,8 +260,8 @@ export default function Portfolio() {
       tags: ['JavaScript', 'Game', 'UI/UX', 'Interactive'],
       gradient: 'from-red-400 to-orange-500',
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770398569/Screenshot_2026-02-06_225224_of6ika.png',
-      github: 'https://github.com/yourusername/colour-guess',
-      youtube: 'https://youtube.com/your-demo',
+      github: 'https://github.com/Anisha-Chhajer-Jain/api-fetch-games/tree/main/color-guess',
+      youtube: 'https://www.youtube.com/@AnishaChhajerJain',
       demo: 'https://colour-guess-demo.netlify.app'
     },
     {
@@ -270,8 +270,8 @@ export default function Portfolio() {
       tags: ['React', 'Animation', 'UI', 'Counter'],
       gradient: 'from-green-400 to-emerald-500',
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770398569/Screenshot_2026-02-06_224902_bijrn1.png',
-      github: 'https://github.com/yourusername/count-number',
-      youtube: 'https://youtube.com/your-demo',
+      github: 'https://github.com/Anisha-Chhajer-Jain/api-fetch-games/tree/main/counter-haha',
+      youtube: 'https://www.youtube.com/@AnishaChhajerJain',
       demo: 'https://count-number-demo.netlify.app'
     },
     {
@@ -280,8 +280,8 @@ export default function Portfolio() {
       tags: ['React', 'API', 'Dashboard', 'News'],
       gradient: 'from-cyan-400 to-blue-500',
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770398570/Screenshot_2026-02-06_224921_bkc44o.png',
-      github: 'https://github.com/yourusername/news-dashboard',
-      youtube: 'https://youtube.com/your-demo',
+      github: 'https://github.com/Anisha-Chhajer-Jain/api-fetch-games/tree/main/news-fetch',
+      youtube: 'https://www.youtube.com/@AnishaChhajerJain',
       demo: 'https://news-dashboard-demo.netlify.app'
     },
   ];
