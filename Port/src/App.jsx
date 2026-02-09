@@ -15,14 +15,14 @@ export default function Portfolio() {
 
   useEffect(() => {
     setIsVisible(true);
-    
+
     // Canvas setup
     const canvas = canvasRef.current;
     if (canvas) {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
-    
+
     const colors = [
       { r: 99, g: 102, b: 241 },     // indigo
       { r: 168, g: 85, b: 247 },     // purple
@@ -31,29 +31,29 @@ export default function Portfolio() {
       { r: 59, g: 130, b: 246 },     // blue
       { r: 129, g: 140, b: 248 },    // indigo-light
     ];
-    
+
     let lastX = window.innerWidth / 2;
     let lastY = window.innerHeight / 2;
-    
+
     const handleMouseMove = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
-      
+
       // Create smooth particle trail
       const dx = e.clientX - lastX;
       const dy = e.clientY - lastY;
       const distance = Math.sqrt(dx * dx + dy * dy);
       const steps = Math.max(2, Math.ceil(distance / 2));
-      
+
       for (let step = 0; step < steps; step++) {
         const progress = steps > 1 ? step / (steps - 1) : 0;
         const x = lastX + dx * progress;
         const y = lastY + dy * progress;
-        
+
         for (let i = 0; i < 3; i++) {
           const color = colors[Math.floor(Math.random() * colors.length)];
           const angle = Math.random() * Math.PI * 2;
           const speed = Math.random() * 2 + 0.5;
-          
+
           particlesRef.current.push({
             x, y,
             vx: Math.cos(angle) * speed,
@@ -64,31 +64,31 @@ export default function Portfolio() {
           });
         }
       }
-      
+
       lastX = e.clientX;
       lastY = e.clientY;
     };
-    
+
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
-    
+
     const handleWindowResize = () => {
       if (canvas) {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
       }
     };
-    
+
     const animate = () => {
       const canvas = canvasRef.current;
       if (!canvas) return;
-      
+
       const ctx = canvas.getContext('2d');
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       particlesRef.current = particlesRef.current.filter(p => p.life > 0);
-      
+
       particlesRef.current.forEach(p => {
         p.x += p.vx;
         p.y += p.vy;
@@ -96,30 +96,30 @@ export default function Portfolio() {
         p.vy *= 0.96;
         p.vy += 0.02;
         p.life -= 0.008;
-        
+
         const alpha = p.life * p.life;
-        
+
         ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${alpha * 0.7})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
-        
+
         // Soft glow
         ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${alpha * 0.3})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
         ctx.fill();
       });
-      
+
       requestAnimationFrame(animate);
     };
-    
+
     animate();
 
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleWindowResize);
-    
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
@@ -143,98 +143,98 @@ export default function Portfolio() {
   };
 
   const certificates = [
-    { 
-      id: 1, 
-      title: 'JavaScript Certification', 
-      org: 'SoloLearn', 
+    {
+      id: 1,
+      title: 'JavaScript Certification',
+      org: 'SoloLearn',
       date: '2024',
       // color: 'from-green-600 to-emerald-700', 
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284476/Screenshot_2026-02-05_150828_i1a5nq.png',
-      url: 'https://www.sololearn.com/certificates/CC-DNUBDBWI' 
+      url: 'https://www.sololearn.com/certificates/CC-DNUBDBWI'
     },
-    { 
-      id: 2, 
-      title: 'AI Video Generation Certificate', 
-      org: 'SimpliLearn', 
+    {
+      id: 2,
+      title: 'AI Video Generation Certificate',
+      org: 'SimpliLearn',
       date: '2024',
       // color: 'from-blue-400 to-cyan-500', 
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284476/Screenshot_2026-02-05_150839_lhucwu.png',
-      url: 'https://simpli-web.app.link/e/zsOcWIu3r0b' 
+      url: 'https://simpli-web.app.link/e/zsOcWIu3r0b'
     },
-    { 
-      id: 3, 
-      title: 'Generative AI Studio Certificate', 
-      org: 'SimpliLearn', 
+    {
+      id: 3,
+      title: 'Generative AI Studio Certificate',
+      org: 'SimpliLearn',
       date: '2024',
       // color: 'from-cyan-400 to-blue-600',
-      image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284477/Screenshot_2026-02-05_150847_r9gsje.png', 
-      url: 'https://simpli-web.app.link/e/Wcdo1JE3r0b' 
+      image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284477/Screenshot_2026-02-05_150847_r9gsje.png',
+      url: 'https://simpli-web.app.link/e/Wcdo1JE3r0b'
     },
-    { 
-      id: 4, 
-      title: 'Front-End Development', 
-      org: 'SimpliLearn', 
+    {
+      id: 4,
+      title: 'Front-End Development',
+      org: 'SimpliLearn',
       date: '2024',
       // color: 'from-orange-400 to-amber-500', 
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284478/Screenshot_2026-02-05_150939_r0y4lz.png',
-      url: 'https://simpli-web.app.link/e/ow99cSF3r0b' 
+      url: 'https://simpli-web.app.link/e/ow99cSF3r0b'
     },
-    { 
-      id: 5, 
-      title: 'React (Basic) Certificate', 
-      org: 'HackerRank', 
+    {
+      id: 5,
+      title: 'React (Basic) Certificate',
+      org: 'HackerRank',
       date: '2024',
       // color: 'from-gray-400 to-slate-600', 
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284476/Screenshot_2026-02-05_150954_edi1wr.png',
-      url: 'https://www.hackerrank.com/certificates/c94ecf2db01f' 
+      url: 'https://www.hackerrank.com/certificates/c94ecf2db01f'
     },
-    { 
-      id: 6, 
-      title: 'Full Stack Development', 
-      org: 'Unstop', 
+    {
+      id: 6,
+      title: 'Full Stack Development',
+      org: 'Unstop',
       date: '2024',
       // color: 'from-orange-400 to-yellow-500', 
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284478/Screenshot_2026-02-05_151017_kmw5jz.png',
-      url: 'https://unstop.com/certificate-preview/63fa2e44-702a-45fd-9df6-7b08fe4ffec7' 
+      url: 'https://unstop.com/certificate-preview/63fa2e44-702a-45fd-9df6-7b08fe4ffec7'
     },
-    { 
-      id: 7, 
-      title: 'Advanced Programming', 
-      org: 'Unstop', 
+    {
+      id: 7,
+      title: 'Advanced Programming',
+      org: 'Unstop',
       date: '2024',
       // color: 'from-purple-400 to-pink-500', 
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284477/Screenshot_2026-02-05_151005_mt4rwr.png',
-      url: 'https://unstop.com/certificate-preview/73e65660-a050-4f67-9561-4f3c1d1d1ff7' 
+      url: 'https://unstop.com/certificate-preview/73e65660-a050-4f67-9561-4f3c1d1d1ff7'
     },
-    { 
-      id: 8, 
-      title: 'AI Tools & ChatGPT Workshop', 
-      org: 'Be10X', 
+    {
+      id: 8,
+      title: 'AI Tools & ChatGPT Workshop',
+      org: 'Be10X',
       date: '2024',
       // color: 'from-red-400 to-rose-500', 
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284478/Screenshot_2026-02-05_151026_erhshj.png',
-      url: 'https://certx.in/certificate/0270772f-3809-4400-b29b-1e1c61cd09971007801' 
+      url: 'https://certx.in/certificate/0270772f-3809-4400-b29b-1e1c61cd09971007801'
     },
-    { 
-      id: 9, 
-      title: 'Git & Github Advance Certificate', 
-      org: 'WsCube Tech', 
+    {
+      id: 9,
+      title: 'Git & Github Advance Certificate',
+      org: 'WsCube Tech',
       date: '2025',
       // color: 'from-teal-400 to-cyan-600', 
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284478/Screenshot_2026-02-05_151035_ir1rms.png',
-      url: 'https://www.wscubetech.com/verify-certificate/VG50MWS2026M3996616796' 
+      url: 'https://www.wscubetech.com/verify-certificate/VG50MWS2026M3996616796'
     },
-    { 
-      id: 10, 
-      title: 'Generative AI Maastermind Certificate', 
-      org: 'Outskill', 
+    {
+      id: 10,
+      title: 'Generative AI Maastermind Certificate',
+      org: 'Outskill',
       date: '2025',
       // color: 'from-indigo-400 to-purple-600', 
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284478/Screenshot_2026-02-05_151048_o5tfhz.png',
-      url: 'https://s3.ap-south-1.amazonaws.com/assets.growthschool.io/certificates/50cbb760-7921-428e-b441-7eea7464819c_cert.pdf' 
+      url: 'https://s3.ap-south-1.amazonaws.com/assets.growthschool.io/certificates/50cbb760-7921-428e-b441-7eea7464819c_cert.pdf'
     },
   ];
-  
+
   const education = [
     {
       title: 'BTech CSE',
@@ -382,7 +382,7 @@ export default function Portfolio() {
     },
   ];
 
-  const skills = ['HTML', 'CSS', 'Git & Github', 'C/C++', 'JavaScript', 'Figma', 'React', 'Node.js', 'Java' ];
+  const skills = ['HTML', 'CSS', 'Git & Github', 'C/C++', 'JavaScript', 'Figma', 'React', 'Node.js', 'Java'];
 
   const loadMoreCertificates = () => {
     setVisibleCertificates(prev => Math.min(prev + 6, certificates.length));
@@ -395,10 +395,10 @@ export default function Portfolio() {
   const navItems = [
     { name: 'About', id: 'about' },
     { name: 'Skills', id: 'skills' },
-     { name: 'Certificate', id: 'certificate' },
+    { name: 'Certificate', id: 'certificate' },
     { name: 'Projects', id: 'projects' },
     { name: 'Contact', id: 'contact' },
-    
+
   ];
 
   return (
@@ -417,7 +417,7 @@ export default function Portfolio() {
               <span className="inline-block hover:scale-110 transition-transform duration-300">A</span>
               <span className="inline-block hover:scale-110 transition-transform duration-300 delay-75">C</span>
             </div>
-            
+
             {/* Desktop Menu */}
             <div className="hidden md:flex gap-8 text-sm font-light">
               {navItems.map((item, index) => (
@@ -450,9 +450,8 @@ export default function Portfolio() {
 
           {/* Mobile Menu */}
           <div
-            className={`md:hidden fixed top-16 left-0 w-screen h-screen bg-slate-950/98 backdrop-blur-xl border-b border-white/10 transition-all duration-300 overflow-hidden z-40 ${
-              mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-            }`}
+            className={`md:hidden fixed top-16 left-0 w-screen h-screen bg-slate-950/98 backdrop-blur-xl border-b border-white/10 transition-all duration-300 overflow-hidden z-40 ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+              }`}
           >
             <div className="px-6 py-8 space-y-6 flex flex-col justify-center h-full">
               {navItems.map((item, index) => (
@@ -474,7 +473,7 @@ export default function Portfolio() {
       <div className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6 relative" id="hero">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 sm:gap-16 items-center">
           {/* Left Content */}
-          <div 
+          <div
             className={`space-y-6 sm:space-y-8 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
             style={{ transform: `translateY(${scrollY * 0.1}px)` }}
           >
@@ -487,38 +486,38 @@ export default function Portfolio() {
               </h1>
               <h2 className="text-[28px] xs:text-[32px] sm:text-[42px] md:text-[52px] lg:text-[64px] xl:text-[72px] font-black tracking-tight">
                 <span className="inline-block animate-slide-up bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent bg-300% animate-shimmer">
-            Anisha Chhajer
+                  Anisha Chhajer
                 </span>
               </h2>
             </div>
-            
+
             <p className="text-slate-300 font-light leading-relaxed text-base sm:text-lg max-w-lg animate-fade-in-delay">
-              Crafting elegant, responsive web experiences with precision and care. 
+              Crafting elegant, responsive web experiences with precision and care.
               Building interfaces that feel natural and perform beautifully.
             </p>
 
-             {/* Action Buttons - Updated with icon styling */}
+            {/* Action Buttons - Updated with icon styling */}
             <div className="flex flex-col sm:flex-row gap-6 animate-fade-in-delay-2">
-              <button 
+              <button
                 onClick={() => scrollToSection('contact')}
                 className="group relative flex items-center gap-3 px-6 sm:px-8 py-4 overflow-hidden rounded-full border border-indigo-400/50 hover:border-indigo-400 transition-all duration-500 hover:scale-105"
               >
                 {/* Glow effect */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-500" />
-                
+
                 {/* Icon container */}
                 <div className="relative w-10 h-10 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <Mail size={20} className="text-white" />
                 </div>
-                
+
                 {/* Text */}
                 <span className="relative flex items-center gap-2 font-medium text-lg">
                   Get in Touch
                   <span className="opacity-70 group-hover:translate-x-1 transition-transform duration-300">→</span>
                 </span>
               </button>
-              
-              <button 
+
+              <button
                 onClick={() => scrollToSection('projects')}
                 className="group relative flex items-center gap-3 px-6 sm:px-8 py-4 rounded-full border border-slate-600 hover:border-slate-400 transition-all duration-300 hover:scale-105"
               >
@@ -526,14 +525,14 @@ export default function Portfolio() {
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-slate-700 to-slate-800 border border-slate-600 group-hover:border-slate-500 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
                   <ExternalLink size={20} className="text-slate-300 group-hover:text-white" />
                 </div>
-                
+
                 {/* Text */}
                 <span className="flex items-center gap-2 font-medium text-lg">
                   View My Work
                   <span className="opacity-70 group-hover:translate-x-1 transition-transform duration-300">→</span>
                 </span>
               </button>
-              
+
               <button className="group relative flex items-center gap-3 px-6 py-4 w-full sm:w-auto justify-center sm:justify-start">
                 {/* Icon container with animated border */}
                 <div className="relative">
@@ -542,7 +541,7 @@ export default function Portfolio() {
                     <Download size={20} className="text-white" />
                   </div>
                 </div>
-                
+
                 {/* Text with gradient underline */}
                 <div className="relative">
                   <span className="text-lg font-semibold bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent group-hover:from-amber-300 group-hover:to-orange-300 transition-all duration-300">
@@ -556,41 +555,41 @@ export default function Portfolio() {
             {/* Social Links - Updated styling */}
             <div className="flex gap-6 pt-8 justify-center sm:justify-start flex-wrap">
               {[
-                { 
-                  Icon: Github, 
-                  url: 'https://github.com/Anisha-Chhajer-Jain', 
+                {
+                  Icon: Github,
+                  url: 'https://github.com/Anisha-Chhajer-Jain',
                   label: 'GitHub',
                   gradient: 'from-slate-800 to-gray-900',
                   textColor: 'text-slate-300'
                 },
-                { 
-                  Icon: Linkedin, 
-                  url: 'https://www.linkedin.com/in/anisha-chhajer-844114367/', 
+                {
+                  Icon: Linkedin,
+                  url: 'https://www.linkedin.com/in/anisha-chhajer-844114367/',
                   label: 'LinkedIn',
                   gradient: 'from-blue-700 to-blue-800',
                   textColor: 'text-blue-300'
                 },
-                { 
-                  Icon: Twitter, 
-                  url: 'https://x.com/anisha_chhajer', 
+                {
+                  Icon: Twitter,
+                  url: 'https://x.com/anisha_chhajer',
                   label: 'Twitter',
                   gradient: 'from-sky-600 to-cyan-600',
                   textColor: 'text-sky-300'
                 },
-                { 
-                  Icon: Youtube, 
-                  url: 'https://www.youtube.com/@AnishaChhajerJain', 
+                {
+                  Icon: Youtube,
+                  url: 'https://www.youtube.com/@AnishaChhajerJain',
                   label: 'YouTube',
                   gradient: 'from-red-700 to-red-900',
                   textColor: 'text-red-300'
                 },
-                { 
-                  Icon: Code, 
-                  url: 'https://leetcode.com/u/anisha_chhajer/', 
+                {
+                  Icon: Code,
+                  url: 'https://leetcode.com/u/anisha_chhajer/',
                   label: 'LeetCode',
                   gradient: 'from-orange-700 to-yellow-900',
                   textColor: 'text-orange-300'
-               
+
                 }
               ].map(({ Icon, url, label, gradient, textColor }, index) => (
                 <a
@@ -605,7 +604,7 @@ export default function Portfolio() {
                   <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${gradient} border border-slate-700 group-hover:border-white/30 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1 shadow-lg group-hover:shadow-xl`}>
                     <Icon size={20} className={`${textColor} group-hover:text-white transition-colors`} />
                   </div>
-                  
+
                   {/* Label on hover */}
                   <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-slate-900/90 backdrop-blur-sm rounded border border-slate-700 opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300 pointer-events-none whitespace-nowrap">
                     <span className="text-xs font-medium text-slate-300">{label}</span>
@@ -616,17 +615,17 @@ export default function Portfolio() {
           </div>
 
           {/* Right Content - Profile Image */}
-          <div 
+          <div
             className={`transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
             style={{ transform: `translateY(${-scrollY * 0.05}px)` }}
           >
             <div className="relative group w-full max-w-md mx-auto">
               {/* Outer glow */}
               <div className="absolute -inset-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-full opacity-20 group-hover:opacity-40 blur-3xl transition-opacity duration-500 animate-pulse-slow" />
-              
+
               {/* Image container */}
               <div className="relative w-80 h-80 sm:w-90 sm:h-90 md:w-100 md:h-100 mx-auto rounded-full overflow-hidden border-4 border-indigo-500/30 group-hover:border-indigo-400 transition-all duration-500 group-hover:scale-105 shadow-2xl">
-                <img 
+                <img
                   src="https://res.cloudinary.com/dq7hb3fah/image/upload/v1770271187/Screenshot_2026-02-03_162035_auymxx.png" // Replace with your actual image URL
                   alt="Anisha Chhajer"
                   className="w-full h-full object-cover"
@@ -634,14 +633,14 @@ export default function Portfolio() {
                     e.target.src = `https://ui-avatars.com/api/?name=Anisha+Chhajer&background=1e293b&color=818cf8&bold=true&size=512`;
                   }}
                 />
-                
+
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
-                
+
                 {/* Animated ring */}
                 <div className="absolute inset-0 rounded-full border-4 border-transparent group-hover:border-indigo-400/50 group-hover:animate-spin-slow transition-all duration-500" style={{ animationDuration: '10s' }} />
               </div>
-              
+
               {/* Floating dots */}
               <div className="absolute -top-4 -right-4 w-8 h-8 rounded-full bg-indigo-400 animate-bounce-slow shadow-lg" />
               <div className="absolute -bottom-4 -left-4 w-6 h-6 rounded-full bg-purple-400 animate-bounce-slow shadow-lg" style={{ animationDelay: '0.5s' }} />
@@ -652,7 +651,7 @@ export default function Portfolio() {
         </div>
       </div>
 
-    
+
 
 
       {/* About Section */}
@@ -661,35 +660,35 @@ export default function Portfolio() {
           <h2 className="text-3xl sm:text-4xl font-extralight text-center mb-12 sm:mb-16 tracking-wide">
             About <span className="font-light text-indigo-400">Me</span>
           </h2>
-          
+
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
             <div className="relative bg-slate-900/40 backdrop-blur-sm rounded-3xl p-6 sm:p-12 border border-slate-800/50 hover:border-indigo-500/30 transition-all duration-500">
               <p className="text-slate-200 font-normal leading-relaxed text-lg sm:text-l mb-6">
-                I'm <span className="text-indigo-400">Anisha Chhajer</span>, a developer skilled in HTML, CSS, Git & Github, C/C++, 
-                JavaScript, Figma, React, Node.js, and Java. I focus on building experiences that feel intuitive and polished, 
+                I'm <span className="text-indigo-400">Anisha Chhajer</span>, a developer skilled in HTML, CSS, Git & Github, C/C++,
+                JavaScript, Figma, React, Node.js, and Java. I focus on building experiences that feel intuitive and polished,
                 crafting responsive interfaces across devices & paying close attention to layout, interaction, & performance.
               </p>
 
-              
+
               <p className="text-slate-200 font-normal leading-relaxed text-lg sm:text-l">
-   I place a strong emphasis on clean, well-structured, and maintainable code, ensuring clarity, consistency, and long-term scalability
-                 across applications. I focus on translating ideas into high-performance, thoughtful
-                  system design and efficient implementation.
-</p>
-              <br/>
-             <p className="text-slate-200 font-normal leading-relaxed text-lg sm:text-l">
-  On the backend, I enjoy designing and implementing robust business logic, optimizing data flow, and building scalable 
-  architectures that are easy to maintain and extend. I prioritize best practices, performance optimization, 
-  and code readability,with simple, elegant design.
-</p>
+                I place a strong emphasis on clean, well-structured, and maintainable code, ensuring clarity, consistency, and long-term scalability
+                across applications. I focus on translating ideas into high-performance, thoughtful
+                system design and efficient implementation.
+              </p>
+              <br />
+              <p className="text-slate-200 font-normal leading-relaxed text-lg sm:text-l">
+                On the backend, I enjoy designing and implementing robust business logic, optimizing data flow, and building scalable
+                architectures that are easy to maintain and extend. I prioritize best practices, performance optimization,
+                and code readability,with simple, elegant design.
+              </p>
 
             </div>
           </div>
         </div>
       </div>
 
-           {/* Skills Section */}
+      {/* Skills Section */}
       <div className="py-12 px-4 sm:px-6" id="skills">
         <div className="max-w-7xl mx-auto">
           {/* Title */}
@@ -705,8 +704,8 @@ export default function Portfolio() {
           {/* Skills Cards Grid - 3 columns */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
-              { 
-                icon: Code, 
+              {
+                icon: Code,
                 title: 'Frontend Development',
                 description: 'Crafting responsive, intuitive interfaces with modern frameworks.',
                 skills: ['HTML', 'CSS', 'JavaScript', 'React'],
@@ -715,8 +714,8 @@ export default function Portfolio() {
                 hoverIconColor: 'text-indigo-300',
                 iconBg: 'from-indigo-900/30 to-purple-900/20'
               },
-              { 
-                icon: Lightbulb, 
+              {
+                icon: Lightbulb,
                 title: 'Problem Solving',
                 description: 'Tackling complex challenges with elegant solutions.',
                 skills: ['C/C++', 'Java', 'Algorithms'],
@@ -725,8 +724,8 @@ export default function Portfolio() {
                 hoverIconColor: 'text-cyan-300',
                 iconBg: 'from-cyan-900/30 to-blue-900/20'
               },
-              { 
-                icon: TrendingUp, 
+              {
+                icon: TrendingUp,
                 title: 'Always Learning',
                 description: 'Continuously growing with every line of code.',
                 skills: ['Git', 'Figma', 'Node.js'],
@@ -739,14 +738,14 @@ export default function Portfolio() {
               <div
                 key={index}
                 className="group relative animate-fade-in-up"
-                style={{ 
+                style={{
                   animationDelay: `${index * 0.2}s`,
                   animationFillMode: 'both'
                 }}
               >
                 {/* Animated background glow */}
                 <div className={`absolute -inset-1 bg-gradient-to-r ${card.gradient} rounded-3xl opacity-0 group-hover:opacity-20 blur-2xl transition-all duration-700`} />
-                
+
                 {/* Floating animation */}
                 <div className="animate-float" style={{ animationDelay: `${index * 0.3}s` }}>
                   {/* Card */}
@@ -754,7 +753,7 @@ export default function Portfolio() {
                     {/* Decorative corner accents */}
                     <div className="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-slate-600/30 group-hover:border-indigo-400/50 transition-all duration-500" />
                     <div className="absolute top-3 right-3 w-3 h-3 border-t-2 border-r-2 border-slate-600/30 group-hover:border-indigo-400/50 transition-all duration-500" />
-                    
+
                     {/* Icon header with gradient */}
                     <div className="relative overflow-hidden">
                       <div className={`absolute inset-0 bg-gradient-to-br ${card.iconBg} opacity-50 group-hover:opacity-70 transition-opacity duration-500`} />
@@ -764,13 +763,13 @@ export default function Portfolio() {
                           <div className="relative">
                             {/* Pulsing ring effect */}
                             <div className={`absolute -inset-3 border-2 ${card.iconColor.split('-')[1]}-400 rounded-full opacity-0 group-hover:opacity-30 animate-ping-slow`} />
-                            
+
                             {/* Icon with gradient background */}
                             <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${card.gradient} flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg group-hover:shadow-xl`}>
                               <card.icon size={28} className={`${card.iconColor} ${card.hoverIconColor} transition-colors duration-300`} />
                             </div>
                           </div>
-                          
+
                           {/* Title with gradient text */}
                           <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r bg-clip-text text-transparent group-hover:from-white group-hover:to-slate-300 transition-all duration-500">
                             {card.title}
@@ -785,36 +784,36 @@ export default function Portfolio() {
                       <p className="text-slate-300 font-light leading-relaxed text-base sm:text-lg mb-6 group-hover:text-slate-200 transition-colors duration-300">
                         {card.description}
                       </p>
-                      
+
                       {/* Skills badges with staggered animation */}
                       <div className="flex flex-wrap gap-3">
                         {card.skills.map((skill, i) => (
                           <span
                             key={skill}
                             className={`group/badge relative px-4 py-2.5 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-${card.iconColor.split('-')[1]}-400/50 hover:bg-slate-800 transition-all duration-300 animate-fade-in-scale overflow-hidden`}
-                            style={{ 
+                            style={{
                               animationDelay: `${i * 0.1 + 0.5}s`,
                               animationFillMode: 'both'
                             }}
                           >
                             {/* Badge background effect */}
                             <div className={`absolute inset-0 bg-gradient-to-r ${card.gradient} opacity-0 group-hover/badge:opacity-20 transition-opacity duration-300`} />
-                            
+
                             {/* Skill text */}
                             <span className="relative text-sm font-medium text-slate-300 group-hover/badge:text-white transition-colors duration-300">
                               {skill}
                             </span>
-                            
+
                             {/* Hover indicator dot */}
                             <div className={`absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r ${card.gradient} group-hover/badge:w-6 transition-all duration-300 rounded-full`} />
                           </span>
                         ))}
                       </div>
-                      
+
                       {/* Bottom decorative border */}
                       <div className={`absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r ${card.gradient} group-hover:w-full transition-all duration-700 rounded-full`} />
                     </div>
-                    
+
                     {/* Floating particles on hover */}
                     <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                       {[...Array(5)].map((_, i) => (
@@ -860,13 +859,13 @@ export default function Portfolio() {
               >
                 {/* Glow effect */}
                 <div className={`absolute -inset-1 bg-gradient-to-r ${project.gradient} rounded-3xl opacity-0 group-hover:opacity-30 blur-2xl transition-all duration-500`} />
-                
+
                 {/* Card */}
                 <div className="relative bg-slate-900/60 backdrop-blur-sm rounded-3xl border border-slate-800/50 overflow-hidden group-hover:border-slate-700 transition-all duration-500 group-hover:scale-[1.02]">
                   {/* Project Image */}
                   <div className="relative h-48 sm:h-56 overflow-hidden">
-                    <img 
-                      src={project.image} 
+                    <img
+                      src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       onError={(e) => {
@@ -875,7 +874,7 @@ export default function Portfolio() {
                     />
                     {/* Gradient overlay */}
                     <div className={`absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent opacity-70 group-hover:opacity-50 transition-opacity duration-500`} />
-                    
+
                     {/* Project title overlay */}
                     <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-slate-900 to-transparent">
                       <h3 className="text-xl sm:text-2xl font-bold text-white">
@@ -898,14 +897,14 @@ export default function Portfolio() {
                         </span>
                       ))}
                     </div>
-                    
+
                     <p className="text-slate-400 font-light leading-relaxed mb-4 text-sm sm:text-base line-clamp-3">
                       {project.description}
                     </p>
 
                     {/* Action Buttons */}
                     <div className="flex flex-wrap gap-2 sm:gap-3">
-                      <a 
+                      <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -914,7 +913,7 @@ export default function Portfolio() {
                         <Github size={14} className="sm:w-4 sm:h-4 group-hover/btn:rotate-12 transition-transform duration-300" />
                         <span className="text-xs font-bold text-white">GitHub</span>
                       </a>
-                      <a 
+                      <a
                         href={project.youtube}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -923,7 +922,7 @@ export default function Portfolio() {
                         <Youtube size={14} className="sm:w-4 sm:h-4 group-hover/btn:scale-110 transition-transform duration-300" />
                         <span className="text-xs font-bold text-white">YouTube</span>
                       </a>
-                      <a 
+                      <a
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -962,7 +961,7 @@ export default function Portfolio() {
         {/* Animated background grid */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-purple-500/5 animate-pulse-slow" />
-          <div 
+          <div
             className="absolute inset-0 opacity-10"
             style={{
               backgroundImage: `
@@ -995,24 +994,24 @@ export default function Portfolio() {
               >
                 {/* Glow effect on hover */}
                 <div className={`absolute -inset-1 bg-gradient-to-r ${tech.color} rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500`} />
-                
+
                 {/* Card */}
                 <div className={`relative bg-slate-900/60 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-8 border ${tech.borderColor} ${tech.hoverBorder} transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-indigo-500/20`}>
                   {/* Icon with animation */}
                   <div className="mb-3 sm:mb-4 flex items-center justify-center">
-                    <img 
-                      src={tech.icon} 
+                    <img
+                      src={tech.icon}
                       alt={tech.name}
                       className={`w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 group-hover:scale-125 transition-transform duration-500 animate-tech-float object-contain ${tech.isWhite ? 'brightness-0 invert' : ''}`}
                       style={{ animationDelay: `${index * 0.2}s` }}
                     />
                   </div>
-                  
+
                   {/* Tech name */}
                   <h3 className="text-sm sm:text-lg md:text-xl font-light text-center group-hover:text-white transition-colors duration-300">
                     {tech.name}
                   </h3>
-                  
+
                   {/* Animated border bottom */}
                   <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gradient-to-r ${tech.color} group-hover:w-full transition-all duration-500 rounded-full`} />
                 </div>
@@ -1074,25 +1073,25 @@ export default function Portfolio() {
               >
                 {/* Glow effect */}
                 <div className={`absolute -inset-1 bg-gradient-to-r ${cert.color} rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500`} />
-                
+
                 {/* Certificate Card */}
                 <div className="relative bg-slate-900/60 backdrop-blur-sm rounded-2xl border border-slate-800/50 overflow-hidden group-hover:border-slate-700 transition-all duration-500 group-hover:scale-[1.02] group-hover:-translate-y-2">
                   {/* Certificate Image */}
                   <div className="relative h-40 sm:h-48 overflow-hidden">
-                    <img 
-                      src={cert.image} 
+                    <img
+                      src={cert.image}
                       alt={cert.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     {/* Gradient Overlay */}
                     <div className={`absolute inset-0 bg-gradient-to-t ${cert.color} opacity-20 group-hover:opacity-30 transition-opacity duration-500`} />
-                    
+
                     {/* Organization Badge */}
                     <div className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-slate-900/80 backdrop-blur-sm px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-slate-700/50">
                       <span className="text-xs font-light text-slate-200">{cert.date}</span>
                     </div>
                   </div>
-                  
+
                   {/* Content */}
                   <div className="p-4 sm:p-6">
                     <div className="flex items-start gap-2 sm:gap-3 mb-3">
@@ -1108,7 +1107,7 @@ export default function Portfolio() {
                         </p>
                       </div>
                     </div>
-                    
+
                     {/* View Certificate Button with Enhanced Hover Effect */}
                     <a
                       href={cert.url}
@@ -1118,18 +1117,18 @@ export default function Portfolio() {
                     >
                       {/* Animated gradient background on hover */}
                       <span className={`absolute inset-0 bg-gradient-to-r ${cert.color} opacity-0 group-hover/btn:opacity-20 transition-opacity duration-300`} />
-                      
+
                       {/* Shimmer effect on hover */}
                       <span className={`absolute inset-0 bg-gradient-to-r ${cert.color} opacity-0 group-hover/btn:opacity-30 blur-xl transition-all duration-500 group-hover/btn:animate-shimmer`} />
-                      
+
                       {/* Icon and text */}
                       <ExternalLink size={16} className="relative z-10 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-300 group-hover/btn:text-white" />
                       <span className="relative z-10 text-sm font-bold group-hover/btn:text-white transition-colors duration-300">
                         View Certificate
                       </span>
-                      
+
                       {/* Border glow on hover */}
-                      <span className={`absolute inset-0 rounded-xl border-2 border-transparent group-hover/btn:border-opacity-50 transition-all duration-300`} 
+                      <span className={`absolute inset-0 rounded-xl border-2 border-transparent group-hover/btn:border-opacity-50 transition-all duration-300`}
                         style={{
                           borderImage: `linear-gradient(to right, var(--tw-gradient-stops)) 1`,
                         }}
@@ -1170,7 +1169,7 @@ export default function Portfolio() {
         {/* Background effects */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/5 to-transparent" />
-          <div 
+          <div
             className="absolute inset-0 opacity-5"
             style={{
               backgroundImage: `
@@ -1205,7 +1204,7 @@ export default function Portfolio() {
               >
                 {/* Glow effect */}
                 <div className={`absolute -inset-1 bg-gradient-to-r ${edu.color} rounded-3xl opacity-0 group-hover:opacity-20 blur-2xl transition-all duration-500`} />
-                
+
                 {/* Card */}
                 <div className="relative bg-slate-900/60 backdrop-blur-sm rounded-3xl border border-slate-800/50 overflow-hidden group-hover:border-blue-500/30 transition-all duration-500 group-hover:scale-[1.02] h-full">
                   <div className="p-6 sm:p-8">
@@ -1228,7 +1227,7 @@ export default function Portfolio() {
                         </p>
                       </div>
                     </div>
-                    
+
                     {/* Description */}
                     <p className="text-slate-300 font-light leading-relaxed text-sm sm:text-base mb-6">
                       {edu.description}
@@ -1275,7 +1274,7 @@ export default function Portfolio() {
               <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600/30 to-purple-600/30 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500" />
               <div className="relative bg-slate-900/60 backdrop-blur-sm rounded-3xl border border-indigo-500/30 p-6 sm:p-8">
                 <h3 className="text-xl sm:text-2xl font-light mb-6 text-cyan-400">Send a Message</h3>
-                
+
                 <form className="space-y-4">
                   {/* Name and Email Row */}
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -1324,7 +1323,7 @@ export default function Portfolio() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600/30 to-cyan-600/30 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500" />
                 <div className="relative bg-slate-900/60 backdrop-blur-sm rounded-3xl border border-indigo-500/30 p-6 sm:p-8 h-full flex flex-col">
                   <h3 className="text-xl sm:text-2xl font-light mb-6 text-cyan-400">Let's Connect</h3>
-                  
+
                   {/* Location */}
                   <div className="flex items-center gap-3 mb-4 text-slate-300 hover:text-cyan-400 transition-colors duration-300">
                     <div className="w-10 h-10 rounded-lg bg-indigo-900/30 flex items-center justify-center flex-shrink-0">
@@ -1343,7 +1342,7 @@ export default function Portfolio() {
 
                   {/* Social Links */}
                   <div className="grid grid-cols-2 gap-3 mt-auto">
-                    <a 
+                    <a
                       href="https://github.com/Anisha-Chhajer-Jain"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -1352,7 +1351,7 @@ export default function Portfolio() {
                       <Github size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300" />
                       <span className="font-light text-sm sm:text-base">GitHub</span>
                     </a>
-                    <a 
+                    <a
                       href="https://linkedin.com/in/yourusername"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -1361,7 +1360,7 @@ export default function Portfolio() {
                       <Linkedin size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300" />
                       <span className="font-light text-sm sm:text-base">LinkedIn</span>
                     </a>
-                    <a 
+                    <a
                       href="https://twitter.com/yourusername"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -1370,7 +1369,7 @@ export default function Portfolio() {
                       <Twitter size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300" />
                       <span className="font-light text-sm sm:text-base">Twitter</span>
                     </a>
-                    <a 
+                    <a
                       href="mailto:anishachhajer16@gmail.com"
                       className="group/social flex items-center justify-center gap-2 px-3 sm:px-4 py-3 bg-indigo-900/30 hover:bg-indigo-800/40 border border-indigo-500/30 hover:border-cyan-400 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/20"
                     >
@@ -1402,7 +1401,7 @@ export default function Portfolio() {
       </div>
 
 
-            {/* Footer */}
+      {/* Footer */}
       <footer className="py-12 px-4 sm:px-6 relative overflow-hidden">
         {/* Background effect */}
         <div className="absolute inset-0 pointer-events-none">
@@ -1413,7 +1412,7 @@ export default function Portfolio() {
         <div className="max-w-4xl mx-auto relative">
           {/* Main Content - Centered */}
           <div className="text-center">
-            
+
             {/* Social Media Section */}
             <div className="mb-10">
               <div className="mb-6">
@@ -1424,32 +1423,32 @@ export default function Portfolio() {
                   Follow me for updates and insights
                 </p>
               </div>
-              
+
               {/* Social Icons - Centered */}
               <div className="flex justify-center gap-6 mb-10">
                 {[
-                  { 
-                    Icon: Github, 
-                    url: 'https://github.com/Anisha-Chhajer-Jain', 
+                  {
+                    Icon: Github,
+                    url: 'https://github.com/Anisha-Chhajer-Jain',
                     label: 'GitHub',
                     gradient: 'from-slate-800 to-gray-900',
                     color: 'text-slate-400'
                   },
-                  { 
-                    Icon: Linkedin, 
-                    url: 'https://www.linkedin.com/in/anisha-chhajer-844114367/', 
+                  {
+                    Icon: Linkedin,
+                    url: 'https://www.linkedin.com/in/anisha-chhajer-844114367/',
                     label: 'LinkedIn',
                     gradient: 'from-blue-700 to-blue-800',
                     color: 'text-blue-400'
                   },
-                  { 
-                    Icon: Twitter, 
-                    url: 'https://x.com/anisha_chhajer', 
+                  {
+                    Icon: Twitter,
+                    url: 'https://x.com/anisha_chhajer',
                     label: 'Twitter',
                     gradient: 'from-sky-600 to-cyan-600',
                     color: 'text-cyan-400'
                   },
-                 
+
                 ].map(({ Icon, url, label, gradient, color }, index) => (
                   <a
                     key={label}
@@ -1461,11 +1460,11 @@ export default function Portfolio() {
                   >
                     {/* Glow effect on hover */}
                     <div className={`absolute -inset-2 bg-gradient-to-r ${gradient} rounded-full opacity-0 group-hover:opacity-20 blur-md transition-opacity duration-500`} />
-                    
+
                     {/* Icon container */}
                     <div className={`relative w-14 h-14 rounded-full bg-gradient-to-br ${gradient} border border-slate-700/50 group-hover:border-white/30 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-1 shadow-lg group-hover:shadow-xl`}>
                       <Icon size={24} className="text-white group-hover:scale-110 transition-transform duration-300" />
-                      
+
                       {/* Tooltip */}
                       <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-2 bg-slate-900/90 backdrop-blur-sm rounded-lg border border-slate-700/50 opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-300 pointer-events-none whitespace-nowrap">
                         <span className="text-xs font-medium text-white">{label}</span>
@@ -1475,7 +1474,7 @@ export default function Portfolio() {
                   </a>
                 ))}
               </div>
-              
+
               {/* Copyright - Centered below social icons */}
               <div className="group relative">
                 <div className="inline-block">
@@ -1485,15 +1484,15 @@ export default function Portfolio() {
                   <p className="text-base font-medium bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent mt-2">
                     All rights reserved
                   </p>
-                  
+
                   {/* Animated underline */}
                   <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-indigo-400 group-hover:w-40 transition-all duration-500" />
                 </div>
               </div>
             </div>
-            
+
           </div>
-         
+
         </div>
       </footer>
 
