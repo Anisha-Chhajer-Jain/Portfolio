@@ -263,7 +263,7 @@ export default function Portfolio() {
     { name: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg', color: 'from-orange-400 to-red-600', borderColor: 'border-orange-400/50', hoverBorder: 'hover:border-orange-400' },
     { name: 'C++', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg', color: 'from-blue-500 to-purple-600', borderColor: 'border-purple-400/50', hoverBorder: 'hover:border-purple-400' },
     { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', color: 'from-gray-600 to-gray-800', borderColor: 'border-gray-400/50', hoverBorder: 'hover:border-gray-400', isWhite: true },
-    { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', color: 'from-purple-400 to-pink-600', borderColor: 'border-pink-400/50', hoverBorder: 'hover:border-pink-400' },
+    { name: 'UI/UX Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', color: 'from-purple-400 to-pink-600', borderColor: 'border-pink-400/50', hoverBorder: 'hover:border-pink-400' },
     { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg', color: 'from-red-500 to-orange-600', borderColor: 'border-red-400/50', hoverBorder: 'hover:border-red-400' },
     { name: 'Canva', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg', color: 'from-cyan-400 to-blue-600', borderColor: 'border-cyan-400/50', hoverBorder: 'hover:border-cyan-400' },
     { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg', color: 'from-sky-400 to-cyan-500', borderColor: 'border-sky-400/50', hoverBorder: 'hover:border-sky-400' }
@@ -274,7 +274,7 @@ export default function Portfolio() {
       title: 'Flipkart Clone',
       description: 'A fully responsive Flipkart-inspired e-commerce UI clone with product listings, cart functionality, and modern design.',
       tags: ['HTML', 'CSS', 'JS', 'Responsive'],
-      gradient: 'from-orange-400 to-yellow-500',
+      gradient: 'from-peach-400 to-pink-500',
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284088/Screenshot_2026-02-05_150323_jsohtj.png',
       github: 'https://github.com/Anisha-Chhajer-Jain/FLIPKART-CLONE',
       youtube: 'https://youtu.be/AvD3hqPTmMU?si=Q5hmb3LLucv2W9Ov',
@@ -304,7 +304,7 @@ export default function Portfolio() {
       title: 'Bullet Proof',
       description: 'A Bulletproof-inspired security services website with responsive design and modern UI components.',
       tags: ['HTML', 'CSS', 'JS', 'Security'],
-      gradient: 'from-orange-400 to-yellow-500',
+      gradient: 'from-peach-400 to-pink-500',
       image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284088/Screenshot_2026-02-05_150323_jsohtj.png',
       github: 'https://github.com/Anisha-Chhajer-Jain/BULLET-PROOF-CLONE',
       youtube: 'https://youtu.be/OP0XIlN4eis?si=7WpZOF0KT1Wy41yF',
@@ -382,7 +382,7 @@ export default function Portfolio() {
     },
   ];
 
-  const skills = ['HTML', 'CSS', 'Git & Github', 'C/C++', 'JavaScript', 'Figma', 'React', 'Node.js', 'Java'];
+  const skills = ['HTML', 'CSS', 'Git & Github', 'C/C++', 'JavaScript', 'UI/UX Figma', 'React', 'Node.js', 'Java'];
 
   const loadMoreCertificates = () => {
     setVisibleCertificates(prev => Math.min(prev + 6, certificates.length));
@@ -718,7 +718,7 @@ export default function Portfolio() {
                 icon: Lightbulb,
                 title: 'Problem Solving',
                 description: 'Tackling complex challenges with elegant solutions.',
-                skills: ['C/C++', 'Java', 'Algorithms'],
+                skills: ['C/C++', 'Java', 'Algorithms', 'Node.js'],
                 gradient: 'from-cyan-600 to-blue-600',
                 iconColor: 'text-cyan-400',
                 hoverIconColor: 'text-cyan-300',
@@ -726,9 +726,9 @@ export default function Portfolio() {
               },
               {
                 icon: TrendingUp,
-                title: 'Always Learning',
+                title: 'Tools & Learning',
                 description: 'Continuously growing with every line of code.',
-                skills: ['Git', 'Figma', 'Node.js'],
+                skills: ['Git', 'UI/UX Figma','Github','Postman'],
                 gradient: 'from-emerald-600 to-teal-600',
                 iconColor: 'text-emerald-400',
                 hoverIconColor: 'text-emerald-300',
