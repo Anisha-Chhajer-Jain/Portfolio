@@ -23,7 +23,7 @@ export default function Portfolio() {
       <Technologies />
       <Certificates />
       <Education />
-      <Contact />
+      {/* <Contact /> */}
     </Layout>
   );
 }
