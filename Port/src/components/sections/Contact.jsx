@@ -1,0 +1,316 @@
+// import React from 'react';
+// import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
+
+// export default function Contact() {
+//   return (
+//     <div className="py-12 px-4 sm:px-6 relative overflow-hidden" id="contact">
+//       <div className="absolute inset-0 pointer-events-none">
+//         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-500/5 to-transparent" />
+//         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse-slow" />
+//         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
+//       </div>
+      
+//       <div className="max-w-7xl mx-auto relative">
+//         <div className="text-center mb-12 sm:mb-20">
+//           <h2 className="text-4xl sm:text-5xl md:text-6xl font-extralight mb-6 tracking-wide animate-fade-in">
+//             Get In <span className="font-light bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">Touch</span>
+//           </h2>
+//           <p className="text-slate-300 font-light text-base sm:text-lg animate-fade-in-delay">
+//             Have a project in mind or just want to chat? I'd love to hear from you!
+//           </p>
+//         </div>
+        
+//         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
+//           {/* Contact Form */}
+//           <div className="group relative animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+//             <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600/30 to-purple-600/30 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500" />
+//             <div className="relative bg-slate-900/60 backdrop-blur-sm rounded-3xl border border-indigo-500/30 p-6 sm:p-8">
+//               <h3 className="text-xl sm:text-2xl font-light mb-6 text-cyan-400">Send a Message</h3>
+              
+//               <form className="space-y-4">
+//                 <div className="grid sm:grid-cols-2 gap-4">
+//                   <input
+//                     type="text"
+//                     placeholder="Enter Name"
+//                     className="w-full px-4 py-3 bg-indigo-900/30 border border-indigo-500/30 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300 hover:border-indigo-400 text-sm sm:text-base"
+//                   />
+//                   <input
+//                     type="email"
+//                     placeholder="your.email@gmail.com"
+//                     className="w-full px-4 py-3 bg-indigo-900/30 border border-indigo-500/30 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300 hover:border-indigo-400 text-sm sm:text-base"
+//                   />
+//                 </div>
+                
+//                 <input
+//                   type="text"
+//                   placeholder="What about this?"
+//                   className="w-full px-4 py-3 bg-indigo-900/30 border border-indigo-500/30 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300 hover:border-indigo-400 text-sm sm:text-base"
+//                 />
+                
+//                 <textarea
+//                   rows="6"
+//                   placeholder="Tell me about your message"
+//                   className="w-full px-4 py-3 bg-indigo-900/30 border border-indigo-500/30 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300 hover:border-indigo-400 resize-none text-sm sm:text-base"
+//                 ></textarea>
+                
+//                 <button
+//                   type="submit"
+//                   className="group/btn w-full px-6 py-3 bg-slate-950 hover:bg-slate-900 border border-slate-700 hover:border-cyan-400 rounded-xl font-light transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-cyan-400/20 flex items-center justify-center gap-2"
+//                 >
+//                   <Mail size={20} className="group-hover/btn:rotate-12 transition-transform duration-300" />
+//                   <span>Send Message</span>
+//                 </button>
+//               </form>
+//             </div>
+//           </div>
+          
+//           {/* Contact Info */}
+//           <div>
+//             <div className="group relative animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+//               <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600/30 to-cyan-600/30 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500" />
+//               <div className="relative bg-slate-900/60 backdrop-blur-sm rounded-3xl border border-indigo-500/30 p-6 sm:p-8 h-full flex flex-col">
+//                 <h3 className="text-xl sm:text-2xl font-light mb-6 text-cyan-400">Let's Connect</h3>
+                
+//                 <div className="flex items-center gap-3 mb-4 text-slate-300 hover:text-cyan-400 transition-colors duration-300">
+//                   <div className="w-10 h-10 rounded-lg bg-indigo-900/30 flex items-center justify-center flex-shrink-0">
+//                     <Mail size={18} className="text-cyan-400" />
+//                   </div>
+//                   <span className="font-light text-sm sm:text-base">Ahmedabad, Gujarat</span>
+//                 </div>
+                
+//                 <div className="flex items-center gap-3 mb-6 text-slate-300 hover:text-cyan-400 transition-colors duration-300">
+//                   <div className="w-10 h-10 rounded-lg bg-indigo-900/30 flex items-center justify-center flex-shrink-0">
+//                     <Mail size={18} className="text-cyan-400" />
+//                   </div>
+//                   <span className="font-light text-sm sm:text-base break-all">anishachhajer16@gmail.com</span>
+//                 </div>
+                
+//                 <div className="grid grid-cols-2 gap-3 mt-auto">
+//                   <a 
+//                     href="https://github.com/Anisha-Chhajer-Jain"
+//                     target="_blank"
+//                     rel="noopener noreferrer"
+//                     className="group/social flex items-center justify-center gap-2 px-3 sm:px-4 py-3 bg-indigo-900/30 hover:bg-indigo-800/40 border border-indigo-500/30 hover:border-cyan-400 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/20"
+//                   >
+//                     <Github size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300" />
+//                     <span className="font-light text-sm sm:text-base">GitHub</span>
+//                   </a>
+//                   <a 
+//                     href="https://linkedin.com/in/yourusername"
+//                     target="_blank"
+//                     rel="noopener noreferrer"
+//                     className="group/social flex items-center justify-center gap-2 px-3 sm:px-4 py-3 bg-indigo-900/30 hover:bg-indigo-800/40 border border-indigo-500/30 hover:border-cyan-400 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/20"
+//                   >
+//                     <Linkedin size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300" />
+//                     <span className="font-light text-sm sm:text-base">LinkedIn</span>
+//                   </a>
+//                   <a 
+//                     href="https://twitter.com/yourusername"
+//                     target="_blank"
+//                     rel="noopener noreferrer"
+//                     className="group/social flex items-center justify-center gap-2 px-3 sm:px-4 py-3 bg-indigo-900/30 hover:bg-indigo-800/40 border border-indigo-500/30 hover:border-cyan-400 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/20"
+//                   >
+//                     <Twitter size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300" />
+//                     <span className="font-light text-sm sm:text-base">Twitter</span>
+//                   </a>
+//                   <a 
+//                     href="mailto:anishachhajer16@gmail.com"
+//                     className="group/social flex items-center justify-center gap-2 px-3 sm:px-4 py-3 bg-indigo-900/30 hover:bg-indigo-800/40 border border-indigo-500/30 hover:border-cyan-400 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/20"
+//                   >
+//                     <Mail size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300" />
+//                     <span className="font-light text-sm sm:text-base">Email</span>
+//                   </a>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+
+import React from 'react';
+import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
+import { motion } from "framer-motion";
+
+export default function Contact() {
+  // Animation variants
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.12 },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  return (
+    <section
+      id="contact"
+      className="
+        relative py-20 px-4 sm:px-8 lg:px-16
+        bg-gradient-to-b from-gray-900 to-black
+        overflow-hidden
+      "
+    >
+      {/* Heading */}
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="
+          text-center text-4xl sm:text-5xl font-bold mb-4
+          bg-gradient-to-r from-purple-500 via-pink-500 to-red-500
+          bg-clip-text text-transparent
+        "
+      >
+        Get In Touch
+      </motion.h2>
+
+      <p className="text-center text-gray-400 max-w-2xl mx-auto mb-16">
+        Have a project in mind or just want to chat? I'd love to hear from you!
+      </p>
+
+      {/* Cards Grid */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="
+          max-w-6xl mx-auto
+          grid lg:grid-cols-2
+          gap-8
+        "
+      >
+        {/* Contact Form */}
+        <motion.div
+          variants={cardVariants}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          whileHover={{ y: -6 }}
+          className="group relative"
+        >
+          <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500" />
+          <div className="relative bg-gray-900/60 backdrop-blur-md rounded-2xl border border-gray-800 p-6 sm:p-8 transition-all duration-500 group-hover:border-gray-700">
+            <h3 className="text-xl sm:text-2xl font-semibold mb-6 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+              Send a Message
+            </h3>
+            
+            <form className="space-y-4">
+              <div className="grid sm:grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  placeholder="Enter Name"
+                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 hover:border-gray-600 text-sm sm:text-base"
+                />
+                <input
+                  type="email"
+                  placeholder="your.email@gmail.com"
+                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 hover:border-gray-600 text-sm sm:text-base"
+                />
+              </div>
+              
+              <input
+                type="text"
+                placeholder="What about this?"
+                className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 hover:border-gray-600 text-sm sm:text-base"
+              />
+              
+              <textarea
+                rows="6"
+                placeholder="Tell me about your message"
+                className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 hover:border-gray-600 resize-none text-sm sm:text-base"
+              ></textarea>
+              
+              <button
+                type="submit"
+                className="group/btn w-full px-6 py-3 bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-purple-500 rounded-xl font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-purple-500/20 flex items-center justify-center gap-2 text-white"
+              >
+                <Mail size={20} className="group-hover/btn:rotate-12 transition-transform duration-300" />
+                <span>Send Message</span>
+              </button>
+            </form>
+          </div>
+        </motion.div>
+        
+        {/* Contact Info */}
+        <motion.div
+          variants={cardVariants}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          whileHover={{ y: -6 }}
+          className="group relative"
+        >
+          <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500" />
+          <div className="relative bg-gray-900/60 backdrop-blur-md rounded-2xl border border-gray-800 p-6 sm:p-8 h-full flex flex-col transition-all duration-500 group-hover:border-gray-700">
+            <h3 className="text-xl sm:text-2xl font-semibold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              Let's Connect
+            </h3>
+            
+            <div className="flex items-center gap-3 mb-4 text-gray-300 hover:text-cyan-400 transition-colors duration-300">
+              <div className="w-10 h-10 rounded-lg bg-gray-800/50 flex items-center justify-center flex-shrink-0 border border-gray-700">
+                <Mail size={18} className="text-cyan-400" />
+              </div>
+              <span className="font-light text-sm sm:text-base">Ahmedabad, Gujarat</span>
+            </div>
+            
+            <div className="flex items-center gap-3 mb-6 text-gray-300 hover:text-cyan-400 transition-colors duration-300">
+              <div className="w-10 h-10 rounded-lg bg-gray-800/50 flex items-center justify-center flex-shrink-0 border border-gray-700">
+                <Mail size={18} className="text-cyan-400" />
+              </div>
+              <span className="font-light text-sm sm:text-base break-all">anishachhajer16@gmail.com</span>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-3 mt-auto">
+              <a 
+                href="https://github.com/Anisha-Chhajer-Jain"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/social flex items-center justify-center gap-2 px-3 sm:px-4 py-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-purple-500 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20"
+              >
+                <Github size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300" />
+                <span className="font-medium text-sm sm:text-base text-white">GitHub</span>
+              </a>
+              <a 
+                href="https://linkedin.com/in/yourusername"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/social flex items-center justify-center gap-2 px-3 sm:px-4 py-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-blue-500 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
+              >
+                <Linkedin size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300" />
+                <span className="font-medium text-sm sm:text-base text-white">LinkedIn</span>
+              </a>
+              <a 
+                href="https://twitter.com/yourusername"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/social flex items-center justify-center gap-2 px-3 sm:px-4 py-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-sky-500 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-sky-500/20"
+              >
+                <Twitter size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300" />
+                <span className="font-medium text-sm sm:text-base text-white">Twitter</span>
+              </a>
+              <a 
+                href="mailto:anishachhajer16@gmail.com"
+                className="group/social flex items-center justify-center gap-2 px-3 sm:px-4 py-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-cyan-500 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20"
+              >
+                <Mail size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300" />
+                <span className="font-medium text-sm sm:text-base text-white">Email</span>
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* Corner accents - matching Skills component */}
+      <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-gray-600/30 hidden lg:block" />
+      <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-gray-600/30 hidden lg:block" />
+      <div className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-gray-600/30 hidden lg:block" />
+      <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-gray-600/30 hidden lg:block" />
+    </section>
+  );
+}
