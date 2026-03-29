@@ -178,10 +178,10 @@ const education = [
     icon: '💻'
   },
   {
-    title: 'Complete School Education',
+    title: 'School Education',
     institution: 'St. James School',
-    period: '2012-2025',
-    description: 'Completed 12th grade (Science with Mathematics) and learning Java concepts, focusing on object-oriented programming and logical thinking.',
+    period: '2023-2025',
+    description: 'Completed 10th with 92.5% & 12th with 85.6% (Science with Mathematics)  and learning Java concepts, focusing on object-oriented programming and logical thinking.',
     color: 'from-pink-500 to-rose-500',
     icon: '🎓'
   }
