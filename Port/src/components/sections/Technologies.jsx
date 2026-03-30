@@ -472,9 +472,6 @@ const Skills = () => {
           flex items-center justify-center gap-2
         "
       >
-        <span className="inline-block animate-pulse">✨</span>
-        Hover over any skill card to see detailed description
-        <span className="inline-block animate-pulse">✨</span>
       </motion.p>
     </section>
   );

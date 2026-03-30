@@ -165,13 +165,13 @@ function HackathonImages() {
   const images = [
     {
       url: "https://res.cloudinary.com/dq7hb3fah/image/upload/v1774599129/Screenshot_2026-03-27_134135_vsrnkl.png",
-      title: "Team in Action",
-      description: "Intense coding session during the hackathon"
+      title: "Winning Moment",
+      description: "Roller Coaster of emotions as we hear our name announced as the winners!"
     },
     {
       url: "https://res.cloudinary.com/dq7hb3fah/image/upload/v1774729510/Screenshot_2026-03-27_134610_oqefvn.png",
-      title: "Presentation Moment",
-      description: "Presenting KisanDost to the judges"
+      title: "Certificate of Excellence",
+      description: "Proudly holding our certificate that recognizes our hard work and innovation."
     }
   ];
 

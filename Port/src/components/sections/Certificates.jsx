@@ -310,7 +310,7 @@ const certificates = [
     title: 'React (Basic) Certificate', 
     org: 'HackerRank', 
     date: '2024',
-    color: 'from-gray-400 to-slate-600',
+    // color: 'from-gray-400 to-slate-600',
     image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1770284476/Screenshot_2026-02-05_150954_edi1wr.png',
     url: 'https://www.hackerrank.com/certificates/c94ecf2db01f',
     description: 'Validated React fundamentals including components, hooks, state management, and the React component lifecycle.',
