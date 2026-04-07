@@ -5,6 +5,7 @@
 // const navItems = [
 //   { name: 'About', id: 'about' },
 //   { name: 'Projects', id: 'projects' },
+//   { name: 'Hackathon', id: 'hackathon-experience' }, // Matches KisanDost hackathon section id
 //   { name: 'Skills', id: 'skills-section' }, // Updated to match Skills component id
 //   { name: 'Certificates', id: 'certificates' }, // Matches Certificates section id
 //   { name: 'Contact', id: 'contact' },

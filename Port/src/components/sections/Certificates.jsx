@@ -231,7 +231,7 @@
 //         viewport={{ once: true, margin: "-80px" }}
 //         className="
 //           max-w-7xl mx-auto
-//           grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3
+//           grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3
 //           gap-8
 //         "
 //       >
@@ -251,6 +251,7 @@
 //     </section>
 //   );
 // }
+
 import React, { useState } from 'react';
 import { ExternalLink, Award, BookOpen, Tag } from 'lucide-react';
 import { motion } from "framer-motion";
@@ -600,7 +601,7 @@ export default function Certificates() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-80px' }}
-        className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8"
+        className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
       >
         {certificates.slice(0, visible).map((cert, i) => (
           <CertificateCard key={cert.id} cert={cert} index={i} />

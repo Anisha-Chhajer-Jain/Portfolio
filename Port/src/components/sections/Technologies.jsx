@@ -112,7 +112,7 @@
 //         viewport={{ once: true, margin: "-80px" }}
 //         className="
 //           max-w-7xl mx-auto
-//           grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3
+//           grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3
 //           gap-8
 //         "
 //       >
@@ -319,7 +319,7 @@ const Skills = () => {
         viewport={{ once: true, margin: "-80px" }}
         className="
           max-w-7xl mx-auto
-          grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3
+          grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3
           gap-8
         "
       >
@@ -399,7 +399,7 @@ const Skills = () => {
                   className="
                     absolute z-50
                     bottom-full left-1/2 -translate-x-1/2
-                    mb-4 w-80
+                    mb-4 w-96
                     pointer-events-none
                   "
                 >
