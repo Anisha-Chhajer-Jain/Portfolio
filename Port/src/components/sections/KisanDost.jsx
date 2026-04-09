@@ -21,7 +21,7 @@ function DetailedModal({ section, onClose }) {
   // Slideshow images - use gallery images if available, otherwise use main image
   const slideImages = section.gallery && section.gallery.length > 0 
     ? section.gallery.map(img => img.url) 
-    : [section.mainImage, section.mainImage, section.mainImage];
+    : [section.mainImage, section.mainImage, section.mainImage, section.mainImage, section.mainImage, section.mainImage];
 
   React.useEffect(() => {
     setIsLoaded(true);
@@ -514,6 +514,26 @@ function HackathonSections({ onSectionClick }) {
           url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774729510/Screenshot_2026-03-27_134610_oqefvn.png',
           title: 'Certificate of Excellence',
           description: 'Recognition of our hard work and innovation.'
+        },
+        {
+          url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774844685/Screenshot_2026-03-30_095424_vy4lnf.png',
+          title: 'Project Interface',
+          description: 'Final dashboard displaying real-time agricultural data and AI insights.'
+        },
+        {
+          url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774843674/Screenshot_2026-03-30_093740_dmnnvv.png',
+          title: 'Team Collaboration',
+          description: 'Intense 36-hour build session during the national hackathon.'
+        },
+        {
+          url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774599129/Screenshot_2026-03-27_134135_vsrnkl.png',
+          title: 'Stage Presentation',
+          description: 'Pitching our solution to the esteemed panel of judges.'
+        },
+        {
+          url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774729510/Screenshot_2026-03-27_134610_oqefvn.png',
+          title: 'Tech Validation',
+          description: 'Our technical implementation being reviewed by industry experts.'
         }
       ],
       details: [
@@ -531,18 +551,38 @@ function HackathonSections({ onSectionClick }) {
       mainImage: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774729510/Screenshot_2026-03-27_134610_oqefvn.png',
       gradient: 'from-blue-500 to-indigo-500',
       fullDescription: 'KisanDost represents a complete full-stack solution built from scratch in 36 hours. The project combines cutting-edge AI/ML models with a responsive frontend and robust backend. Our disease detection model achieves 94% accuracy, price prediction reaches 87% accuracy, and the entire system supports 5 regional languages for accessibility.',
-      gallery: [
-        {
-          url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774729510/Screenshot_2026-03-27_134610_oqefvn.png',
-          title: 'Project Architecture',
-          description: 'Scalable architecture handling 25+ API endpoints'
-        },
-        {
-          url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774599129/Screenshot_2026-03-27_134135_vsrnkl.png',
-          title: 'Deployment Success',
-          description: 'Live on Netlify with real-time satellite monitoring'
-        }
-      ],
+       gallery: [
+          {
+            url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774599129/Screenshot_2026-03-27_134135_vsrnkl.png',
+            title: 'Winning Moment',
+            description: 'The excitement and joy when we were announced as winners!'
+          },
+          {
+            url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774729510/Screenshot_2026-03-27_134610_oqefvn.png',
+            title: 'Certificate of Excellence',
+            description: 'Recognition of our hard work and innovation.'
+          },
+          {
+            url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1775737410/Screenshot_2026-04-09_175246_gzai5a.png',
+            title: 'Project Interface',
+            description: 'Final dashboard displaying real-time agricultural data and AI insights.'
+          },
+          {
+            url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1775737410/Screenshot_2026-04-09_175201_drx5ut.png',
+            title: 'Team Collaboration',
+            description: 'Intense 36-hour build session during the national hackathon.'
+          },
+          {
+            url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1775737409/Screenshot_2026-04-09_175257_dnzmbe.png',
+            title: 'Victory Trophy',
+            description: 'Celebrating our first place finish at the hackathon.'
+          },
+          {
+            url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1775737458/Screenshot_2026-04-09_175236_gwiz1l.png',
+            title: 'Closing Ceremony',
+            description: 'Final moments of the 36-hour technical marathon.'
+          }
+        ],
       details: [
         { label: 'Disease Detection Accuracy', value: '94% with Computer Vision' },
         { label: 'Price Prediction Accuracy', value: '87% using ML Models' },
@@ -826,6 +866,26 @@ export default function KisanDost() {
             url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774729510/Screenshot_2026-03-27_134610_oqefvn.png',
             title: 'Certificate of Excellence',
             description: 'Recognition of our hard work and innovation.'
+          },
+          {
+            url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1775737410/Screenshot_2026-04-09_175246_gzai5a.png',
+            title: 'Project Interface',
+            description: 'Final dashboard displaying real-time agricultural data and AI insights.'
+          },
+          {
+            url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1775737410/Screenshot_2026-04-09_175201_drx5ut.png',
+            title: 'Team Collaboration',
+            description: 'Intense 36-hour build session during the national hackathon.'
+          },
+          {
+            url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1775737409/Screenshot_2026-04-09_175257_dnzmbe.png',
+            title: 'Victory Trophy',
+            description: 'Celebrating our first place finish at the hackathon.'
+          },
+          {
+            url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1775737458/Screenshot_2026-04-09_175236_gwiz1l.png',
+            title: 'Closing Ceremony',
+            description: 'Final moments of the 36-hour technical marathon.'
           }
         ],
         details: [
