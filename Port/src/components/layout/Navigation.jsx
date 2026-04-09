@@ -229,6 +229,7 @@ import { Menu, X } from 'lucide-react';
 const navItems = [
   { name: 'About', id: 'about' },
   { name: 'Projects', id: 'projects' },
+  { name: 'Hackathon', id: 'hackathon-experience' },
   { name: 'Skills', id: 'skills-section' },
   { name: 'Certificates', id: 'certificates' },
   { name: 'Contact', id: 'contact' },
@@ -302,16 +303,22 @@ export default function Navigation({ scrollToSection }) {
   };
   
   return (
-    <nav className={`
-      fixed top-0 w-full z-40 
-      transition-all duration-300
-      ${scrolled 
-        ? 'bg-slate-950/95 backdrop-blur-xl border-b border-white/10' 
-        : 'bg-slate-950/90 backdrop-blur-lg border-b border-white/5'
-      }
-    `}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
-        <div className="flex justify-between items-center">
+    <nav 
+      className={`
+        fixed top-0 w-full z-50 
+        transition-all duration-300
+        ${scrolled 
+          ? 'bg-slate-950/80 border-b border-white/10 shadow-lg' 
+          : 'bg-slate-950/60 border-b border-white/5'
+        }
+      `}
+      style={{
+        WebkitBackdropFilter: 'blur(12px)',
+        backdropFilter: 'blur(12px)',
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 min-h-[60px] sm:min-h-[72px] flex flex-col justify-center">
+        <div className="flex justify-between items-center w-full">
           {/* Logo - Responsive sizing with click to top */}
           <button
             onClick={() => handleNavClick('hero')}
@@ -369,18 +376,18 @@ export default function Navigation({ scrollToSection }) {
         {/* Mobile Menu - Enhanced responsive overlay with dark background */}
         <div
           className={`
-            md:hidden fixed inset-0 top-[60px] sm:top-[68px] left-0 w-full 
-            h-[calc(100vh-60px)] sm:h-[calc(100vh-68px)]
-            bg-slate-950
-            transition-all duration-400 ease-in-out z-40
+            md:hidden fixed inset-x-0 top-[60px] sm:top-[72px] bottom-0 w-full 
+            bg-slate-950 border-t border-white/10
+            transition-transform duration-400 ease-in-out z-40
             ${mobileMenuOpen 
-              ? 'opacity-100 visible translate-x-0' 
-              : 'opacity-0 invisible translate-x-full'
+              ? 'translate-x-0' 
+              : 'translate-x-full'
             }
           `}
+          style={{ height: '100dvh', maxHeight: 'calc(100dvh - 60px)' }}
         >
           {/* Solid dark background - no transparency issues */}
-          <div className="w-full h-full bg-gradient-to-b from-slate-950 to-slate-900 overflow-y-auto">
+          <div className="w-full h-full bg-gradient-to-b from-slate-950 to-slate-900 overflow-y-auto pb-20">
             <div className="flex flex-col h-full">
               <div className="flex-1 px-4 sm:px-6 py-6 sm:py-8 space-y-2 sm:space-y-3">
                 {navItems.map((item, index) => (
@@ -443,20 +450,6 @@ export default function Navigation({ scrollToSection }) {
         .animate-fadeIn {
           animation: fadeIn 0.3s ease-out forwards;
           opacity: 0;
-        }
-        
-        /* Ensure navigation always stays dark on all devices */
-        nav {
-          background-color: #0f172a !important; /* Fallback for older browsers */
-          -webkit-backdrop-filter: blur(12px);
-          backdrop-filter: blur(12px);
-        }
-        
-        /* Mobile menu solid dark background */
-        @media (max-width: 768px) {
-          .fixed.inset-0 {
-            background-color: #0f172a;
-          }
         }
       `}</style>
     </nav>

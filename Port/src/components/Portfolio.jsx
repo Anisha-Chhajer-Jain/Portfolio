@@ -13,17 +13,18 @@ import Footer from './layout/Footer';
 import FloatingElements from './ui/FloatingElements';
 import KisanDost from './sections/KisanDost';
 
+
 export default function Portfolio() {
   const [isVisible, setIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
-    
+
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -34,7 +35,7 @@ export default function Portfolio() {
       const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
-      
+
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
@@ -52,7 +53,7 @@ export default function Portfolio() {
       <Projects />
       <Technologies />
       <Certificates />
-    <KisanDost/>
+      <KisanDost />
       <Education />
       <Contact />
       <Footer />

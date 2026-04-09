@@ -40,45 +40,44 @@ export default function Hero({ isVisible, scrollY, scrollToSection }) {
           <div className="flex flex-col sm:flex-row gap-6 animate-fade-in-delay-2">
             <button 
               onClick={() => scrollToSection('contact')}
-              className="group relative flex items-center gap-3 px-6 sm:px-8 py-4 overflow-hidden rounded-full border border-indigo-400/50 hover:border-indigo-400 transition-all duration-500 hover:scale-105"
+              className="group relative flex items-center gap-3 px-5 py-3 bg-slate-900/50 backdrop-blur-sm rounded-2xl border border-indigo-500/30 hover:border-indigo-400/60 transition-all duration-300 hover:scale-105"
             >
-              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-500" />
-              <div className="relative w-10 h-10 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Mail size={20} className="text-white" />
+              <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-indigo-500/20">
+                <Mail size={18} className="text-white" />
               </div>
-              <span className="relative flex items-center gap-2 font-medium text-lg">
+              <span className="relative flex items-center gap-2 font-medium text-sm text-white whitespace-nowrap">
                 Get in Touch
-                <span className="opacity-70 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                <span className="opacity-70 group-hover:translate-x-1 transition-transform duration-300 text-indigo-400">→</span>
               </span>
             </button>
             
             <button 
               onClick={() => scrollToSection('projects')}
-              className="group relative flex items-center gap-3 px-6 sm:px-8 py-4 rounded-full border border-slate-600 hover:border-slate-400 transition-all duration-300 hover:scale-105"
+              className="group relative flex items-center gap-3 px-5 py-3 bg-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-slate-500 transition-all duration-300 hover:scale-105"
             >
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-slate-700 to-slate-800 border border-slate-600 group-hover:border-slate-500 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
-                <ExternalLink size={20} className="text-slate-300 group-hover:text-white" />
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-slate-700 to-slate-800 border border-slate-600 group-hover:border-slate-500 flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg">
+                <ExternalLink size={18} className="text-slate-300 group-hover:text-white" />
               </div>
-              <span className="flex items-center gap-2 font-medium text-lg">
+              <span className="flex items-center gap-2 font-medium text-sm text-slate-200 group-hover:text-white whitespace-nowrap">
                 View My Work
-                <span className="opacity-70 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                <span className="opacity-70 group-hover:translate-x-1 transition-transform duration-300 text-slate-400">→</span>
               </span>
             </button>
             
-            <button className="group relative flex items-center gap-3 px-6 py-4 w-full sm:w-auto justify-center sm:justify-start">
-              <div className="relative">
-                <div className="absolute -inset-2 border-2 border-indigo-400/30 rounded-full animate-ping-slow opacity-0 group-hover:opacity-100" />
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center group-hover:rotate-12 transition-transform duration-500 shadow-lg group-hover:shadow-xl group-hover:shadow-amber-500/20">
-                  <Download size={20} className="text-white" />
-                </div>
+            <a 
+              href="https://drive.google.com/file/d/1M_d3F9N_0TDtr2zwHb8OyiCacvAgzFOS/view?usp=sharing" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group relative flex items-center gap-3 px-5 py-3 bg-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-slate-500 transition-all duration-300 hover:scale-105"
+            >
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-slate-700 to-slate-800 border border-slate-600 group-hover:border-slate-500 flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg">
+                <Download size={18} className="text-slate-300 group-hover:text-white" />
               </div>
-              <div className="relative">
-                <span className="text-lg font-semibold bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent group-hover:from-amber-300 group-hover:to-orange-300 transition-all duration-300">
-                  Resume
-                </span>
-                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-400 group-hover:w-full transition-all duration-500" />
-              </div>
-            </button>
+              <span className="flex items-center gap-2 font-medium text-sm text-slate-200 group-hover:text-white whitespace-nowrap">
+                Resume
+                <span className="opacity-70 group-hover:translate-x-1 transition-transform duration-300 text-slate-400">→</span>
+              </span>
+            </a>
           </div>
           
           {/* Social Links */}

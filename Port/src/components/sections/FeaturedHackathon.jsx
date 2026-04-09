@@ -40,17 +40,7 @@ export default function FeaturedHackathon() {
       </div>
       
       <div className="max-w-7xl mx-auto relative">
-        {/* Winner Badge */}
-        <div className="flex justify-center mb-8">
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-amber-500/20 to-orange-500/20 rounded-full border border-amber-500/30 backdrop-blur-sm animate-pulse-glow">
-            <Trophy size={24} className="text-amber-400 animate-bounce-slow" />
-            <span className="text-lg font-bold bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
-              🏆 1st Place Winner - National Agri-Tech Hackathon 2024
-            </span>
-            <Trophy size={24} className="text-amber-400 animate-bounce-slow" style={{ animationDelay: '0.5s' }} />
-          </div>
-        </div>
-        
+
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-4 mb-4">
