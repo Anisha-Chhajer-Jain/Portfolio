@@ -65,7 +65,7 @@ export default function Hero({ isVisible, scrollY, scrollToSection }) {
             </button>
             
             <a 
-              href="https://drive.google.com/file/d/1M_d3F9N_0TDtr2zwHb8OyiCacvAgzFOS/view?usp=sharing" 
+              href="https://drive.google.com/file/d/1M_d3F9N_0TDtr2zwHb8OyiCacvAgzFOS/view" 
               target="_blank" 
               rel="noopener noreferrer"
               className="group relative flex items-center gap-3 px-5 py-3 bg-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 hover:border-slate-500 transition-all duration-300 hover:scale-105"
