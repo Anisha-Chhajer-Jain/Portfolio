@@ -287,7 +287,8 @@ const Skills = () => {
       id="skills-section"
       className="
         relative py-20 px-4 sm:px-8 lg:px-16
-        bg-gradient-to-b from-gray-900 to-black
+        bg-[var(--bg-primary)]
+        transition-colors duration-300
       "
       aria-labelledby="skills-heading"
     >
@@ -300,14 +301,13 @@ const Skills = () => {
         transition={{ duration: 0.6 }}
         className="
           text-center text-4xl sm:text-5xl font-bold mb-4
-          bg-gradient-to-r from-purple-500 via-pink-500 to-red-500
-          bg-clip-text text-transparent
+          text-[var(--text-primary)]
         "
       >
         Skills & Expertise
       </motion.h2>
 
-      <p className="text-center text-gray-400 max-w-2xl mx-auto mb-16">
+      <p className="text-center text-[var(--text-secondary)] max-w-2xl mx-auto mb-16">
         Technologies and tools I actively work with and enjoy building things in.
       </p>
 
@@ -333,10 +333,11 @@ const Skills = () => {
             onHoverEnd={() => setActivePopup(null)}
             className="
               relative p-6 rounded-2xl
-              bg-gray-900/60 backdrop-blur-md
-              border border-gray-800
+              bg-[var(--bg-secondary)] backdrop-blur-md
+              border border-[var(--border-primary)]
               overflow-visible
               cursor-pointer
+              transition-all duration-300
             "
           >
             {/* Hover glow */}
@@ -361,10 +362,10 @@ const Skills = () => {
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold text-white">
+                <h3 className="text-xl font-semibold text-[var(--text-primary)]">
                   {skill.category}
                 </h3>
-                <p className="text-gray-400 text-sm">{skill.details}</p>
+                <p className="text-[var(--text-secondary)] text-sm">{skill.details}</p>
               </div>
             </div>
 
@@ -378,8 +379,9 @@ const Skills = () => {
                   alt={`${skill.category} icon`}
                   className="
                     w-15 h-15 p-2
-                    bg-white/10 rounded-xl
+                    bg-[var(--bg-accent)] rounded-xl
                     backdrop-blur-sm
+                    border border-[var(--border-primary)]
                   "
                   whileHover={{ scale: 1.15, rotate: 4 }}
                   transition={{ type: "spring", stiffness: 300 }}
@@ -406,31 +408,31 @@ const Skills = () => {
                   <div className="relative">
                     {/* Popup arrow */}
                     <div
-                      className="
-                        absolute -bottom-2 left-1/2 -translate-x-1/2
-                        w-4 h-4 rotate-45
-                        bg-gradient-to-br from-gray-800 to-gray-900
-                      "
+                        className="
+                          absolute -bottom-2 left-1/2 -translate-x-1/2
+                          w-4 h-4 rotate-45
+                          bg-[var(--bg-secondary)] border-b border-r border-[var(--border-primary)]
+                        "
                     />
                     
                     {/* Popup content */}
                     <div
                       className="
                         relative z-10
-                        bg-gradient-to-br from-gray-800 to-gray-900
+                        bg-[var(--bg-secondary)]
                         rounded-xl p-4
-                        border border-gray-700
+                        border border-[var(--border-primary)]
                         shadow-2xl
                       "
                     >
                       <div className="flex items-start justify-between mb-2">
-                        <h4 className="text-white font-semibold text-sm">
+                        <h4 className="text-[var(--text-primary)] font-semibold text-sm">
                           {skill.category}
                         </h4>
                         <button
                           onClick={() => setActivePopup(null)}
                           className="
-                            text-gray-400 hover:text-white
+                            text-[var(--text-secondary)] hover:text-[var(--text-primary)]
                             transition-colors duration-200
                             pointer-events-auto
                           "
@@ -438,7 +440,7 @@ const Skills = () => {
                           <X className="w-3 h-3" />
                         </button>
                       </div>
-                      <p className="text-gray-300 text-xs leading-relaxed">
+                      <p className="text-[var(--text-secondary)] text-xs leading-relaxed">
                         {skill.description}
                       </p>
                       

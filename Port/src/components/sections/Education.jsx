@@ -121,7 +121,7 @@ function EducationCard({ edu, index }) {
     >
       <div className={`absolute -inset-1 bg-gradient-to-r ${edu.color} rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500`} />
       
-      <div className="relative bg-gray-900/60 backdrop-blur-md rounded-2xl border border-gray-800 overflow-hidden group-hover:border-gray-700 transition-all duration-500 group-hover:scale-[1.02] h-full">
+      <div className="relative bg-[var(--bg-secondary)] backdrop-blur-md rounded-2xl border border-[var(--border-primary)] overflow-hidden group-hover:border-[var(--accent-primary)] transition-all duration-500 group-hover:scale-[1.02] h-full shadow-lg">
         <div className="p-6 sm:p-8">
           <div className="flex items-start gap-4 mb-6">
             <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br ${edu.color} flex items-center justify-center text-2xl sm:text-3xl group-hover:scale-110 transition-transform duration-500 flex-shrink-0`}>
@@ -129,10 +129,10 @@ function EducationCard({ edu, index }) {
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-500 group-hover:to-pink-500 group-hover:bg-clip-text transition-all duration-300">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-[var(--text-primary)]">
                   {edu.title}
                 </h3>
-                <span className="text-sm font-medium text-purple-300 bg-gray-800/50 px-3 py-1 rounded-full border border-gray-700">
+                <span className="text-sm font-medium text-purple-300 bg-[var(--bg-accent)] px-3 py-1 rounded-full border border-[var(--border-primary)]">
                   {edu.period}
                 </span>
               </div>
@@ -142,7 +142,7 @@ function EducationCard({ edu, index }) {
             </div>
           </div>
           
-          <p className="text-gray-300 leading-relaxed text-sm sm:text-base mb-6">
+          <p className="text-[var(--text-secondary)] leading-relaxed text-sm sm:text-base mb-6">
             {edu.description}
           </p>
           
@@ -193,8 +193,9 @@ export default function Education() {
       id="education"
       className="
         relative py-20 px-4 sm:px-8 lg:px-16
-        bg-gradient-to-b from-gray-900 to-black
+        bg-[var(--bg-primary)]
         overflow-hidden
+        transition-colors duration-300
       "
     >
       {/* Heading */}
@@ -205,14 +206,13 @@ export default function Education() {
         transition={{ duration: 0.6 }}
         className="
           text-center text-4xl sm:text-5xl font-bold mb-4
-          bg-gradient-to-r from-purple-500 via-pink-500 to-red-500
-          bg-clip-text text-transparent
+          text-[var(--text-primary)]
         "
       >
         Education
       </motion.h2>
 
-      <p className="text-center text-gray-400 max-w-2xl mx-auto mb-16">
+      <p className="text-center text-[var(--text-secondary)] max-w-2xl mx-auto mb-16">
         My academic journey and learning path in computer science and technology
       </p>
 

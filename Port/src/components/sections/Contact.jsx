@@ -21,8 +21,9 @@ export default function Contact() {
       id="contact"
       className="
         relative py-20 px-4 sm:px-8 lg:px-16
-        bg-gradient-to-b from-gray-900 to-black
+        bg-[var(--bg-primary)]
         overflow-hidden
+        transition-colors duration-300
       "
     >
       {/* Heading */}
@@ -33,14 +34,13 @@ export default function Contact() {
         transition={{ duration: 0.6 }}
         className="
           text-center text-4xl sm:text-5xl font-bold mb-4
-          bg-gradient-to-r from-purple-500 via-pink-500 to-red-500
-          bg-clip-text text-transparent
+          text-[var(--text-primary)]
         "
       >
         Get In Touch
       </motion.h2>
 
-      <p className="text-center text-gray-400 max-w-2xl mx-auto mb-16">
+      <p className="text-center text-[var(--text-secondary)] max-w-2xl mx-auto mb-16">
         Have a project in mind or just want to chat? I'd love to hear from you!
       </p>
 
@@ -64,7 +64,7 @@ export default function Contact() {
           className="group relative"
         >
           <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500" />
-          <div className="relative bg-gray-900/60 backdrop-blur-md rounded-2xl border border-gray-800 p-6 sm:p-8 transition-all duration-500 group-hover:border-gray-700">
+          <div className="relative bg-[var(--bg-secondary)] backdrop-blur-md rounded-2xl border border-[var(--border-primary)] p-6 sm:p-8 transition-all duration-500 group-hover:border-[var(--accent-primary)] shadow-lg">
             <h3 className="text-xl sm:text-2xl font-semibold mb-6 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
               Send a Message
             </h3>
@@ -74,30 +74,30 @@ export default function Contact() {
                 <input
                   type="text"
                   placeholder="Enter Name"
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 hover:border-gray-600 text-sm sm:text-base"
+                  className="w-full px-4 py-3 bg-[var(--bg-accent)] border border-[var(--border-primary)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-secondary)]/50 focus:outline-none focus:border-[var(--accent-primary)] focus:ring-2 focus:ring-[var(--accent-primary)]/20 transition-all duration-300 hover:border-[var(--text-secondary)]/30 text-sm sm:text-base"
                 />
                 <input
                   type="email"
                   placeholder="your.email@gmail.com"
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 hover:border-gray-600 text-sm sm:text-base"
+                  className="w-full px-4 py-3 bg-[var(--bg-accent)] border border-[var(--border-primary)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-secondary)]/50 focus:outline-none focus:border-[var(--accent-primary)] focus:ring-2 focus:ring-[var(--accent-primary)]/20 transition-all duration-300 hover:border-[var(--text-secondary)]/30 text-sm sm:text-base"
                 />
               </div>
               
               <input
                 type="text"
                 placeholder="What about this?"
-                className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 hover:border-gray-600 text-sm sm:text-base"
+                className="w-full px-4 py-3 bg-[var(--bg-accent)] border border-[var(--border-primary)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-secondary)]/50 focus:outline-none focus:border-[var(--accent-primary)] focus:ring-2 focus:ring-[var(--accent-primary)]/20 transition-all duration-300 hover:border-[var(--text-secondary)]/30 text-sm sm:text-base"
               />
               
               <textarea
                 rows="6"
                 placeholder="Tell me about your message"
-                className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all duration-300 hover:border-gray-600 resize-none text-sm sm:text-base"
+                className="w-full px-4 py-3 bg-[var(--bg-accent)] border border-[var(--border-primary)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-secondary)]/50 focus:outline-none focus:border-[var(--accent-primary)] focus:ring-2 focus:ring-[var(--accent-primary)]/20 transition-all duration-300 hover:border-[var(--text-secondary)]/30 resize-none text-sm sm:text-base"
               ></textarea>
               
               <button
                 type="submit"
-                className="group/btn w-full px-6 py-3 bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-purple-500 rounded-xl font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-purple-500/20 flex items-center justify-center gap-2 text-white"
+                className="group/btn w-full px-6 py-3 bg-[var(--bg-accent)] hover:bg-[var(--accent-primary)] border border-[var(--border-primary)] hover:border-[var(--accent-primary)] rounded-xl font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-[var(--accent-primary)]/20 flex items-center justify-center gap-2 text-[var(--text-primary)] hover:text-white"
               >
                 <Mail size={20} className="group-hover/btn:rotate-12 transition-transform duration-300" />
                 <span>Send Message</span>
@@ -114,27 +114,27 @@ export default function Contact() {
           className="group relative"
         >
           <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500" />
-          <div className="relative bg-gray-900/60 backdrop-blur-md rounded-2xl border border-gray-800 p-6 sm:p-8 h-full flex flex-col transition-all duration-500 group-hover:border-gray-700">
+          <div className="relative bg-[var(--bg-secondary)] backdrop-blur-md rounded-2xl border border-[var(--border-primary)] p-6 sm:p-8 h-full flex flex-col transition-all duration-500 group-hover:border-cyan-500/50 shadow-lg">
             <h3 className="text-xl sm:text-2xl font-semibold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               Let's Connect
             </h3>
             
-            <div className="flex items-center gap-3 mb-4 text-gray-300 hover:text-cyan-400 transition-colors duration-300">
-              <div className="w-10 h-10 rounded-lg bg-gray-800/50 flex items-center justify-center flex-shrink-0 border border-gray-700">
+            <div className="flex items-center gap-3 mb-4 text-[var(--text-secondary)] hover:text-cyan-400 transition-colors duration-300">
+              <div className="w-10 h-10 rounded-lg bg-[var(--bg-accent)] flex items-center justify-center flex-shrink-0 border border-[var(--border-primary)]">
                 <Mail size={18} className="text-cyan-400" />
               </div>
               <span className="font-light text-sm sm:text-base">Ahmedabad, Gujarat</span>
             </div>
             
-            <div className="flex items-center gap-3 mb-6 text-gray-300 hover:text-cyan-400 transition-colors duration-300">
-              <div className="w-10 h-10 rounded-lg bg-gray-800/50 flex items-center justify-center flex-shrink-0 border border-gray-700">
+            <div className="flex items-center gap-3 mb-6 text-[var(--text-secondary)] hover:text-cyan-400 transition-colors duration-300">
+              <div className="w-10 h-10 rounded-lg bg-[var(--bg-accent)] flex items-center justify-center flex-shrink-0 border border-[var(--border-primary)]">
                 <Mail size={18} className="text-cyan-400" />
               </div>
               <span className="font-light text-sm sm:text-base break-all">anishachhajer16@gmail.com</span>
             </div>
 
-            <div className="flex items-center gap-3 mb-6 text-gray-300 hover:text-cyan-400 transition-colors duration-300">
-              <div className="w-10 h-10 rounded-lg bg-gray-800/50 flex items-center justify-center flex-shrink-0 border border-gray-700">
+            <div className="flex items-center gap-3 mb-6 text-[var(--text-secondary)] hover:text-cyan-400 transition-colors duration-300">
+              <div className="w-10 h-10 rounded-lg bg-[var(--bg-accent)] flex items-center justify-center flex-shrink-0 border border-[var(--border-primary)]">
                 <Mail size={18} className="text-cyan-400" />
               </div>
               <span className="font-light text-sm sm:text-base break-all">+91 94747 19009</span>
@@ -145,35 +145,35 @@ export default function Contact() {
                 href="https://github.com/Anisha-Chhajer-Jain"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/social flex items-center justify-center gap-2 px-3 sm:px-4 py-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-purple-500 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/20"
+                className="group/social flex items-center justify-center gap-2 px-3 sm:px-4 py-3 bg-[var(--bg-accent)] hover:bg-[var(--bg-secondary)] border border-[var(--border-primary)] hover:border-[var(--accent-primary)] rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[var(--accent-primary)]/20"
               >
-                <Github size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300" />
-                <span className="font-medium text-sm sm:text-base text-white">GitHub</span>
+                <Github size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300 text-[var(--text-primary)]" />
+                <span className="font-medium text-sm sm:text-base text-[var(--text-primary)]">GitHub</span>
               </a>
               <a 
                 href="https://linkedin.com/in/yourusername"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/social flex items-center justify-center gap-2 px-3 sm:px-4 py-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-blue-500 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
+                className="group/social flex items-center justify-center gap-2 px-3 sm:px-4 py-3 bg-[var(--bg-accent)] hover:bg-[var(--bg-secondary)] border border-[var(--border-primary)] hover:border-blue-500 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
               >
-                <Linkedin size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300" />
-                <span className="font-medium text-sm sm:text-base text-white">LinkedIn</span>
+                <Linkedin size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300 text-[var(--text-primary)]" />
+                <span className="font-medium text-sm sm:text-base text-[var(--text-primary)]">LinkedIn</span>
               </a>
               <a 
                 href="https://twitter.com/yourusername"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/social flex items-center justify-center gap-2 px-3 sm:px-4 py-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-sky-500 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-sky-500/20"
+                className="group/social flex items-center justify-center gap-2 px-3 sm:px-4 py-3 bg-[var(--bg-accent)] hover:bg-[var(--bg-secondary)] border border-[var(--border-primary)] hover:border-sky-500 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-sky-500/20"
               >
-                <Twitter size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300" />
-                <span className="font-medium text-sm sm:text-base text-white">Twitter</span>
+                <Twitter size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300 text-[var(--text-primary)]" />
+                <span className="font-medium text-sm sm:text-base text-[var(--text-primary)]">Twitter</span>
               </a>
               <a 
                 href="mailto:anishachhajer16@gmail.com"
-                className="group/social flex items-center justify-center gap-2 px-3 sm:px-4 py-3 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-cyan-500 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20"
+                className="group/social flex items-center justify-center gap-2 px-3 sm:px-4 py-3 bg-[var(--bg-accent)] hover:bg-[var(--bg-secondary)] border border-[var(--border-primary)] hover:border-cyan-500 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20"
               >
-                <Mail size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300" />
-                <span className="font-medium text-sm sm:text-base text-white">Email</span>
+                <Mail size={18} className="sm:w-5 sm:h-5 group-hover/social:rotate-12 transition-transform duration-300 text-[var(--text-primary)]" />
+                <span className="font-medium text-sm sm:text-base text-[var(--text-primary)]">Email</span>
               </a>
             </div>
           </div>

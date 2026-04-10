@@ -654,7 +654,7 @@ function ProjectCard({ project, index }) {
       {/* Glow effect on hover */}
       <div className={`absolute -inset-0.5 bg-gradient-to-r ${project.gradient} rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-700 group-hover:duration-300`} />
       
-      <div className="relative bg-[#0a0a0f]/80 backdrop-blur-sm rounded-2xl border border-white/5 overflow-hidden group-hover:border-white/10 transition-all duration-500 hover:-translate-y-2">
+      <div className="relative bg-[var(--bg-secondary)] backdrop-blur-sm rounded-2xl border border-[var(--border-primary)] overflow-hidden group-hover:border-[var(--accent-primary)] transition-all duration-500 hover:-translate-y-2 shadow-lg">
         {/* Image Container with Overlay */}
         <div className="relative h-52 overflow-hidden">
           <img 
@@ -666,18 +666,18 @@ function ProjectCard({ project, index }) {
             }}
           />
           {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/60 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-500" />
           
           {/* Category tag */}
           <div className="absolute top-4 left-4">
-            <span className={`px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r ${project.gradient} bg-opacity-20 text-white/90 backdrop-blur-sm border border-white/10`}>
+            <span className={`px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r ${project.gradient} bg-opacity-20 text-white backdrop-blur-sm border border-white/20 shadow-md`}>
               {project.tags[0]}
             </span>
           </div>
           
           {/* Title overlay */}
           <div className="absolute bottom-0 left-0 right-0 p-5">
-            <h3 className="text-xl font-semibold text-white tracking-tight">
+            <h3 className="text-xl font-semibold text-white tracking-tight drop-shadow-md">
               {project.title}
             </h3>
           </div>
@@ -690,7 +690,7 @@ function ProjectCard({ project, index }) {
             {project.tags.slice(1, 4).map((tag) => (
               <span
                 key={tag}
-                className="px-2.5 py-1 text-xs font-mono text-slate-400 bg-white/5 rounded-full border border-white/5"
+                className="px-2.5 py-1 text-xs font-mono text-[var(--text-secondary)] bg-[var(--bg-accent)] rounded-full border border-[var(--border-primary)]"
               >
                 {tag}
               </span>
@@ -698,39 +698,39 @@ function ProjectCard({ project, index }) {
           </div>
           
           {/* Description */}
-          <p className="text-slate-400 text-sm leading-relaxed mb-5 line-clamp-2">
+          <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-5 line-clamp-2">
             {project.description}
           </p>
           
           {/* Action Buttons */}
-          <div className="flex items-center gap-3 pt-2 border-t border-white/5">
+          <div className="flex items-center gap-3 pt-4 border-t border-[var(--border-primary)]">
             <a 
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/btn flex items-center gap-2 text-slate-400 hover:text-white transition-colors duration-300"
+              className="group/btn flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors duration-300"
             >
-              <Github size={16} className="group-hover/btn:rotate-3 transition-transform" />
-              <span className="text-sm">Code</span>
+              <Github size={16} className="group-hover/btn:rotate-12 transition-transform" />
+              <span className="text-sm font-medium">Code</span>
             </a>
             <a 
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/btn flex items-center gap-2 text-slate-400 hover:text-white transition-colors duration-300"
+              className="group/btn flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors duration-300"
             >
               <ExternalLink size={16} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-              <span className="text-sm">Live Demo</span>
+              <span className="text-sm font-medium">Live Demo</span>
             </a>
             {project.youtube && (
               <a 
                 href={project.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/btn flex items-center gap-2 text-slate-400 hover:text-white transition-colors duration-300 ml-auto"
+                className="group/btn flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors duration-300 ml-auto"
               >
                 <Youtube size={16} />
-                <span className="text-sm">Watch</span>
+                <span className="text-sm font-medium">Watch</span>
               </a>
             )}
           </div>
@@ -746,10 +746,10 @@ function ProjectCard({ project, index }) {
 // Featured Project Section — Hackathon badge variant
 function FeaturedProject({ project }) {
   return (
-    <div className="relative mb-20 rounded-2xl overflow-hidden group">
+    <div className="relative mb-20 rounded-2xl overflow-hidden group shadow-2xl">
       {/* Stronger glow for hackathon project */}
       <div className="absolute inset-0 bg-gradient-to-r from-yellow-600/20 to-green-600/20 rounded-2xl blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-      <div className="relative bg-gradient-to-r from-[#0a0a0f] to-[#12121a] border border-yellow-500/20 rounded-2xl overflow-hidden">
+      <div className="relative bg-[var(--bg-secondary)] border border-yellow-500/20 rounded-2xl overflow-hidden shadow-xl">
         <div className="grid md:grid-cols-2 gap-6 p-6 md:p-8">
           <div className="order-2 md:order-1">
             {/* Badges row */}
@@ -761,15 +761,15 @@ function FeaturedProject({ project }) {
              
             </div>
 
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+            <h3 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-3">
               {project.title}
             </h3>
-            <p className="text-slate-400 leading-relaxed mb-5">
+            <p className="text-[var(--text-secondary)] leading-relaxed mb-5">
               {project.description}
             </p>
             <div className="flex flex-wrap gap-2 mb-6">
               {project.tags.map(tag => (
-                <span key={tag} className="px-3 py-1 text-xs text-slate-300 bg-white/5 rounded-full">
+                <span key={tag} className="px-3 py-1 text-xs text-[var(--text-primary)] bg-[var(--bg-accent)] rounded-full border border-[var(--border-primary)]">
                   {tag}
                 </span>
               ))}
@@ -825,8 +825,8 @@ function CategoryFilter({ categories, activeCategory, onCategoryChange }) {
           onClick={() => onCategoryChange(category)}
           className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
             activeCategory === category
-              ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/25'
-              : 'bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white border border-white/5'
+              ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/25 scale-105'
+              : 'bg-[var(--bg-accent)] text-[var(--text-secondary)] hover:bg-[var(--accent-primary)] hover:text-white border border-[var(--border-primary)]'
           }`}
         >
           {category}
@@ -1001,21 +1001,21 @@ export default function Projects() {
   const featuredProject = projectsData.find(p => p.title === 'Kisan Dost');
 
   return (
-    <div className="py-16 sm:py-24 px-4 relative bg-gradient-to-b from-[#050507] to-[#0a0a0f]" id="projects">
+    <div className="py-16 sm:py-24 px-4 relative bg-[var(--bg-primary)] transition-colors duration-300" id="projects">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-4">
-            <Code size={14} className="text-indigo-400" />
-            <span className="text-xs font-mono text-indigo-400 tracking-wider">PORTFOLIO</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-accent)] border border-[var(--border-primary)] mb-4">
+            <Code size={14} className="text-[var(--accent-primary)]" />
+            <span className="text-xs font-mono text-[var(--accent-primary)] tracking-wider">PORTFOLIO</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-5">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-5 text-[var(--text-primary)]">
             Featured{' '}
             <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Projects
             </span>
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-base sm:text-lg">
+          <p className="text-[var(--text-secondary)] max-w-2xl mx-auto text-base sm:text-lg">
             A collection of my recent work including UI clones, interactive applications, and full-stack projects.
           </p>
         </div>
@@ -1042,10 +1042,10 @@ export default function Projects() {
           <div className="flex justify-center mt-12">
             <button
               onClick={() => setVisibleCount(prev => Math.min(prev + 6, filteredProjects.length))}
-              className="group relative px-8 py-3.5 overflow-hidden rounded-full border border-indigo-500/30 hover:border-indigo-500 transition-all duration-500"
+              className="group relative px-8 py-3.5 overflow-hidden rounded-full border border-[var(--accent-primary)] hover:border-[var(--accent-primary)] transition-all duration-500 shadow-lg"
             >
-              <span className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-              <span className="relative flex items-center gap-2 text-white font-medium">
+              <span className="absolute inset-0 bg-[var(--accent-primary)] translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+              <span className="relative flex items-center gap-2 text-[var(--text-primary)] group-hover:text-white font-medium">
                 <Eye size={18} />
                 View More Projects
                 <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />

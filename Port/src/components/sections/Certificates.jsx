@@ -413,7 +413,7 @@ function CertificateCard({ cert, index }) {
         {/* ── FRONT ── */}
         <div
           style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
-          className="absolute inset-0 bg-gray-900/70 backdrop-blur-md rounded-2xl border border-gray-800 overflow-hidden"
+          className="absolute inset-0 bg-[var(--bg-secondary)] backdrop-blur-md rounded-2xl border border-[var(--border-primary)] overflow-hidden shadow-lg"
         >
           {/* Image */}
           <div className="relative h-48 overflow-hidden">
@@ -440,7 +440,7 @@ function CertificateCard({ cert, index }) {
               </div>
             </div>
 
-            <p className="text-xs text-gray-400 line-clamp-2">{cert.description}</p>
+            <p className="text-xs text-[var(--text-secondary)] line-clamp-2">{cert.description}</p>
 
             <div className="flex flex-wrap gap-1.5 mt-auto">
               {cert.skills.map(s => (
@@ -465,7 +465,7 @@ function CertificateCard({ cert, index }) {
             WebkitBackfaceVisibility: 'hidden',
             transform: 'rotateY(180deg)',
           }}
-          className="absolute inset-0 bg-gray-900/90 backdrop-blur-xl rounded-2xl border border-gray-700 overflow-hidden flex flex-col"
+          className="absolute inset-0 bg-[var(--bg-secondary)] backdrop-blur-xl rounded-2xl border border-[var(--border-primary)] overflow-hidden flex flex-col shadow-2xl"
         >
           {/* Gradient header strip */}
           <div className={`h-1.5 w-full bg-gradient-to-r ${cert.color}`} />
@@ -488,7 +488,7 @@ function CertificateCard({ cert, index }) {
                 <BookOpen size={12} className="text-gray-400" />
                 <span className="text-[10px] uppercase tracking-widest text-gray-500 font-semibold">About</span>
               </div>
-              <p className="text-xs text-gray-300 leading-relaxed">{cert.description}</p>
+              <p className="text-xs text-[var(--text-secondary)] leading-relaxed">{cert.description}</p>
             </div>
 
             {/* Skills */}
@@ -579,21 +579,21 @@ export default function Certificates() {
   return (
     <section
       id="certificates"
-      className="relative py-20 px-4 sm:px-8 lg:px-16 bg-gradient-to-b from-gray-900 to-black overflow-hidden"
+      className="relative py-20 px-4 sm:px-8 lg:px-16 bg-[var(--bg-primary)] overflow-hidden transition-colors duration-300"
     >
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-center text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text text-transparent"
+        className="text-center text-4xl sm:text-5xl font-bold mb-4 text-[var(--text-primary)]"
       >
         Certificates & Achievements
       </motion.h2>
 
-      <p className="text-center text-gray-400 max-w-2xl mx-auto mb-16">
+      <p className="text-center text-[var(--text-secondary)] max-w-2xl mx-auto mb-16">
         Professional certifications and recognized achievements in web development and AI.
-        <span className="block text-sm mt-1 text-gray-600">Hover any card to explore details.</span>
+        <span className="block text-sm mt-1 text-[var(--text-secondary)]/60">Hover any card to explore details.</span>
       </p>
 
       <motion.div

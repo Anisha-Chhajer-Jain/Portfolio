@@ -15,16 +15,31 @@ export default function Navigation({ scrollToSection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
-  
+
+
+  // Initialize theme from system or local storage
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'light') {
+      document.documentElement.classList.add('light');
+    } else if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      document.documentElement.classList.remove('light');
+    }
+  }, []);
+
+
+
   // Handle scroll effect for navbar background
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      
+
       // Track active section for highlighting
       const sections = navItems.map(item => item.id);
       const scrollPosition = window.scrollY + 100;
-      
+
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -36,11 +51,11 @@ export default function Navigation({ scrollToSection }) {
         }
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
+
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -58,7 +73,7 @@ export default function Navigation({ scrollToSection }) {
       document.body.style.width = '';
     };
   }, [mobileMenuOpen]);
-  
+
   const handleNavClick = (sectionId) => {
     if (scrollToSection && typeof scrollToSection === 'function') {
       scrollToSection(sectionId);
@@ -68,7 +83,7 @@ export default function Navigation({ scrollToSection }) {
         const offset = 80;
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - offset;
-        
+
         window.scrollTo({
           top: offsetPosition,
           behavior: 'smooth'
@@ -77,15 +92,15 @@ export default function Navigation({ scrollToSection }) {
     }
     setMobileMenuOpen(false);
   };
-  
+
   return (
-    <nav 
+    <nav
       className={`
         fixed top-0 w-full z-50 
         transition-all duration-300
-        ${scrolled 
-          ? 'bg-slate-950/80 border-b border-white/10 shadow-lg' 
-          : 'bg-slate-950/60 border-b border-white/5'
+        ${scrolled
+          ? 'bg-[var(--glass-bg)] border-b border-[var(--border-primary)] shadow-lg'
+          : 'bg-transparent border-b border-transparent'
         }
       `}
       style={{
@@ -108,100 +123,97 @@ export default function Navigation({ scrollToSection }) {
               C
             </span>
           </button>
-          
-          {/* Desktop Menu - Responsive gap and font size */}
-          <div className="hidden md:flex gap-6 lg:gap-8 text-xs lg:text-sm font-light">
-            {navItems.map((item, index) => (
-              <button
-                key={item.name}
-                onClick={() => handleNavClick(item.id)}
-                className={`relative group overflow-hidden py-2 transition-all duration-300
-                  ${activeSection === item.id 
-                    ? 'text-indigo-300' 
-                    : 'text-gray-300 hover:text-indigo-300'
-                  }
-                `}
-                style={{ animationDelay: `${index * 0.1}s` }}
-                aria-label={`Navigate to ${item.name} section`}
-              >
-                <span className="relative z-10 transition-colors duration-300 whitespace-nowrap">
-                  {item.name}
-                </span>
-                <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-indigo-400 to-purple-400 transition-all duration-500
-                  ${activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'}
-                `} />
-              </button>
-            ))}
+
+          <div className="flex items-center gap-4 sm:gap-6">
+            {/* Desktop Menu - Responsive gap and font size */}
+            <div className="hidden md:flex gap-6 lg:gap-8 text-xs lg:text-sm font-light">
+              {navItems.map((item, index) => (
+                <button
+                  key={item.name}
+                  onClick={() => handleNavClick(item.id)}
+                  className={`relative group overflow-hidden py-2 transition-all duration-300
+                    ${activeSection === item.id
+                      ? 'text-[var(--accent-primary)]'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                    }
+                  `}
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                  aria-label={`Navigate to ${item.name} section`}
+                >
+                  <span className="relative z-10 transition-colors duration-300 whitespace-nowrap">
+                    {item.name}
+                  </span>
+                  <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-indigo-400 to-purple-400 transition-all duration-500
+                    ${activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'}
+                  `} />
+                </button>
+              ))}
+            </div>
+
+
+
+            {/* Mobile Menu Button - Responsive sizing and touch-friendly */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden relative z-50 w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 active:scale-95 transition-all duration-300 shadow-lg shadow-indigo-500/50 hover:shadow-indigo-400/70 hover:scale-105"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? (
+                <X size={20} className="text-white font-bold sm:w-5 sm:h-5" />
+              ) : (
+                <Menu size={20} className="text-white font-bold sm:w-5 sm:h-5" />
+              )}
+            </button>
           </div>
-          
-          {/* Mobile Menu Button - Responsive sizing and touch-friendly */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden relative z-50 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 active:scale-95 transition-all duration-300 shadow-lg shadow-indigo-500/50 hover:shadow-indigo-400/70 hover:scale-105"
-            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileMenuOpen}
-          >
-            {mobileMenuOpen ? (
-              <X size={20} className="text-white font-bold sm:w-6 sm:h-6" />
-            ) : (
-              <Menu size={20} className="text-white font-bold sm:w-6 sm:h-6" />
-            )}
-          </button>
         </div>
-        
-        {/* Mobile Menu - Enhanced responsive overlay with dark background */}
+
+        {/* Mobile Menu - Enhanced responsive overlay */}
         <div
           className={`
-            md:hidden fixed inset-x-0 top-[60px] sm:top-[72px] bottom-0 w-full 
-            bg-slate-950 border-t border-white/10
-            transition-transform duration-400 ease-in-out z-40
-            ${mobileMenuOpen 
-              ? 'translate-x-0' 
-              : 'translate-x-full'
+            md:hidden fixed inset-x-0 top-0 bottom-0 w-full 
+            bg-[var(--bg-primary)] 
+            transition-all duration-500 ease-in-out z-40
+            ${mobileMenuOpen
+              ? 'opacity-100 translate-y-0 pointer-events-auto'
+              : 'opacity-0 -translate-y-full pointer-events-none'
             }
           `}
-          style={{ height: '100dvh', maxHeight: 'calc(100dvh - 60px)' }}
         >
-          {/* Solid dark background - no transparency issues */}
-          <div className="w-full h-full bg-gradient-to-b from-slate-950 to-slate-900 overflow-y-auto pb-20">
-            <div className="flex flex-col h-full">
-              <div className="flex-1 px-4 sm:px-6 py-6 sm:py-8 space-y-2 sm:space-y-3">
-                {navItems.map((item, index) => (
-                  <button
-                    key={item.name}
-                    onClick={() => handleNavClick(item.id)}
-                    className={`
-                      group relative w-full text-left 
-                      py-3 sm:py-4 px-4 sm:px-6 
-                      text-base sm:text-lg font-semibold 
-                      transition-all duration-300 
-                      border-b border-slate-700/50 hover:border-indigo-500/50
-                      hover:translate-x-2
-                      animate-fadeIn
-                      ${activeSection === item.id 
-                        ? 'text-indigo-300 border-indigo-500/50' 
-                        : 'text-white hover:text-indigo-300'
-                      }
-                    `}
-                    style={{ animationDelay: `${index * 0.05}s` }}
-                    aria-label={`Navigate to ${item.name} section`}
-                  >
-                    <span className="relative z-10 flex items-center justify-between">
-                      {item.name}
-                      {activeSection === item.id && (
-                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-                      )}
-                    </span>
-                    <span className={`absolute left-0 bottom-0 h-0.5 bg-gradient-to-r from-indigo-400 to-purple-400 transition-all duration-500
-                      ${activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'}
-                    `} />
-                  </button>
-                ))}
-              </div>
-              
-              {/* Optional: Social links in mobile menu */}
-              <div className="px-6 sm:px-8 py-6 border-t border-slate-800/50 bg-slate-950">
-                <p className="text-xs text-center text-slate-400">
+          <div className="w-full h-full flex flex-col pt-20 sm:pt-24 px-6 pb-20 overflow-y-auto">
+            <div className="space-y-2 sm:space-y-4">
+              {navItems.map((item, index) => (
+                <button
+                  key={item.name}
+                  onClick={() => handleNavClick(item.id)}
+                  className={`
+                    group relative w-full text-left 
+                    py-4 px-4 
+                    text-xl sm:text-2xl font-bold 
+                    transition-all duration-300 
+                    border-b border-[var(--border-primary)]
+                    hover:translate-x-2
+                    animate-fadeIn
+                    ${activeSection === item.id
+                      ? 'text-[var(--accent-primary)]'
+                      : 'text-[var(--text-primary)] hover:text-[var(--accent-primary)]'
+                    }
+                  `}
+                  style={{ animationDelay: `${index * 0.05}s` }}
+                >
+                  <span className="relative z-10 flex items-center justify-between">
+                    {item.name}
+                    {activeSection === item.id && (
+                      <span className="w-2 h-2 rounded-full bg-[var(--accent-primary)] animate-pulse" />
+                    )}
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            <div className="mt-auto pt-10 border-t border-[var(--border-primary)]">
+              <div className="flex flex-col items-center gap-4">
+                <p className="text-sm text-[var(--text-secondary)]">
                   © 2025 Anisha Chhajer
                 </p>
               </div>
@@ -209,7 +221,7 @@ export default function Navigation({ scrollToSection }) {
           </div>
         </div>
       </div>
-      
+
       {/* Add keyframe animation for mobile menu items */}
       <style>{`
         @keyframes fadeIn {

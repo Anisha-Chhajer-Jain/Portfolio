@@ -44,7 +44,7 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 text-white overflow-hidden relative">
+    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] transition-all duration-300 overflow-hidden relative selection:bg-[var(--accent-primary)] selection:text-white">
       <ParticleCanvas />
       <Navigation scrollToSection={scrollToSection} />
       <Hero isVisible={isVisible} scrollY={scrollY} scrollToSection={scrollToSection} />

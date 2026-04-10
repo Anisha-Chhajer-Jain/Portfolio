@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
-import { 
-  Trophy, Clock, Users, Award, Github, ExternalLink, 
-  ChevronRight, Code, Database, Brain, Cloud, 
-  CheckCircle, TrendingUp, Camera, Zap, Globe, 
+import {
+  Trophy, Clock, Users, Award, Github, ExternalLink,
+  ChevronRight, Code, Database, Brain, Cloud,
+  CheckCircle, TrendingUp, Camera, Zap, Globe,
   Star, Mic, ShoppingCart, Leaf, BarChart3,
   Target, Rocket, Sparkles, Medal, Linkedin, Mail,
   Twitter, Image, Satellite, Shield, MapPin, Bot,
@@ -19,8 +19,8 @@ function DetailedModal({ section, onClose }) {
   const prevIndexRef = React.useRef(0);
 
   // Slideshow images - use gallery images if available, otherwise use main image
-  const slideImages = section.gallery && section.gallery.length > 0 
-    ? section.gallery.map(img => img.url) 
+  const slideImages = section.gallery && section.gallery.length > 0
+    ? section.gallery.map(img => img.url)
     : [section.mainImage, section.mainImage, section.mainImage, section.mainImage, section.mainImage, section.mainImage];
 
   React.useEffect(() => {
@@ -51,10 +51,10 @@ function DetailedModal({ section, onClose }) {
   };
 
   return (
-    <div 
-      className="fixed inset-0 bg-black/95 backdrop-blur-xl z-50 flex items-center justify-center p-4 overflow-auto" 
-      style={{ 
-        backdropFilter: 'blur(12px)', 
+    <div
+      className="fixed inset-0 bg-[var(--bg-primary)]/95 backdrop-blur-xl z-50 flex items-center justify-center p-4 overflow-auto"
+      style={{
+        backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
         animation: isLoaded ? 'fadeIn 0.4s ease-out' : 'none'
       }}
@@ -164,15 +164,15 @@ function DetailedModal({ section, onClose }) {
         }
       `}</style>
 
-      <div 
-        className="modal-card bg-gradient-to-br from-[#0f1419] via-[#1a1f2e] to-[#0a0d12] rounded-3xl max-w-6xl w-full border border-white/10 shadow-2xl overflow-hidden" 
+      <div
+        className="modal-card bg-[var(--bg-secondary)] rounded-3xl max-w-6xl w-full border border-[var(--border-primary)] shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
         style={{
-          boxShadow: '0 20px 60px rgba(0, 0, 0, 0.6), inset 0 0 1px rgba(255, 255, 255, 0.05)'
+          boxShadow: '0 20px 60px rgba(0, 0, 0, 0.4)'
         }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-[45%_55%] min-h-[500px]">
-          
+
           {/* LEFT SIDE - Image Carousel */}
           <div className="image-side relative overflow-hidden bg-gradient-to-br from-emerald-500/10 to-transparent flex items-center justify-center">
             {/* Background Pattern */}
@@ -187,11 +187,10 @@ function DetailedModal({ section, onClose }) {
                 {slideImages.map((image, index) => (
                   <div
                     key={index}
-                    className={`carousel-slide absolute transition-all duration-600 ease-in-out ${
-                      index === currentImageIndex 
-                        ? 'opacity-100 translate-x-0 scale-100 z-10' 
+                    className={`carousel-slide absolute transition-all duration-600 ease-in-out ${index === currentImageIndex
+                        ? 'opacity-100 translate-x-0 scale-100 z-10'
                         : 'opacity-0 -translate-x-full scale-95 z-0'
-                    }`}
+                      }`}
                   >
                     <div className="relative">
                       <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-green-500 rounded-3xl blur-2xl opacity-40"></div>
@@ -208,7 +207,7 @@ function DetailedModal({ section, onClose }) {
                   </div>
                 ))}
               </div>
-              
+
               <div className="text-slate-400 text-sm font-semibold mb-4">
                 {currentImageIndex + 1} / {slideImages.length}
               </div>
@@ -219,11 +218,10 @@ function DetailedModal({ section, onClose }) {
                   <button
                     key={index}
                     onClick={() => goToImage(index)}
-                    className={`dot w-3 h-3 rounded-full transition-all ${
-                      index === currentImageIndex 
-                        ? 'active bg-emerald-400 scale-125' 
+                    className={`dot w-3 h-3 rounded-full transition-all ${index === currentImageIndex
+                        ? 'active bg-emerald-400 scale-125'
                         : 'bg-white/30 hover:bg-white/50'
-                    }`}
+                      }`}
                     aria-label={`Go to image ${index + 1}`}
                   />
                 ))}
@@ -256,14 +254,14 @@ function DetailedModal({ section, onClose }) {
           </div>
 
           {/* RIGHT SIDE - Details */}
-          <div className="content-side relative flex flex-col p-10 lg:p-12 text-white overflow-y-auto max-h-[600px]">
+          <div className="content-side relative flex flex-col p-10 lg:p-12 text-[var(--text-primary)] overflow-y-auto max-h-[600px]">
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-6 right-6 p-2.5 bg-white/10 hover:bg-emerald-500/30 rounded-full transition-all duration-300 group"
+              className="absolute top-6 right-6 p-2.5 bg-[var(--bg-accent)] hover:bg-[var(--accent-primary)] rounded-full transition-all duration-300 group shadow-md border border-[var(--border-primary)]"
               aria-label="Close modal"
             >
-              <X size={24} className="text-white group-hover:text-emerald-400" />
+              <X size={24} className="text-[var(--text-primary)] group-hover:text-white" />
             </button>
 
             {/* Badge */}
@@ -288,7 +286,7 @@ function DetailedModal({ section, onClose }) {
             <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full mb-6"></div>
 
             {/* Description */}
-            <p className="text-slate-300 leading-relaxed mb-8 text-sm lg:text-base">
+            <p className="text-[var(--text-secondary)] leading-relaxed mb-8 text-sm lg:text-base">
               {section.fullDescription}
             </p>
 
@@ -347,14 +345,14 @@ function DetailedModal({ section, onClose }) {
 // Team Member Card Component (Enhanced)
 function TeamMemberCard({ member, index, isExpanded, onToggle }) {
   return (
-    <div 
-      className="group relative animate-fade-in-up cursor-pointer" 
+    <div
+      className="group relative animate-fade-in-up cursor-pointer"
       style={{ animationDelay: `${index * 0.1}s` }}
       onClick={onToggle}
     >
       <div className={`absolute -inset-1 bg-gradient-to-r ${member.gradient} rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500`} />
-      <div className="relative bg-[#0a0a0f]/80 backdrop-blur-sm rounded-2xl border border-white/5 group-hover:border-white/10 transition-all duration-500 group-hover:scale-[1.02] h-full overflow-hidden">
-        
+      <div className="relative bg-[var(--bg-secondary)] backdrop-blur-sm rounded-2xl border border-[var(--border-primary)] group-hover:border-[var(--accent-primary)] transition-all duration-500 group-hover:scale-[1.02] h-full overflow-hidden shadow-lg">
+
         {/* Card Header with Icon */}
         <div className="relative h-28 bg-gradient-to-br from-slate-800/50 to-slate-900/50">
           <div className="absolute -bottom-8 left-6">
@@ -370,25 +368,25 @@ function TeamMemberCard({ member, index, isExpanded, onToggle }) {
             </div>
           </div>
         </div>
-        
+
         {/* Card Content */}
         <div className="pt-10 p-5">
           <h3 className="text-xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300">
             {member.name}
           </h3>
           <p className="text-sm font-medium text-indigo-400 mt-1 mb-3">{member.role}</p>
-          
+
           {/* Description - Expandable */}
           <div className={`overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-48' : 'max-h-16'}`}>
-            <p className="text-sm text-slate-400 leading-relaxed">
+            <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
               {member.description}
             </p>
             {isExpanded && (
-              <div className="mt-3 pt-3 border-t border-white/5">
-                <p className="text-xs text-slate-500 mb-2 flex items-center gap-1"><Target size={12} /> Key Contributions:</p>
+              <div className="mt-3 pt-3 border-t border-[var(--border-primary)]">
+                <p className="text-xs text-[var(--text-secondary)] mb-2 flex items-center gap-1"><Target size={12} /> Key Contributions:</p>
                 <div className="flex flex-wrap gap-1">
                   {member.contributions.split(', ').map((contrib, i) => (
-                    <span key={i} className="text-xs px-2 py-1 bg-white/5 rounded-full text-slate-300">
+                    <span key={i} className="text-xs px-2 py-1 bg-[var(--bg-accent)] rounded-full text-[var(--text-primary)]">
                       {contrib}
                     </span>
                   ))}
@@ -409,27 +407,27 @@ function TeamMemberCard({ member, index, isExpanded, onToggle }) {
               </div>
             )}
           </div>
-          
+
           {/* Expand/Collapse Indicator */}
           <button className="mt-3 text-xs text-indigo-400 hover:text-indigo-300 flex items-center gap-1 transition-colors">
             {isExpanded ? 'Show less' : 'Read more'}
             <ChevronRight size={12} className={`transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
           </button>
-          
+
           {/* Social Links */}
-          <div className="flex gap-3 mt-4 pt-3 border-t border-white/5">
-            <a href="#" className="text-slate-500 hover:text-indigo-400 transition-colors">
+          <div className="flex gap-3 mt-4 pt-3 border-t border-[var(--border-primary)]">
+            <a href="#" className="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
               <Github size={16} />
             </a>
-            <a href="#" className="text-slate-500 hover:text-indigo-400 transition-colors">
+            <a href="#" className="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
               <Linkedin size={16} />
             </a>
-            <a href="#" className="text-slate-500 hover:text-indigo-400 transition-colors">
+            <a href="#" className="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">
               <Mail size={16} />
             </a>
           </div>
         </div>
-        
+
         {/* Animated Bottom Border */}
         <div className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r ${member.gradient} transition-all duration-500 ${isExpanded ? 'w-full' : 'w-0 group-hover:w-full'}`} />
       </div>
@@ -442,25 +440,25 @@ function TeamStats({ members }) {
   const totalAchievements = members.reduce((sum, m) => sum + m.achievements.length, 0);
   const totalContributions = members.reduce((sum, m) => sum + m.contributions.split(', ').length, 0);
   const avgModelAccuracy = 94;
-  
+
   const stats = [
     { label: 'Team Members', value: members.length, icon: Users, color: 'from-blue-500 to-cyan-500', suffix: '' },
     { label: 'Key Achievements', value: totalAchievements, icon: Medal, color: 'from-amber-500 to-orange-500', suffix: '' },
     { label: 'Contributions', value: totalContributions, icon: Code, color: 'from-purple-500 to-pink-500', suffix: '' },
     { label: 'Model Accuracy', value: avgModelAccuracy, icon: Brain, color: 'from-green-500 to-emerald-500', suffix: '%' }
   ];
-  
+
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
       {stats.map((stat, index) => (
         <div key={stat.label} className="group relative animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
           <div className={`absolute -inset-1 bg-gradient-to-r ${stat.color} rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500`} />
-          <div className="relative bg-[#0a0a0f]/80 backdrop-blur-sm rounded-2xl p-5 text-center border border-white/5 group-hover:border-white/10 transition-all duration-500">
+          <div className="relative bg-[var(--bg-secondary)] backdrop-blur-sm rounded-2xl p-5 text-center border border-[var(--border-primary)] group-hover:border-[var(--accent-primary)] transition-all duration-500 shadow-md">
             <div className={`w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
               <stat.icon size={22} className="text-white" />
             </div>
-            <div className="text-2xl font-bold text-white">{stat.value}{stat.suffix}</div>
-            <div className="text-xs text-slate-400 mt-1">{stat.label}</div>
+            <div className="text-2xl font-bold text-[var(--text-primary)]">{stat.value}{stat.suffix}</div>
+            <div className="text-xs text-[var(--text-secondary)] mt-1">{stat.label}</div>
           </div>
         </div>
       ))}
@@ -478,8 +476,8 @@ function TeamQuote() {
         <Trophy size={24} className="text-amber-400" />
       </div>
       <p className="text-base text-slate-300 italic">
-        "Together, we turned 36 hours of intense collaboration into a 1st place winning solution 
-        that can truly impact farmers' lives. Every line of code, every model trained, and every 
+        "Together, we turned 36 hours of intense collaboration into a 1st place winning solution
+        that can truly impact farmers' lives. Every line of code, every model trained, and every
         feature built was a team effort."
       </p>
       <p className="text-sm text-indigo-400 mt-3">— Team VentureHack</p>
@@ -551,38 +549,38 @@ function HackathonSections({ onSectionClick }) {
       mainImage: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774729510/Screenshot_2026-03-27_134610_oqefvn.png',
       gradient: 'from-blue-500 to-indigo-500',
       fullDescription: 'KisanDost represents a complete full-stack solution built from scratch in 36 hours. The project combines cutting-edge AI/ML models with a responsive frontend and robust backend. Our disease detection model achieves 94% accuracy, price prediction reaches 87% accuracy, and the entire system supports 5 regional languages for accessibility.',
-       gallery: [
-          {
-            url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774599129/Screenshot_2026-03-27_134135_vsrnkl.png',
-            title: 'Winning Moment',
-            description: 'The excitement and joy when we were announced as winners!'
-          },
-          {
-            url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774729510/Screenshot_2026-03-27_134610_oqefvn.png',
-            title: 'Certificate of Excellence',
-            description: 'Recognition of our hard work and innovation.'
-          },
-          {
-            url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1775737410/Screenshot_2026-04-09_175246_gzai5a.png',
-            title: 'Project Interface',
-            description: 'Final dashboard displaying real-time agricultural data and AI insights.'
-          },
-          {
-            url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1775737410/Screenshot_2026-04-09_175201_drx5ut.png',
-            title: 'Team Collaboration',
-            description: 'Intense 36-hour build session during the national hackathon.'
-          },
-          {
-            url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1775737409/Screenshot_2026-04-09_175257_dnzmbe.png',
-            title: 'Victory Trophy',
-            description: 'Celebrating our first place finish at the hackathon.'
-          },
-          {
-            url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1775737458/Screenshot_2026-04-09_175236_gwiz1l.png',
-            title: 'Closing Ceremony',
-            description: 'Final moments of the 36-hour technical marathon.'
-          }
-        ],
+      gallery: [
+        {
+          url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774599129/Screenshot_2026-03-27_134135_vsrnkl.png',
+          title: 'Winning Moment',
+          description: 'The excitement and joy when we were announced as winners!'
+        },
+        {
+          url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774729510/Screenshot_2026-03-27_134610_oqefvn.png',
+          title: 'Certificate of Excellence',
+          description: 'Recognition of our hard work and innovation.'
+        },
+        {
+          url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1775737410/Screenshot_2026-04-09_175246_gzai5a.png',
+          title: 'Project Interface',
+          description: 'Final dashboard displaying real-time agricultural data and AI insights.'
+        },
+        {
+          url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1775737410/Screenshot_2026-04-09_175201_drx5ut.png',
+          title: 'Team Collaboration',
+          description: 'Intense 36-hour build session during the national hackathon.'
+        },
+        {
+          url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1775737409/Screenshot_2026-04-09_175257_dnzmbe.png',
+          title: 'Victory Trophy',
+          description: 'Celebrating our first place finish at the hackathon.'
+        },
+        {
+          url: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1775737458/Screenshot_2026-04-09_175236_gwiz1l.png',
+          title: 'Closing Ceremony',
+          description: 'Final moments of the 36-hour technical marathon.'
+        }
+      ],
       details: [
         { label: 'Disease Detection Accuracy', value: '94% with Computer Vision' },
         { label: 'Price Prediction Accuracy', value: '87% using ML Models' },
@@ -612,9 +610,9 @@ function HackathonSections({ onSectionClick }) {
           >
             {/* Glow Effect */}
             <div className={`absolute -inset-1 bg-gradient-to-r ${section.gradient} rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500`} />
-            
+
             {/* Card Container */}
-            <div className="relative bg-[#0a0a0f]/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-all duration-500 group-hover:scale-[1.02] h-full flex flex-col">
+            <div className="relative bg-[var(--bg-secondary)] backdrop-blur-sm rounded-2xl overflow-hidden border border-[var(--border-primary)] group-hover:border-[var(--accent-primary)] transition-all duration-500 group-hover:scale-[1.02] h-full flex flex-col shadow-lg">
               {/* Image */}
               <div className="relative h-72 overflow-hidden group">
                 <img
@@ -622,7 +620,7 @@ function HackathonSections({ onSectionClick }) {
                   alt={section.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
               </div>
 
               {/* Content */}
@@ -635,7 +633,7 @@ function HackathonSections({ onSectionClick }) {
                   </h3>
                 </div>
                 <p className="text-sm text-indigo-400 font-medium mb-4">{section.subtitle}</p>
-                
+
                 <p className="text-slate-300 leading-relaxed flex-1 line-clamp-3">
                   {section.fullDescription}
                 </p>
@@ -843,7 +841,7 @@ export default function KisanDost() {
   const [activeTab, setActiveTab] = useState('overview');
   const [expandedMember, setExpandedMember] = useState(null);
   const [selectedSection, setSelectedSection] = useState(null);
-  
+
   // Auto-open modal on component mount
   useEffect(() => {
     // Set a small delay to ensure smooth animation
@@ -897,10 +895,10 @@ export default function KisanDost() {
         technologies: ['React', 'Node.js', 'Python', 'MongoDB', 'AWS']
       });
     }, 300);
-    
+
     return () => clearTimeout(timer);
   }, []);
-  
+
   const teamMembers = [
     {
       name: 'Anisha Chhajer',
@@ -943,17 +941,17 @@ export default function KisanDost() {
       social: { github: '#', linkedin: '#', twitter: '#' }
     }
   ];
-  
+
   const stats = [
     { icon: Clock, label: 'Build Time', value: '36 Hours', color: 'from-blue-500 to-cyan-500', description: 'Team Development' },
     { icon: Users, label: 'Team', value: '4 Developers', color: 'from-purple-500 to-pink-500', description: 'Full Stack + AI' },
     { icon: Trophy, label: 'Ranking', value: '1st Place', color: 'from-amber-500 to-orange-500', description: 'Out of 45 Teams' },
   ];
-  
+
   const handleExpandMember = (index) => {
     setExpandedMember(expandedMember === index ? null : index);
   };
-  
+
   return (
     <div className="py-16 sm:py-24 px-4 relative bg-gradient-to-b from-[#050507] to-[#0a0a0f]" id="hackathon-experience">
       {/* Animated Background */}
@@ -962,7 +960,7 @@ export default function KisanDost() {
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-emerald-500/20 to-green-500/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
         <div className="absolute inset-0" style={{ backgroundImage: `radial-gradient(circle at 1px 1px, rgba(251, 191, 36, 0.1) 1px, transparent 1px)`, backgroundSize: '50px 50px' }} />
       </div>
-      
+
       <div className="max-w-7xl mx-auto relative">
 
         {/* Header */}
@@ -983,7 +981,7 @@ export default function KisanDost() {
             <span className="px-3 py-1 bg-green-500/20 rounded-full text-sm text-green-400 flex items-center gap-1"><Leaf size={14} /> Most Impactful Solution</span>
           </div>
         </div>
-        
+
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
           {stats.map((stat, index) => (
@@ -1000,7 +998,7 @@ export default function KisanDost() {
             </div>
           ))}
         </div>
-        
+
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12 overflow-x-auto">
           <div className="inline-flex bg-[#0a0a0f]/80 backdrop-blur-sm rounded-xl p-1 border border-white/5">
@@ -1013,11 +1011,10 @@ export default function KisanDost() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-4 sm:px-6 py-2 rounded-lg flex items-center gap-2 transition-all duration-300 ${
-                  activeTab === tab.id
+                className={`px-4 sm:px-6 py-2 rounded-lg flex items-center gap-2 transition-all duration-300 ${activeTab === tab.id
                     ? 'bg-gradient-to-r from-amber-600 to-orange-600 text-white shadow-lg'
                     : 'text-slate-400 hover:text-white hover:bg-white/5'
-                }`}
+                  }`}
                 aria-pressed={activeTab === tab.id}
                 aria-label={`View ${tab.label} tab`}
               >
@@ -1027,7 +1024,7 @@ export default function KisanDost() {
             ))}
           </div>
         </div>
-        
+
         {/* Tab Content */}
         <div className="transition-all duration-500">
           {/* Overview Tab */}
@@ -1036,7 +1033,7 @@ export default function KisanDost() {
               {/* Hackathon Sections with Modal */}
               <HackathonSections onSectionClick={setSelectedSection} />
               <DetailedModal section={selectedSection} onClose={() => setSelectedSection(null)} />
-              
+
               {/* Problem & Solution */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="group relative">
@@ -1051,7 +1048,7 @@ export default function KisanDost() {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="group relative">
                   <div className="absolute -inset-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
                   <div className="relative bg-[#0a0a0f]/80 backdrop-blur-sm rounded-2xl p-6 border border-green-500/30">
@@ -1065,7 +1062,7 @@ export default function KisanDost() {
                   </div>
                 </div>
               </div>
-              
+
               {/* Quick Stats */}
               <div className="grid grid-cols-3 gap-4">
                 <div className="text-center p-4 bg-[#0a0a0f]/60 rounded-xl border border-white/5">
@@ -1083,7 +1080,7 @@ export default function KisanDost() {
               </div>
             </div>
           )}
-          
+
           {/* Features Tab - Enhanced */}
           {activeTab === 'features' && (
             <div className="space-y-8">
@@ -1096,7 +1093,7 @@ export default function KisanDost() {
               <FeaturesSection />
             </div>
           )}
-          
+
           {/* Tech Stack Tab - Enhanced */}
           {activeTab === 'tech' && (
             <div className="space-y-8">
@@ -1109,7 +1106,7 @@ export default function KisanDost() {
               <TechStackSection />
             </div>
           )}
-          
+
           {/* Team Tab */}
           {activeTab === 'team' && (
             <div className="space-y-8">
@@ -1123,9 +1120,9 @@ export default function KisanDost() {
                 </div>
                 <p className="text-slate-400">Four passionate developers, one mission: Empower farmers with technology</p>
               </div>
-              
+
               <TeamStats members={teamMembers} />
-              
+
               <div className="grid md:grid-cols-2 gap-6">
                 {teamMembers.map((member, index) => (
                   <div key={member.name} className="group relative animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
@@ -1141,7 +1138,7 @@ export default function KisanDost() {
                           <p className="text-sm text-slate-400 mt-2 leading-relaxed">{member.description}</p>
                         </div>
                       </div>
-                      
+
                       <div className="mt-4 pt-4 border-t border-white/5">
                         <p className="text-sm text-amber-400 mb-2 flex items-center gap-1">
                           <Award size={14} />
@@ -1155,7 +1152,7 @@ export default function KisanDost() {
                           ))}
                         </div>
                       </div>
-                      
+
                       <div className="mt-3">
                         <p className="text-xs text-slate-500 mb-1">Contributions:</p>
                         <div className="flex flex-wrap gap-1">
@@ -1170,15 +1167,15 @@ export default function KisanDost() {
                   </div>
                 ))}
               </div>
-              
+
               <TeamQuote />
             </div>
           )}
-          
-        
+
+
         </div>
       </div>
-      
+
       <style jsx>{`
         @keyframes fade-in-up {
           from {

@@ -156,7 +156,7 @@ function SkillCard({ card, index }) {
     >
       <div className={`absolute -inset-1 bg-gradient-to-r ${card.gradient} rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500`} />
       
-      <div className="relative bg-gray-900/60 backdrop-blur-md rounded-2xl border border-gray-800 overflow-hidden group-hover:border-gray-700 transition-all duration-500 group-hover:scale-[1.02] h-full">
+      <div className="relative bg-[var(--bg-secondary)] backdrop-blur-md rounded-2xl border border-[var(--border-primary)] overflow-hidden group-hover:border-[var(--accent-primary)] transition-all duration-500 group-hover:scale-[1.02] h-full shadow-lg">
         {/* Corner accents */}
         <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-gray-600/30 group-hover:border-indigo-400/50 transition-all duration-300" />
         <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-gray-600/30 group-hover:border-indigo-400/50 transition-all duration-300" />
@@ -173,7 +173,7 @@ function SkillCard({ card, index }) {
                   <card.icon size={28} className={`${card.iconColor} ${card.hoverIconColor} transition-colors duration-300`} />
                 </div>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
+              <h3 className="text-2xl sm:text-3xl font-semibold text-[var(--text-primary)] transition-all duration-300">
                 {card.title}
               </h3>
             </div>
@@ -181,7 +181,7 @@ function SkillCard({ card, index }) {
         </div>
         
         <div className="p-6 sm:p-8 pt-0">
-          <p className="text-gray-300 leading-relaxed text-base sm:text-lg mb-6 group-hover:text-gray-200 transition-colors duration-300">
+          <p className="text-[var(--text-secondary)] leading-relaxed text-base sm:text-lg mb-6 group-hover:text-[var(--text-primary)] transition-colors duration-300">
             {card.description}
           </p>
           
@@ -189,10 +189,10 @@ function SkillCard({ card, index }) {
             {card.skills.map((skill, i) => (
               <span
                 key={skill}
-                className={`group/badge relative px-4 py-2.5 rounded-xl bg-gray-800/50 border border-gray-700 hover:border-${card.iconColor.split('-')[1]}-400/50 hover:bg-gray-800 transition-all duration-300 overflow-hidden`}
+                className={`group/badge relative px-4 py-2.5 rounded-xl bg-[var(--bg-accent)] border border-[var(--border-primary)] hover:border-[var(--accent-primary)] transition-all duration-300 shadow-sm`}
               >
                 <div className={`absolute inset-0 bg-gradient-to-r ${card.gradient} opacity-0 group-hover/badge:opacity-20 transition-opacity duration-300`} />
-                <span className="relative text-sm font-medium text-gray-300 group-hover/badge:text-white transition-colors duration-300">
+                <span className="relative text-sm font-medium text-[var(--text-secondary)] group-hover/badge:text-[var(--text-primary)] transition-colors duration-300">
                   {skill}
                 </span>
                 <div className={`absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r ${card.gradient} group-hover/badge:w-6 transition-all duration-300 rounded-full`} />
@@ -271,8 +271,9 @@ export default function Skills() {
       id="skills"
       className="
         relative py-20 px-4 sm:px-8 lg:px-16
-        bg-gradient-to-b from-gray-900 to-black
+        bg-[var(--bg-primary)]
         overflow-hidden
+        transition-colors duration-300
       "
     >
       {/* Heading */}
@@ -283,14 +284,13 @@ export default function Skills() {
         transition={{ duration: 0.6 }}
         className="
           text-center text-4xl sm:text-5xl font-bold mb-4
-          bg-gradient-to-r from-purple-500 via-pink-500 to-red-500
-          bg-clip-text text-transparent
+          text-[var(--text-primary)]
         "
       >
         My Skills
       </motion.h2>
 
-      <p className="text-center text-gray-400 max-w-2xl mx-auto mb-16">
+      <p className="text-center text-[var(--text-secondary)] max-w-2xl mx-auto mb-16">
         Technologies and methodologies I work with to build exceptional digital experiences
       </p>
 
