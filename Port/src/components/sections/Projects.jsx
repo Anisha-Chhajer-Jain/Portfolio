@@ -11,7 +11,7 @@
 // //       style={{ animationDelay: `${index * 0.15}s` }}
 // //     >
 // //       <div className={`absolute -inset-1 bg-gradient-to-r ${project.gradient} rounded-3xl opacity-0 group-hover:opacity-30 blur-2xl transition-all duration-500`} />
-      
+
 // //       <div className="relative bg-slate-900/60 backdrop-blur-sm rounded-3xl border border-slate-800/50 overflow-hidden group-hover:border-slate-700 transition-all duration-500 group-hover:scale-[1.02]">
 // //         <div className="relative h-48 sm:h-56 overflow-hidden">
 // //           <img 
@@ -29,7 +29,7 @@
 // //             </h3>
 // //           </div>
 // //         </div>
-        
+
 // //         <div className="p-4 sm:p-6">
 // //           <div className="flex flex-wrap gap-2 mb-3">
 // //             {project.tags.map((tag, i) => (
@@ -42,11 +42,11 @@
 // //               </span>
 // //             ))}
 // //           </div>
-          
+
 // //           <p className="text-slate-400 font-light leading-relaxed mb-4 text-sm sm:text-base line-clamp-3">
 // //             {project.description}
 // //           </p>
-          
+
 // //           <div className="flex flex-wrap gap-2 sm:gap-3">
 // //             <a 
 // //               href={project.github}
@@ -216,11 +216,11 @@
 
 // // export default function Projects() {
 // //   const [visibleProjects, setVisibleProjects] = useState(6);
-  
+
 // //   const loadMoreProjects = () => {
 // //     setVisibleProjects(prev => Math.min(prev + 6, projects.length));
 // //   };
-  
+
 // //   return (
 // //     <div className="py-12 sm:py-22 px-4 sm:px-6 relative" id="projects">
 // //       <div className="max-w-7xl mx-auto">
@@ -232,13 +232,13 @@
 // //             Showcasing my web development journey through UI clones and designs
 // //           </p>
 // //         </div>
-        
+
 // //         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
 // //           {projects.slice(0, visibleProjects).map((project, index) => (
 // //             <ProjectCard key={project.title} project={project} index={index} />
 // //           ))}
 // //         </div>
-        
+
 // //         {visibleProjects < projects.length && (
 // //           <LoadMoreButton onClick={loadMoreProjects} count={projects.length - visibleProjects} label="Projects" />
 // //         )}
@@ -252,7 +252,7 @@
 // // Enhanced Project Card Component with hover effects and detailed view
 // function ProjectCard({ project, index }) {
 //   const [isHovered, setIsHovered] = useState(false);
-  
+
 //   return (
 //     <div
 //       className="group relative animate-fade-in-up"
@@ -262,7 +262,7 @@
 //     >
 //       {/* Glow effect on hover */}
 //       <div className={`absolute -inset-0.5 bg-gradient-to-r ${project.gradient} rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-700 group-hover:duration-300`} />
-      
+
 //       <div className="relative bg-[#0a0a0f]/80 backdrop-blur-sm rounded-2xl border border-white/5 overflow-hidden group-hover:border-white/10 transition-all duration-500 hover:-translate-y-2">
 //         {/* Image Container with Overlay */}
 //         <div className="relative h-52 overflow-hidden">
@@ -276,14 +276,14 @@
 //           />
 //           {/* Gradient overlay */}
 //           <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/60 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-500" />
-          
+
 //           {/* Category tag */}
 //           <div className="absolute top-4 left-4">
 //             <span className={`px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r ${project.gradient} bg-opacity-20 text-white/90 backdrop-blur-sm border border-white/10`}>
 //               {project.tags[0]}
 //             </span>
 //           </div>
-          
+
 //           {/* Title overlay */}
 //           <div className="absolute bottom-0 left-0 right-0 p-5">
 //             <h3 className="text-xl font-semibold text-white tracking-tight">
@@ -291,7 +291,7 @@
 //             </h3>
 //           </div>
 //         </div>
-        
+
 //         {/* Content */}
 //         <div className="p-5">
 //           {/* Tags */}
@@ -305,12 +305,12 @@
 //               </span>
 //             ))}
 //           </div>
-          
+
 //           {/* Description */}
 //           <p className="text-slate-400 text-sm leading-relaxed mb-5 line-clamp-2">
 //             {project.description}
 //           </p>
-          
+
 //           {/* Action Buttons */}
 //           <div className="flex items-center gap-3 pt-2 border-t border-white/5">
 //             <a 
@@ -344,7 +344,7 @@
 //             )}
 //           </div>
 //         </div>
-        
+
 //         {/* Animated border on hover */}
 //         <div className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r ${project.gradient} transition-all duration-500 ease-out ${isHovered ? 'w-full' : 'w-0'}`} />
 //       </div>
@@ -563,9 +563,9 @@
 //   const [visibleCount, setVisibleCount] = useState(6);
 //   const [activeCategory, setActiveCategory] = useState('All');
 //   const [filteredProjects, setFilteredProjects] = useState(projectsData);
-  
+
 //   const categories = ['All', ...new Set(projectsData.map(p => p.category))];
-  
+
 //   useEffect(() => {
 //     if (activeCategory === 'All') {
 //       setFilteredProjects(projectsData);
@@ -574,12 +574,12 @@
 //     }
 //     setVisibleCount(6);
 //   }, [activeCategory]);
-  
+
 //   const visibleProjects = filteredProjects.slice(0, visibleCount);
 //   const hasMore = visibleCount < filteredProjects.length;
-  
+
 //   const featuredProject = projectsData.find(p => p.title === 'Flipkart Clone');
-  
+
 //   return (
 //     <div className="py-16 sm:py-24 px-4 relative bg-gradient-to-b from-[#050507] to-[#0a0a0f]" id="projects">
 //       <div className="max-w-7xl mx-auto">
@@ -599,24 +599,24 @@
 //             A collection of my recent work including UI clones, interactive applications, and full-stack projects.
 //           </p>
 //         </div>
-        
+
 //         {/* Featured Project */}
 //         {featuredProject && <FeaturedProject project={featuredProject} />}
-        
+
 //         {/* Category Filter */}
 //         <CategoryFilter 
 //           categories={categories}
 //           activeCategory={activeCategory}
 //           onCategoryChange={setActiveCategory}
 //         />
-        
+
 //         {/* Projects Grid */}
 //         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 //           {visibleProjects.map((project, index) => (
 //             <ProjectCard key={`${project.title}-${index}`} project={project} index={index} />
 //           ))}
 //         </div>
-        
+
 //         {/* Load More */}
 //         {hasMore && (
 //           <div className="flex justify-center mt-12">
@@ -643,7 +643,7 @@ import { Github, Youtube, ExternalLink, ChevronRight, Code, Eye, Sparkles, Troph
 // Enhanced Project Card Component with hover effects and detailed view
 function ProjectCard({ project, index }) {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   return (
     <div
       className="group relative animate-fade-in-up"
@@ -653,12 +653,12 @@ function ProjectCard({ project, index }) {
     >
       {/* Glow effect on hover */}
       <div className={`absolute -inset-0.5 bg-gradient-to-r ${project.gradient} rounded-2xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-700 group-hover:duration-300`} />
-      
+
       <div className="relative bg-[var(--bg-secondary)] backdrop-blur-sm rounded-2xl border border-[var(--border-primary)] overflow-hidden group-hover:border-[var(--accent-primary)] transition-all duration-500 hover:-translate-y-2 shadow-lg">
         {/* Image Container with Overlay */}
         <div className="relative h-52 overflow-hidden">
-          <img 
-            src={project.image} 
+          <img
+            src={project.image}
             alt={project.title}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             onError={(e) => {
@@ -667,14 +667,14 @@ function ProjectCard({ project, index }) {
           />
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-500" />
-          
+
           {/* Category tag */}
           <div className="absolute top-4 left-4">
             <span className={`px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r ${project.gradient} bg-opacity-20 text-white backdrop-blur-sm border border-white/20 shadow-md`}>
               {project.tags[0]}
             </span>
           </div>
-          
+
           {/* Title overlay */}
           <div className="absolute bottom-0 left-0 right-0 p-5">
             <h3 className="text-xl font-semibold text-white tracking-tight drop-shadow-md">
@@ -682,7 +682,7 @@ function ProjectCard({ project, index }) {
             </h3>
           </div>
         </div>
-        
+
         {/* Content */}
         <div className="p-5">
           {/* Tags */}
@@ -696,15 +696,15 @@ function ProjectCard({ project, index }) {
               </span>
             ))}
           </div>
-          
+
           {/* Description */}
           <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-5 line-clamp-2">
             {project.description}
           </p>
-          
+
           {/* Action Buttons */}
           <div className="flex items-center gap-3 pt-4 border-t border-[var(--border-primary)]">
-            <a 
+            <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
@@ -713,7 +713,7 @@ function ProjectCard({ project, index }) {
               <Github size={16} className="group-hover/btn:rotate-12 transition-transform" />
               <span className="text-sm font-medium">Code</span>
             </a>
-            <a 
+            <a
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
@@ -723,7 +723,7 @@ function ProjectCard({ project, index }) {
               <span className="text-sm font-medium">Live Demo</span>
             </a>
             {project.youtube && (
-              <a 
+              <a
                 href={project.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -735,7 +735,7 @@ function ProjectCard({ project, index }) {
             )}
           </div>
         </div>
-        
+
         {/* Animated border on hover */}
         <div className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r ${project.gradient} transition-all duration-500 ease-out ${isHovered ? 'w-full' : 'w-0'}`} />
       </div>
@@ -758,7 +758,7 @@ function FeaturedProject({ project }) {
                 <Trophy size={13} className="text-yellow-400" />
                 <span className="text-xs font-mono text-yellow-400 tracking-wider">HACKATHON PROJECT</span>
               </div>
-             
+
             </div>
 
             <h3 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-3">
@@ -775,7 +775,7 @@ function FeaturedProject({ project }) {
               ))}
             </div>
             <div className="flex flex-wrap gap-3">
-              <a 
+              <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -784,7 +784,7 @@ function FeaturedProject({ project }) {
                 <Github size={18} />
                 <span>Source Code</span>
               </a>
-              <a 
+              <a
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -797,8 +797,8 @@ function FeaturedProject({ project }) {
             </div>
           </div>
           <div className="order-1 md:order-2 relative h-48 md:h-auto rounded-xl overflow-hidden">
-            <img 
-              src={project.image} 
+            <img
+              src={project.image}
               alt={project.title}
               className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
             />
@@ -823,11 +823,10 @@ function CategoryFilter({ categories, activeCategory, onCategoryChange }) {
         <button
           key={category}
           onClick={() => onCategoryChange(category)}
-          className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
-            activeCategory === category
+          className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${activeCategory === category
               ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/25 scale-105'
               : 'bg-[var(--bg-accent)] text-[var(--text-secondary)] hover:bg-[var(--accent-primary)] hover:text-white border border-[var(--border-primary)]'
-          }`}
+            }`}
         >
           {category}
         </button>

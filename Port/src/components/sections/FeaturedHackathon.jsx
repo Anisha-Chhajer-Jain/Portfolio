@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Trophy, Clock, Users, Award, Github, ExternalLink, 
-  ChevronRight, Code, Database, Brain, Cloud, 
-  CheckCircle, TrendingUp, Leaf, Mic, ShoppingCart, 
+import {
+  Trophy, Clock, Users, Award, Github, ExternalLink,
+  ChevronRight, Code, Database, Brain, Cloud,
+  CheckCircle, TrendingUp, Leaf, Mic, ShoppingCart,
   MessageCircle, BarChart3, Camera, Zap, Globe
 } from 'lucide-react';
 import { kisanDost, hackathonStats } from '../../data/kisanDostData';
@@ -10,11 +10,11 @@ import { kisanDost, hackathonStats } from '../../data/kisanDostData';
 export default function FeaturedHackathon() {
   const [activeTab, setActiveTab] = useState('overview');
   const [isVisible, setIsVisible] = useState(false);
-  
+
   useEffect(() => {
     setIsVisible(true);
   }, []);
-  
+
   const iconMap = {
     '🔬': Camera,
     '📈': TrendingUp,
@@ -23,14 +23,14 @@ export default function FeaturedHackathon() {
     '👨‍🌾': Users,
     '🛒': ShoppingCart
   };
-  
+
   return (
     <div className="py-12 sm:py-22 px-4 sm:px-6 relative overflow-hidden" id="featured-hackathon">
       {/* Animated Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-full blur-3xl animate-pulse-slow" />
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-emerald-500/20 to-green-500/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
-        <div 
+        <div
           className="absolute inset-0"
           style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, rgba(251, 191, 36, 0.1) 1px, transparent 1px)`,
@@ -38,7 +38,7 @@ export default function FeaturedHackathon() {
           }}
         />
       </div>
-      
+
       <div className="max-w-7xl mx-auto relative">
 
         {/* Header */}
@@ -54,7 +54,7 @@ export default function FeaturedHackathon() {
             AI-Powered Agricultural Assistant • 36-Hour Solo Build • 1st Place Winner
           </p>
         </div>
-        
+
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {[
@@ -79,7 +79,7 @@ export default function FeaturedHackathon() {
             </div>
           ))}
         </div>
-        
+
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12 overflow-x-auto">
           <div className="inline-flex bg-slate-900/60 backdrop-blur-sm rounded-xl p-1 border border-slate-800/50">
@@ -92,11 +92,10 @@ export default function FeaturedHackathon() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-4 sm:px-6 py-2 rounded-lg flex items-center gap-2 transition-all duration-300 ${
-                  activeTab === tab.id
+                className={`px-4 sm:px-6 py-2 rounded-lg flex items-center gap-2 transition-all duration-300 ${activeTab === tab.id
                     ? 'bg-gradient-to-r from-amber-600 to-orange-600 text-white shadow-lg'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
-                }`}
+                  }`}
               >
                 <tab.icon size={18} />
                 <span className="text-sm sm:text-base font-medium whitespace-nowrap">{tab.label}</span>
@@ -104,7 +103,7 @@ export default function FeaturedHackathon() {
             ))}
           </div>
         </div>
-        
+
         {/* Tab Content */}
         <div className="transition-all duration-500">
           {/* Overview Tab */}
@@ -119,7 +118,7 @@ export default function FeaturedHackathon() {
                     <p className="text-slate-300 leading-relaxed">{kisanDost.problemStatement}</p>
                   </div>
                 </div>
-                
+
                 <div className="group relative">
                   <div className="absolute -inset-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
                   <div className="relative bg-slate-900/60 backdrop-blur-sm rounded-2xl p-6 border border-green-500/30">
@@ -128,7 +127,7 @@ export default function FeaturedHackathon() {
                   </div>
                 </div>
               </div>
-              
+
               {/* Architecture */}
               <div className="group relative">
                 <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
@@ -155,7 +154,7 @@ export default function FeaturedHackathon() {
                   </div>
                 </div>
               </div>
-              
+
               {/* Challenges & Achievements */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-slate-900/40 backdrop-blur-sm rounded-2xl p-6 border border-slate-800/50">
@@ -172,7 +171,7 @@ export default function FeaturedHackathon() {
                     ))}
                   </ul>
                 </div>
-                
+
                 <div className="bg-slate-900/40 backdrop-blur-sm rounded-2xl p-6 border border-slate-800/50">
                   <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-green-400">
                     <CheckCircle size={20} />
@@ -190,7 +189,7 @@ export default function FeaturedHackathon() {
               </div>
             </div>
           )}
-          
+
           {/* Features Tab */}
           {activeTab === 'features' && (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -217,7 +216,7 @@ export default function FeaturedHackathon() {
               })}
             </div>
           )}
-          
+
           {/* Tech Stack Tab */}
           {activeTab === 'tech' && (
             <div className="space-y-8">
@@ -246,7 +245,7 @@ export default function FeaturedHackathon() {
               ))}
             </div>
           )}
-          
+
           {/* Impact Tab */}
           {activeTab === 'impact' && (
             <div className="space-y-8">
@@ -266,7 +265,7 @@ export default function FeaturedHackathon() {
                   </div>
                 ))}
               </div>
-              
+
               {/* Demo Links */}
               <div className="bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-2xl p-8 text-center border border-amber-500/30">
                 <h3 className="text-2xl font-bold mb-4">See KisanDost in Action</h3>
@@ -296,14 +295,14 @@ export default function FeaturedHackathon() {
                     className="inline-flex items-center gap-2 px-6 py-3 bg-red-600/20 hover:bg-red-600/30 rounded-xl transition-all duration-300 border border-red-500/50"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M10 15l5-3-5-3v6z"/>
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                      <path d="M10 15l5-3-5-3v6z" />
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
                     </svg>
                     <span>Demo Video</span>
                   </a>
                 </div>
               </div>
-              
+
               {/* Team Info */}
               <div className="text-center">
                 <div className="inline-flex items-center gap-3 px-6 py-4 bg-slate-900/60 rounded-2xl border border-slate-800/50">
@@ -318,7 +317,7 @@ export default function FeaturedHackathon() {
             </div>
           )}
         </div>
-        
+
         {/* Timeline Section */}
         <div className="mt-12 pt-8 border-t border-slate-800/50">
           <div className="flex flex-wrap justify-between items-center gap-4">

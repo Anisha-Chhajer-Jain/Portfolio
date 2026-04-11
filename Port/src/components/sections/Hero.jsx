@@ -14,7 +14,7 @@ export default function Hero({ isVisible, scrollY }) {
 
 
   return (
-    <div className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6 relative bg-[var(--bg-primary)]" id="hero">
+    <div className="pt-8 sm:pt-10 pb-12 sm:pb-20 px-4 sm:px-6 relative bg-[var(--bg-primary)]" id="hero">
       {/* Background Glow */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[var(--accent-primary)] opacity-10 rounded-full blur-[120px] pointer-events-none" />
 
