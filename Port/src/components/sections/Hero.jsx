@@ -1,8 +1,9 @@
 
 import React from 'react';
 import { Mail, ExternalLink, Download, Github, Linkedin, Twitter, Youtube, Code } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-export default function Hero({ isVisible, scrollY, scrollToSection }) {
+export default function Hero({ isVisible, scrollY }) {
   const socialLinks = [
     { Icon: Github, url: 'https://github.com/Anisha-Chhajer-Jain', label: 'GitHub', gradient: 'from-slate-800 to-gray-900', textColor: 'text-slate-300' },
     { Icon: Linkedin, url: 'https://www.linkedin.com/in/anisha-chhajer-844114367/', label: 'LinkedIn', gradient: 'from-blue-700 to-blue-800', textColor: 'text-blue-300' },
@@ -41,8 +42,8 @@ export default function Hero({ isVisible, scrollY, scrollToSection }) {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 animate-fade-in-delay-2">
-            <button
-              onClick={() => scrollToSection('contact')}
+            <Link
+              to="/contact"
               className="group relative flex items-center gap-3 px-5 py-3 bg-[var(--bg-accent)] backdrop-blur-sm rounded-2xl border border-[var(--border-primary)] hover:border-[var(--accent-primary)] transition-all duration-300 hover:scale-105"
             >
               <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-indigo-500/20">
@@ -52,10 +53,10 @@ export default function Hero({ isVisible, scrollY, scrollToSection }) {
                 Get in Touch
                 <span className="opacity-70 group-hover:translate-x-1 transition-transform duration-300 text-[var(--accent-primary)]">→</span>
               </span>
-            </button>
+            </Link>
 
-            <button
-              onClick={() => scrollToSection('projects')}
+            <Link
+              to="/projects"
               className="group relative flex items-center gap-3 px-5 py-3 bg-[var(--bg-accent)] backdrop-blur-sm rounded-2xl border border-[var(--border-primary)] hover:border-[var(--accent-primary)] transition-all duration-300 hover:scale-105"
             >
               <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-slate-700 to-slate-800 border border-slate-600 group-hover:border-slate-500 flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg">
@@ -65,7 +66,8 @@ export default function Hero({ isVisible, scrollY, scrollToSection }) {
                 View My Work
                 <span className="opacity-70 group-hover:translate-x-1 transition-transform duration-300 text-[var(--text-secondary)]">→</span>
               </span>
-            </button>
+            </Link>
+
 
             <a
               href="https://drive.google.com/file/d/1M_d3F9N_0TDtr2zwHb8OyiCacvAgzFOS/view"

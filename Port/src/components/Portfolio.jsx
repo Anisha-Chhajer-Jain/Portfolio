@@ -29,25 +29,9 @@ export default function Portfolio() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] transition-all duration-300 overflow-hidden relative selection:bg-[var(--accent-primary)] selection:text-white">
-      <ParticleCanvas />
-      <Navigation scrollToSection={scrollToSection} />
-      <Hero isVisible={isVisible} scrollY={scrollY} scrollToSection={scrollToSection} />
+    <>
+      <Hero isVisible={isVisible} scrollY={scrollY} />
       <About />
       <Skills />
       <Projects />
@@ -56,8 +40,6 @@ export default function Portfolio() {
       <KisanDost />
       <Education />
       <Contact />
-      <Footer />
-      <FloatingElements />
-    </div>
+    </>
   );
 }

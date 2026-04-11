@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /Hackathon
+Disallow: /
+Disallow: /
+
+Sitemap: http://codinggita.com/sitemap.xml
