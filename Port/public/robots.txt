@@ -1,8 +1,7 @@
 User-agent: *
 Allow: /
 
-Disallow: /Hackathon
-Disallow: /
-Disallow: /
+Disallow: /hackathon
+Disallow: /contact
 
-Sitemap: http://codinggita.com/sitemap.xml
+Sitemap: https://anishachhajer-portfolio.netlify.app//sitemap.xml
