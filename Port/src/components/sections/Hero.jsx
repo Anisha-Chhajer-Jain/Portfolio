@@ -70,7 +70,7 @@ export default function Hero({ isVisible, scrollY }) {
 
 
             <a
-              href="https://drive.google.com/file/d/1UDhTCxC-GV6XBmfUfLjVIRWdXNShc_CB/view"
+              href="https://drive.google.com/file/d/14vrvkQkyzo1WOLT2oqXXgOc8Fi5SIzmV/view"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative flex items-center gap-3 px-5 py-3 bg-[var(--bg-accent)] backdrop-blur-sm rounded-2xl border border-[var(--border-primary)] hover:border-[var(--accent-primary)] transition-all duration-300 hover:scale-105"
