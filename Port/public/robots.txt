@@ -2,6 +2,6 @@ User-agent: *
 Allow: /
 
 
-Disallow: /contact
+Disallow: /leetcode
 
 Sitemap: https://anishachhajer.vercel.app/sitemap.xml

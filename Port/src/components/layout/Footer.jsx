@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Github, Linkedin, Twitter, Code } from 'lucide-react';
 import { motion } from "framer-motion";
 
 export default function Footer() {
@@ -8,6 +8,7 @@ export default function Footer() {
     { Icon: Github, url: 'https://github.com/Anisha-Chhajer-Jain', label: 'GitHub', gradient: 'from-gray-600 to-gray-800' },
     { Icon: Linkedin, url: 'https://www.linkedin.com/in/anisha-chhajer-844114367/', label: 'LinkedIn', gradient: 'from-blue-600 to-blue-800' },
     { Icon: Twitter, url: 'https://x.com/anisha_chhajer', label: 'Twitter', gradient: 'from-sky-500 to-cyan-600' },
+    { Icon: Code, url: 'https://leetcode.com/u/anisha_chhajer/', label: 'LeetCode', gradient: 'from-orange-600 to-yellow-700' },
   ];
   
   // Animation variants

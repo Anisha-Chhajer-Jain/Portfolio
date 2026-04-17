@@ -7,10 +7,11 @@ import logo from '../../assets/logo.png';
 const navItems = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
-  { name: 'Projects', path: '/projects' },
   { name: 'Skills', path: '/skills' },
+  { name: 'Projects', path: '/projects' },
   { name: 'Certificates', path: '/certificates' },
   { name: 'Achievement', path: '/achievement' },
+  { name: 'Education', path: '/education' },
   { name: 'Contact', path: '/contact' },
 ];
 
@@ -24,7 +25,7 @@ const sectionToNav = {
   'certificates': 'Certificates',
   'hackathon-experience': 'Achievement',
   'featured-hackathon': 'Achievement',
-  'education': 'Contact',       // Education is near Contact
+  'education': 'Education',
   'contact': 'Contact',
 };
 

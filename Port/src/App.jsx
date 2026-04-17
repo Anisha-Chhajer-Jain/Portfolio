@@ -24,6 +24,7 @@ function App() {
             <Route index element={<Portfolio />} />
             <Route path="about" element={<Portfolio />} />
             <Route path="projects" element={<Portfolio />} />
+            <Route path="education" element={<Portfolio />} />
             <Route path="skills" element={<Portfolio />} />
             <Route path="leetcode" element={<Portfolio />} />
             <Route path="certificates" element={<Portfolio />} />

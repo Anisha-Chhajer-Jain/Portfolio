@@ -43,6 +43,7 @@ export default function Portfolio() {
       const routeToId = {
         'about': 'about',
         'projects': 'projects',
+        'education': 'education',
         'skills': 'skills',
         'certificates': 'certificates',
         'achievement': 'hackathon-experience',

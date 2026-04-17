@@ -285,7 +285,7 @@ export default function Hackathons() {
         {/* Section Header */}
         <div className="text-center mb-16 relative">
            <h2 className="text-4xl md:text-6xl font-black bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent mb-4 tracking-tight drop-shadow-sm">
-            Achievement Journey
+            Hackathon Journey
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
             Building innovative solutions under intense pressure. High-performance execution resulting in award-winning technical excellence at national competitions.
