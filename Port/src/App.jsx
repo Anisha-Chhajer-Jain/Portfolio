@@ -22,13 +22,13 @@ function App() {
         <Routes key="routes">
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Portfolio />} />
-            <Route path="about" element={<About />} />
-            <Route path="projects" element={<Projects />} />
-            <Route path="skills" element={<Skills />} />
-            <Route path="leetcode" element={<Leetcode />} />
-            <Route path="certificates" element={<Certificates />} />
-            <Route path="hackathon" element={<Hackathons />} />
-            <Route path="contact" element={<Contact />} />
+            <Route path="about" element={<Portfolio />} />
+            <Route path="projects" element={<Portfolio />} />
+            <Route path="skills" element={<Portfolio />} />
+            <Route path="leetcode" element={<Portfolio />} />
+            <Route path="certificates" element={<Portfolio />} />
+            <Route path="achievement" element={<Portfolio />} />
+            <Route path="contact" element={<Portfolio />} />
             <Route path="kisandost" element={<KisanDost />} />
           </Route>
         </Routes>

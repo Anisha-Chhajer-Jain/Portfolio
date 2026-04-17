@@ -82,7 +82,7 @@ const HackathonCard = ({
           <div className={`flex items-center gap-2 mb-4 rounded-full px-4 py-1.5 w-fit border border-white/5 ${headerBgBadge}`}>
             <span className={`w-2 h-2 rounded-full ${dotColor} animate-pulse shadow-lg ${isGu ? 'shadow-indigo-500' : 'shadow-amber-500'}`} />
             <span className={`text-xs font-bold tracking-widest uppercase ${headerHighlight} drop-shadow-md`}>
-              Offline Hackathon Winner
+              Achievement Winner
             </span>
           </div>
           
@@ -285,10 +285,10 @@ export default function Hackathons() {
         {/* Section Header */}
         <div className="text-center mb-16 relative">
            <h2 className="text-4xl md:text-6xl font-black bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent mb-4 tracking-tight drop-shadow-sm">
-            Hackathon Journey
+            Achievement Journey
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
-            Building innovative solutions under intense pressure. High-performance execution resulting in award-winning technical excellence at national hackathons.
+            Building innovative solutions under intense pressure. High-performance execution resulting in award-winning technical excellence at national competitions.
           </p>
         </div>
 

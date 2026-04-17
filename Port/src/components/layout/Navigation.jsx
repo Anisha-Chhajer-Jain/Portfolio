@@ -10,7 +10,7 @@ const navItems = [
   { name: 'Projects', path: '/projects' },
   { name: 'Skills', path: '/skills' },
   { name: 'Certificates', path: '/certificates' },
-  { name: 'Hackathon', path: '/hackathon' },
+  { name: 'Achievement', path: '/achievement' },
   { name: 'Contact', path: '/contact' },
 ];
 
@@ -22,8 +22,8 @@ const sectionToNav = {
   'skills': 'Skills',
   'skills-section': 'Skills',   // Technologies also maps to Skills
   'certificates': 'Certificates',
-  'hackathon-experience': 'Hackathon',
-  'featured-hackathon': 'Hackathon',
+  'hackathon-experience': 'Achievement',
+  'featured-hackathon': 'Achievement',
   'education': 'Contact',       // Education is near Contact
   'contact': 'Contact',
 };
@@ -155,7 +155,6 @@ export default function Navigation() {
 
   const handleLinkClick = () => {
     setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // Determine which nav item is "active" for text highlighting

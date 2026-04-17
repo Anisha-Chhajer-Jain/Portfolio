@@ -16,10 +16,13 @@ import Leetcode from './sections/Leetcode';
 import HackathonPopup from './sections/HackathonPopup';
 
 
+import { useLocation } from 'react-router-dom';
+
 export default function Portfolio() {
   const [isVisible, setIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [showHackathonPopup, setShowHackathonPopup] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
     setIsVisible(true);
@@ -31,6 +34,34 @@ export default function Portfolio() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Handle section scrolling based on path
+  useEffect(() => {
+    const path = location.pathname.replace('/', '');
+    if (path) {
+      // Map routes to IDs
+      const routeToId = {
+        'about': 'about',
+        'projects': 'projects',
+        'skills': 'skills',
+        'certificates': 'certificates',
+        'achievement': 'hackathon-experience',
+        'leetcode': 'coding-profiles',
+        'contact': 'contact'
+      };
+      
+      const targetId = routeToId[path] || path;
+      const element = document.getElementById(targetId);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    } else {
+      // If at root, scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location.pathname]);
 
   return (
     <>
