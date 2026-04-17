@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import { motion } from "framer-motion";
 
 export default function Contact() {
@@ -14,6 +15,33 @@ export default function Contact() {
   const cardVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0 },
+  };
+
+  const form = useRef();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState(null);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    emailjs.sendForm(
+      'service_nylk21d', 
+      'template_1duj31p', 
+      form.current, 
+      'rNvxevj4PhfeJse_P'
+    )
+    .then((result) => {
+        setFormStatus('success');
+        setIsSubmitting(false);
+        e.target.reset();
+        setTimeout(() => setFormStatus(null), 5000);
+    }, (error) => {
+        setFormStatus('error');
+        setIsSubmitting(false);
+        console.error(error.text);
+        setTimeout(() => setFormStatus(null), 5000);
+    });
   };
 
   return (
@@ -69,15 +97,19 @@ export default function Contact() {
               Send a Message
             </h3>
             
-            <form className="space-y-4">
+            <form ref={form} onSubmit={sendEmail} className="space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">
                 <input
                   type="text"
+                  name="name"
+                  required
                   placeholder="Enter Name"
                   className="w-full px-4 py-3 bg-[var(--bg-accent)] border border-[var(--border-primary)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-secondary)]/50 focus:outline-none focus:border-[var(--accent-primary)] focus:ring-2 focus:ring-[var(--accent-primary)]/20 transition-all duration-300 hover:border-[var(--text-secondary)]/30 text-sm sm:text-base"
                 />
                 <input
                   type="email"
+                  name="email"
+                  required
                   placeholder="your.email@gmail.com"
                   className="w-full px-4 py-3 bg-[var(--bg-accent)] border border-[var(--border-primary)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-secondary)]/50 focus:outline-none focus:border-[var(--accent-primary)] focus:ring-2 focus:ring-[var(--accent-primary)]/20 transition-all duration-300 hover:border-[var(--text-secondary)]/30 text-sm sm:text-base"
                 />
@@ -85,23 +117,39 @@ export default function Contact() {
               
               <input
                 type="text"
+                name="subject"
+                required
                 placeholder="What about this?"
                 className="w-full px-4 py-3 bg-[var(--bg-accent)] border border-[var(--border-primary)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-secondary)]/50 focus:outline-none focus:border-[var(--accent-primary)] focus:ring-2 focus:ring-[var(--accent-primary)]/20 transition-all duration-300 hover:border-[var(--text-secondary)]/30 text-sm sm:text-base"
               />
               
               <textarea
+                name="message"
                 rows="6"
+                required
                 placeholder="Tell me about your message"
                 className="w-full px-4 py-3 bg-[var(--bg-accent)] border border-[var(--border-primary)] rounded-xl text-[var(--text-primary)] placeholder-[var(--text-secondary)]/50 focus:outline-none focus:border-[var(--accent-primary)] focus:ring-2 focus:ring-[var(--accent-primary)]/20 transition-all duration-300 hover:border-[var(--text-secondary)]/30 resize-none text-sm sm:text-base"
               ></textarea>
               
               <button
                 type="submit"
-                className="group/btn w-full px-6 py-3 bg-[var(--bg-accent)] hover:bg-[var(--accent-primary)] border border-[var(--border-primary)] hover:border-[var(--accent-primary)] rounded-xl font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-[var(--accent-primary)]/20 flex items-center justify-center gap-2 text-[var(--text-primary)] hover:text-white"
+                disabled={isSubmitting}
+                className="group/btn w-full px-6 py-3 bg-[var(--bg-accent)] hover:bg-[var(--accent-primary)] border border-[var(--border-primary)] hover:border-[var(--accent-primary)] rounded-xl font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-[var(--accent-primary)]/20 flex items-center justify-center gap-2 text-[var(--text-primary)] hover:text-white disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                <Mail size={20} className="group-hover/btn:rotate-12 transition-transform duration-300" />
-                <span>Send Message</span>
+                <Mail size={20} className={`group-hover/btn:rotate-12 transition-transform duration-300 ${isSubmitting ? 'animate-pulse' : ''}`} />
+                <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
               </button>
+
+              {formStatus === 'success' && (
+                <p className="text-sm font-medium text-emerald-500 text-center mt-3 animate-fade-in">
+                  Message sent successfully!
+                </p>
+              )}
+              {formStatus === 'error' && (
+                <p className="text-sm font-medium text-red-500 text-center mt-3 animate-fade-in">
+                  Failed to send message. Please try again.
+                </p>
+              )}
             </form>
           </div>
         </motion.div>

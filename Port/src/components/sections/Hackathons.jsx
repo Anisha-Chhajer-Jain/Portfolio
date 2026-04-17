@@ -220,23 +220,23 @@ export default function Hackathons() {
       description: 'Secured 1st place at Sangam University Bhilwara by building an innovative full-stack solution under intense pressure. Demonstrated rapid system architecture, cross-domain collaboration, and effective problem pitching to a panel of expert judges.',
       footerText: 'SU HACKATHON',
       gallery: [
-        {
-          src: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774599129/Screenshot_2026-03-27_134135_vsrnkl.png',
-          caption: 'Presentation to Judges'
-        },
-        {
-          src: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774729510/Screenshot_2026-03-27_134610_oqefvn.png',
-          caption: 'Team working under pressure'
-        },
-        {
-          src: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774844685/Screenshot_2026-03-30_095424_vy4lnf.png',
-          caption: 'Project Demo'
-        },
-        {
-          src: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1774843674/Screenshot_2026-03-30_093740_dmnnvv.png',
-          caption: 'Closing Ceremony'
-        }
-      ]
+      {
+        src: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1776445529/Screenshot_2026-04-17_223314_i3lxmm.png',
+        caption: 'Team at Sangam University'
+      },
+      {
+        src: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1776445526/Screenshot_2026-04-17_223327_yhgdik.png',
+        caption: 'Team working under pressure'
+      },
+      {
+        src: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1776445530/Screenshot_2026-04-17_223308_m7jlka.png',
+        caption: 'Project Demo'
+      },
+      {
+        src: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1776445527/Screenshot_2026-04-17_223321_qblzei.png',
+        caption: 'Closing Ceremony'
+      }
+    ]
     },
     {
       id: 'gu',
@@ -246,30 +246,30 @@ export default function Hackathons() {
       placeNumber: '02',
       description: 'Clinched 2nd place at Ganpat University Mehsana with a cutting-edge project that impressed judges across design, usability, and technical depth. A testament to teamwork, resilience, and the ability to deliver production-ready code in record time.',
       footerText: 'GU HACKATHON',
-      gallery: [
-        {
-          src: 'https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=800&q=80',
-          videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-          caption: 'Award Winning Moment',
-          isVideo: true
-        },
-        {
-          src: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800&q=80',
-          caption: 'Stage Pitch'
-        },
-        {
-          src: 'https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=800&q=80',
-          caption: 'Coding Session'
-        },
-        {
-          src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80',
-          caption: 'Mentorship'
-        },
-         {
-          src: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80',
-          caption: 'Team Celebration'
-        }
-      ]
+     gallery: [
+      {
+        src: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1776445642/Screenshot_2026-04-17_223212_gcayni.png',
+        // videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
+        caption: 'Award Winning Moment',
+        // isVideo: true
+      },
+      {
+        src: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1776445642/Screenshot_2026-04-17_223205_s7ljhw.png',
+        caption: 'Stage Pitch'
+      },
+      {
+        src: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1776445625/Screenshot_2026-04-17_223241_v20kuu.png',
+        caption: 'Coding Session'
+      },
+      {
+        src: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1776445531/Screenshot_2026-04-17_223247_jlqiy2.png',
+        caption: 'Mentorship'
+      },
+      {
+        src: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1776445452/Screenshot_2026-04-17_223342_mitg50.png',
+        caption: 'Team Celebration'
+      }
+    ]
     }
   ];
 

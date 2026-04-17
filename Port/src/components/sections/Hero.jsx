@@ -116,7 +116,7 @@ export default function Hero({ isVisible, scrollY }) {
             <div className="absolute -inset-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-full opacity-20 group-hover:opacity-40 blur-3xl transition-opacity duration-500 animate-pulse-slow" />
             <div className="relative w-80 h-80 sm:w-90 sm:h-90 md:w-100 md:h-100 mx-auto rounded-full overflow-hidden border-4 border-indigo-500/30 group-hover:border-indigo-400 transition-all duration-500 group-hover:scale-105 shadow-2xl">
               <img
-                src="https://res.cloudinary.com/dq7hb3fah/image/upload/v1774843674/Screenshot_2026-03-30_093740_dmnnvv.png"
+                src="https://res.cloudinary.com/dq7hb3fah/image/upload/v1776445094/Screenshot_2026-04-17_222758_tgwnyk.png"
                 alt="Anisha Chhajer"
                 className="w-full h-full object-cover"
                 onError={(e) => {

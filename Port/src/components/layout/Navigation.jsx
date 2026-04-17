@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Menu, X } from 'lucide-react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
+import logo from '../../assets/logo.png';
 
 const navItems = [
   { name: 'Home', path: '/' },
@@ -186,11 +187,14 @@ export default function Navigation() {
           <Link
             to="/"
             onClick={handleLinkClick}
-            className="text-lg sm:text-xl md:text-2xl font-light tracking-wider focus:outline-none relative z-50 cursor-pointer"
+            className="flex items-center focus:outline-none relative z-50 cursor-pointer"
             aria-label="Go to home"
           >
-            <span className="inline-block hover:scale-110 transition-transform duration-300 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">A</span>
-            <span className="inline-block hover:scale-110 transition-transform duration-300 delay-75 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">C</span>
+            <img
+              src={logo}
+              alt="Logo"
+              className="h-7 sm:h-8 md:h-10 w-auto invert opacity-100 hover:scale-105 transition-all duration-300 contrast-125"
+            />
           </Link>
 
           <div className="flex items-center gap-4 sm:gap-6">
