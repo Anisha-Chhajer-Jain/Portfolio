@@ -9,8 +9,9 @@ import Skills from './components/sections/Skills';
 import Contact from './components/sections/Contact';
 import Certificates from './components/sections/Certificates';
 import KisanDost from './components/sections/KisanDost';
+import Leetcode from './components/sections/Leetcode';
 import ScrollToTop from './components/ui/ScrollToTop';
-import FeaturedHackathon from './components/sections/FeaturedHackathon';
+import Hackathons from './components/sections/Hackathons';
 import './App.css';
 
 function App() {
@@ -24,8 +25,9 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="projects" element={<Projects />} />
             <Route path="skills" element={<Skills />} />
+            <Route path="leetcode" element={<Leetcode />} />
             <Route path="certificates" element={<Certificates />} />
-            <Route path="hackathon" element={<FeaturedHackathon />} />
+            <Route path="hackathon" element={<Hackathons />} />
             <Route path="contact" element={<Contact />} />
             <Route path="kisandost" element={<KisanDost />} />
           </Route>

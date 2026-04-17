@@ -11,12 +11,15 @@ import Education from './sections/Education';
 import Contact from './sections/Contact';
 import Footer from './layout/Footer';
 import FloatingElements from './ui/FloatingElements';
-import KisanDost from './sections/KisanDost';
+import Hackathons from './sections/Hackathons';
+import Leetcode from './sections/Leetcode';
+import HackathonPopup from './sections/HackathonPopup';
 
 
 export default function Portfolio() {
   const [isVisible, setIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [showHackathonPopup, setShowHackathonPopup] = useState(true);
 
   useEffect(() => {
     setIsVisible(true);
@@ -31,13 +34,15 @@ export default function Portfolio() {
 
   return (
     <>
+      <HackathonPopup isOpen={showHackathonPopup} onClose={() => setShowHackathonPopup(false)} />
       <Hero isVisible={isVisible} scrollY={scrollY} />
       <About />
       <Skills />
       <Projects />
       <Technologies />
       <Certificates />
-      <KisanDost />
+      <Hackathons />
+      <Leetcode />
       <Education />
       <Contact />
     </>
