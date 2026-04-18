@@ -25,56 +25,56 @@ function DesignPopup({ project, onClose }) {
           className="relative w-full max-w-5xl bg-[var(--bg-secondary)] rounded-2xl sm:rounded-3xl overflow-hidden border border-[var(--border-primary)] shadow-2xl"
           onClick={e => e.stopPropagation()}
         >
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-3 right-3 sm:top-5 sm:right-5 z-20 p-2.5 rounded-full bg-black/50 hover:bg-[var(--accent-primary)] text-white transition-all shadow-lg backdrop-blur-sm"
-        >
-          <X size={18} className="sm:w-5 sm:h-5" />
-        </button>
+          {/* Close Button */}
+          <button
+            onClick={onClose}
+            className="absolute top-3 right-3 sm:top-5 sm:right-5 z-20 p-2.5 rounded-full bg-black/50 hover:bg-[var(--accent-primary)] text-white transition-all shadow-lg backdrop-blur-sm"
+          >
+            <X size={18} className="sm:w-5 sm:h-5" />
+          </button>
 
-        <div className="grid lg:grid-cols-5 h-full max-h-none lg:max-h-[85vh] overflow-y-auto lg:overflow-hidden">
-          {/* Left: Image Showcase */}
-          <div className="lg:col-span-3 bg-[#0a0a0f] flex items-center justify-center relative min-h-[250px] sm:min-h-[400px] lg:min-h-0 p-4 sm:p-8">
-            <motion.img
-              src={project.image}
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-              className="w-full h-full object-contain drop-shadow-2xl"
-              alt={project.title}
-            />
-          </div>
-
-          {/* Right: Content Section */}
-          <div className="lg:col-span-2 p-5 sm:p-8 md:p-10 flex flex-col bg-gradient-to-br from-[var(--bg-secondary)] to-[var(--bg-primary)] overflow-y-auto">
-            <div className="mb-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-accent)] border border-[var(--border-primary)] mb-4">
-                <Figma size={13} className="text-[#F24E1E]" />
-                <span className="text-[10px] sm:text-xs font-mono text-[var(--text-secondary)] tracking-wider uppercase">UI/UX Case Study</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)] mb-3 leading-tight">{project.title}</h2>
-              <div className="w-12 h-1 bg-[var(--accent-primary)] rounded-full mb-6" />
-              <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed mb-6 italic border-l-2 border-[var(--border-primary)] pl-4">
-                {project.designProcess}
-              </p>
+          <div className="grid lg:grid-cols-5 h-full max-h-none lg:max-h-[85vh] overflow-y-auto lg:overflow-hidden">
+            {/* Left: Image Showcase */}
+            <div className="lg:col-span-3 bg-[#0a0a0f] flex items-center justify-center relative min-h-[250px] sm:min-h-[400px] lg:min-h-0 p-4 sm:p-8">
+              <motion.img
+                src={project.image}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6 }}
+                className="w-full h-full object-contain drop-shadow-2xl"
+                alt={project.title}
+              />
             </div>
 
-            <div className="space-y-6 flex-1">
-              <div>
-                <h3 className="text-xs font-bold text-[var(--text-primary)] uppercase tracking-widest mb-3 flex items-center gap-2 opacity-80">
-                  <span className="w-4 h-px bg-[var(--accent-primary)]" />
-                  Product Concept
-                </h3>
-                <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
-                  {project.description}
+            {/* Right: Content Section */}
+            <div className="lg:col-span-2 p-5 sm:p-8 md:p-10 flex flex-col bg-gradient-to-br from-[var(--bg-secondary)] to-[var(--bg-primary)] overflow-y-auto">
+              <div className="mb-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--bg-accent)] border border-[var(--border-primary)] mb-4">
+                  <Figma size={13} className="text-[#F24E1E]" />
+                  <span className="text-[10px] sm:text-xs font-mono text-[var(--text-secondary)] tracking-wider uppercase">UI/UX Case Study</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)] mb-3 leading-tight">{project.title}</h2>
+                <div className="w-12 h-1 bg-[var(--accent-primary)] rounded-full mb-6" />
+                <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed mb-6 italic border-l-2 border-[var(--border-primary)] pl-4">
+                  {project.designProcess}
                 </p>
               </div>
+
+              <div className="space-y-6 flex-1">
+                <div>
+                  <h3 className="text-xs font-bold text-[var(--text-primary)] uppercase tracking-widest mb-3 flex items-center gap-2 opacity-80">
+                    <span className="w-4 h-px bg-[var(--accent-primary)]" />
+                    Product Concept
+                  </h3>
+                  <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </motion.div>
-    </div>
+        </motion.div>
+      </div>
     </motion.div>
   );
 }
@@ -145,13 +145,26 @@ function ProjectCard({ project, index, onOpenDesign }) {
           {/* Action Buttons */}
           <div className={`flex items-center gap-2 pt-4 border-t border-[var(--border-primary)] ${isUIUX ? 'justify-center' : 'flex-wrap sm:flex-nowrap'}`}>
             {isUIUX ? (
-              <button
-                onClick={() => onOpenDesign(project)}
-                className="group/btn flex items-center justify-center gap-2 w-full py-2.5 bg-[var(--bg-accent)] hover:bg-[var(--accent-primary)] hover:text-white rounded-xl border border-[var(--border-primary)] transition-all duration-300 transform active:scale-95 shadow-sm"
-              >
-                <ImageIcon size={16} className="group-hover/btn:scale-110 transition-transform" />
-                <span className="text-xs sm:text-sm font-bold">View Case Study</span>
-              </button>
+              <div className="flex items-center gap-2 w-full">
+                <button
+                  onClick={() => onOpenDesign(project)}
+                  className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-[var(--bg-accent)] hover:bg-[var(--accent-primary)] hover:text-white rounded-xl border border-[var(--border-primary)] transition-all duration-300 transform active:scale-95 shadow-sm"
+                >
+                  <ImageIcon size={16} />
+                  <span className="text-xs sm:text-sm font-bold">Case Study</span>
+                </button>
+                {project.figma && (
+                  <a
+                    href={project.figma}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2.5 rounded-xl bg-[var(--bg-accent)] text-[var(--text-secondary)] hover:text-[#F24E1E] hover:bg-[#F24E1E]/10 transition-all border border-[var(--border-primary)]"
+                    title="View Figma Design"
+                  >
+                    <Figma size={18} />
+                  </a>
+                )}
+              </div>
             ) : (
               <>
                 <a
@@ -366,7 +379,7 @@ const projectsData = [
     tags: ['UI/UX', 'Figma', 'Expense Tracker', 'Fintech'],
     gradient: 'from-blue-500 to-indigo-600',
     image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1776458490/Screenshot_2026-04-18_020941_zrbfh4.png',
-    figma: 'https://www.figma.com/design/LskfL9vOAnishaHealthcareDesign',
+    figma: 'https://www.figma.com/design/XohCkUjH1tSumFDZ7uYasO/figma?node-id=28-575&t=dCF8FFW1qxy7ZbZ5-1',
     category: 'UI/UX - Figma',
     designProcess: 'Focused on creating a frictionless bill-splitting experience by prioritizing clarity in balance sheets and reducing the steps needed to log shared costs.'
   },
@@ -376,7 +389,7 @@ const projectsData = [
     tags: ['UI/UX', 'Figma', 'E-Commerce', 'Shopping'],
     gradient: 'from-purple-500 to-pink-600',
     image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1776458490/Screenshot_2026-04-18_021017_sznjrh.png',
-    figma: 'https://www.figma.com/design/Kjsd89AnishaELearningDesign',
+    figma: 'https://www.figma.com/design/XohCkUjH1tSumFDZ7uYasO/figma?node-id=28-575&t=dCF8FFW1qxy7ZbZ5-1',
     category: 'UI/UX - Figma',
     designProcess: 'The design focused on creating a seamless path to purchase by optimizing product discovery and implementing a minimalist aesthetic that highlights high-quality imagery.'
   },
@@ -386,7 +399,7 @@ const projectsData = [
     tags: ['UI/UX', 'Figma', 'OTT', 'Streaming', 'Entertainment'],
     gradient: 'from-emerald-500 to-teal-600',
     image: 'https://res.cloudinary.com/dq7hb3fah/image/upload/v1776458491/Screenshot_2026-04-18_021025_m8unvz.png',
-    figma: 'https://www.figma.com/design/Kjsd89AnishaELearningDesign', // placeholder
+    figma: 'https://www.figma.com/design/XohCkUjH1tSumFDZ7uYasO/figma?node-id=28-575&t=dCF8FFW1qxy7ZbZ5-1', // placeholder
     category: 'UI/UX - Figma',
     designProcess: 'Prioritized a content-first approach by using dark mode aesthetics to enhance the cinematic feel and implementing an intuitive navigation system for browsing large media libraries.'
   },

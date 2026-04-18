@@ -50,7 +50,7 @@ export default function Portfolio() {
         'leetcode': 'coding-profiles',
         'contact': 'contact'
       };
-      
+
       const targetId = routeToId[path] || path;
       const element = document.getElementById(targetId);
       if (element) {

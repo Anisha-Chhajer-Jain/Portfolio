@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Mail, ExternalLink, Download, Github, Linkedin, Twitter, Youtube, Code } from 'lucide-react';
+import { Mail, Download, Github, Linkedin, Twitter, Youtube, Code } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Hero({ isVisible, scrollY }) {
@@ -55,18 +55,7 @@ export default function Hero({ isVisible, scrollY }) {
               </span>
             </Link>
 
-            <Link
-              to="/projects"
-              className="group relative flex items-center gap-3 px-5 py-3 bg-[var(--bg-accent)] backdrop-blur-sm rounded-2xl border border-[var(--border-primary)] hover:border-[var(--accent-primary)] transition-all duration-300 hover:scale-105"
-            >
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-slate-700 to-slate-800 border border-slate-600 group-hover:border-slate-500 flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg">
-                <ExternalLink size={18} className="text-white" />
-              </div>
-              <span className="flex items-center gap-2 font-medium text-sm text-[var(--text-primary)] group-hover:text-[var(--text-primary)] whitespace-nowrap">
-                View My Work
-                <span className="opacity-70 group-hover:translate-x-1 transition-transform duration-300 text-[var(--text-secondary)]">→</span>
-              </span>
-            </Link>
+
 
 
             <a
