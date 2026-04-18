@@ -19,8 +19,8 @@ export default function About() {
           <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
           <div className="relative bg-[var(--bg-secondary)] backdrop-blur-sm rounded-3xl p-6 sm:p-12 border border-[var(--border-primary)] hover:border-[var(--accent-primary)] transition-all duration-500 shadow-xl">
             <p className="text-[var(--text-primary)] font-normal leading-normal text-base sm:text-lg mb-6">
-              I'm <span className="text-[var(--accent-primary)] font-semibold">Anisha Chhajer</span>, a developer skilled in HTML, CSS, Git & Github, C/C++,
-              JavaScript, Figma, React, Node.js, and Java. I focus on building experiences that feel intuitive and polished,
+              I'm <span className="text-[var(--accent-primary)] font-semibold">Anisha Chhajer</span>, a developer skilled in React, Node.js, C/C++, Git & Github,
+              JavaScript, Figma, Java, HTML and CSS. I focus on building experiences that feel intuitive and polished,
               crafting responsive interfaces across devices & paying close attention to layout, interaction, & performance.
             </p>
             <p className="text-[var(--text-primary)] font-normal leading-normal text-base sm:text-lg">
