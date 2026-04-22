@@ -12,11 +12,13 @@ import KisanDost from './components/sections/KisanDost';
 import Leetcode from './components/sections/Leetcode';
 import ScrollToTop from './components/ui/ScrollToTop';
 import Hackathons from './components/sections/Hackathons';
+import LoadingScreen from './components/ui/LoadingScreen';
 import './App.css';
 
 function App() {
   return (
     <Router>
+      <LoadingScreen />
       <ScrollToTop />
       <AnimatePresence mode="wait">
         <Routes key="routes">
